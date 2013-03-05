@@ -16,7 +16,7 @@ define.config({
 define([
 	'restify',
 	'./router',
-	'./Mongo'
+	'./db/Mongo'
 
 ], function(restify, router, Mongo) {
 	Mongo.init();
