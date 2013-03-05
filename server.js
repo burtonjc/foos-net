@@ -65,5 +65,5 @@ server.get('/messages', getMessages);
 server.post('/messages', postMessage);
 
 server.listen(8080, function() {
-  console.log('%s listening at %s, love & peace', server.name, server.url);
+  console.log('%s listening at %s', server.name, server.url);
 });

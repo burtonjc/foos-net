@@ -1,12 +1,12 @@
 {
-  "name": "backbonetutorials",
-  "subdomain": "backbonetutorials",
+  "name": "foos-net",
+  "subdomain": "foosnet",
   "scripts": {
     "start": "server.js"
   },
-  "version": "0.0.0-10",
+  "version": "0.0.1",
   "engines": {
-    "node": "0.6.x"
+    "node": "0.8.21"
   },
   "dependencies": {
     "restify": "2.3.2",
