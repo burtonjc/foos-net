@@ -6,8 +6,7 @@ define([
 ], function($, _, Backbone, MessageModel){
   var Messages = Backbone.Collection.extend({
     model: MessageModel,
-    //url: 'http://localhost:8080/messages'
-    url: 'http://backbonetutorials.nodejitsu.com/messages'
+    url: '/messages'
   });
 
   return Messages;

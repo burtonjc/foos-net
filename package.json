@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "restify": "2.3.2",
-    "mongoose": "3.5.7"
+    "mongoose": "3.5.7",
+    "requirejs": "2.1.5"
   }
 }
