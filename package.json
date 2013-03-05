@@ -1,0 +1,15 @@
+{
+  "name": "backbonetutorials",
+  "subdomain": "backbonetutorials",
+  "scripts": {
+    "start": "server.js"
+  },
+  "version": "0.0.0-10",
+  "engines": {
+    "node": "0.6.x"
+  },
+  "dependencies": {
+    "restify": "2.3.2",
+    "mongoose": "3.5.7"
+  }
+}
