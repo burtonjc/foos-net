@@ -19,7 +19,6 @@ var require = requirejs,
                 var stubname = 'stub/' + key;
                 map[key] = stubname;
                 define(stubname, [], function () {
-                    console.log("returning stubbed value for " + stubname);
                     return value;
                 });
             } else {
