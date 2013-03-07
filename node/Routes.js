@@ -1,7 +1,7 @@
 define([
 	'controllers/MessagesController'
 
-], function(MessageController) {
+], function(MessagesController) {
 	var GET		= 'get',
 		POST	= 'post',
 		PUT		= 'put',
@@ -9,7 +9,7 @@ define([
 
 	return [{
 		path: '/messages',
-		controller: MessageController,
+		controller: MessagesController,
 		httpActions: [GET, POST]
 	}];
 });

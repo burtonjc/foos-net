@@ -1,33 +1,35 @@
 define([
 	'restify',
-	'./models/Message',
-	'./Routes'
+	'models/Message',
+	'Routes'
 
 ], function(restify, Message, routes) {
 
-	function registerRoutes(server) {
-		var route, action;
-		for (var i in routes) {
-			route = routes[i];
-			for (var j in route.httpActions) {
-				action = route.httpActions[j];
-				server[action](route.path, route.controller[action]);
-			}
-		}
-	}
-
 	return {
+        INVALID_SERVER_ERROR: "Router requires a server instance.",
+
 		init: function(server) {
 			if (!(server && server.use)) {
-				throw new Error("Router requires a server instance.");
+				throw new Error(this.INVALID_SERVER_ERROR);
 			}
 
 			server.use(restify.bodyParser());
-			registerRoutes(server);
+			this._registerRoutes(server);
 			server.get(/\/*/, restify.serveStatic({
 				'directory': './webapp',
 				'default': 'index.html'
 			}));
-		}
+		},
+
+        _registerRoutes: function(server) {
+            var route, action;
+            for (var i in routes) {
+                route = routes[i];
+                for (var j in route.httpActions) {
+                    action = route.httpActions[j];
+                    server[action](route.path, route.controller[action]);
+                }
+            }
+        }
 	};
 });
