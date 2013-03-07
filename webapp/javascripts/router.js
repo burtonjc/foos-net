@@ -1,9 +1,9 @@
 // Filename: router.js
 define([
-  'jquery',
-  'underscore',
-  'backbone',
-	'vm'
+    'jquery',
+    'underscore',
+    'backbone',
+    'vm'
 ], function ($, _, Backbone, Vm) {
 	var AppRouter = Backbone.Router.extend({
 		routes: {
