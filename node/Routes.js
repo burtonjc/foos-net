@@ -1,5 +1,5 @@
 define([
-	'./controllers/MessagesController'
+	'controllers/MessagesController'
 
 ], function(MessageController) {
 	var GET		= 'get',

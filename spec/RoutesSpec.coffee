@@ -1,8 +1,8 @@
 createContext({
-    'controllers/MessagesController': 'spec/mock/controllers/MessagesController'
+    'controllers/MessagesController': 'mock/controllers/MessagesController'
 
 }).require [
-  './Routes'
+  'Routes'
 ], (Routes) ->
 
   describe "Routes", () ->
