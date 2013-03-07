@@ -1,10 +1,10 @@
 var requirejs = require('requirejs'),
     _ = require('underscore'),
     base_context = {
-        baseUrl: __dirname + '/../node/',
+        baseUrl: __dirname + '/../../node/',
         nodeRequire: require,
         paths: {
-            'mock': '../spec/mock'
+            'mock': '../spec/node/mock'
         }
     };
 requirejs.config(base_context);
