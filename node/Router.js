@@ -1,35 +1,47 @@
 define([
+    'underscore',
 	'restify',
 	'models/Message',
 	'Routes'
 
-], function(restify, Message, routes) {
+], function(_, restify, Message, Routes) {
 
 	return {
         INVALID_SERVER_ERROR: "Router requires a server instance.",
+        HTTP_ACTIONS: [
+            'get',
+            'post',
+            'put',
+            'delete'
+        ],
+        ALL_ROUTES_REGEX: /\/*/,
+        STATIC_CONFIG: {
+          'directory': './webapp',
+          'default': 'index.html'
+        },
 
 		init: function(server) {
-			if (!(server && server.use)) {
+			if (!(server && _.isFunction(server.use) && _.isFunction(server.get))) {
 				throw new Error(this.INVALID_SERVER_ERROR);
 			}
 
 			server.use(restify.bodyParser());
-			this._registerRoutes(server);
-			server.get(/\/*/, restify.serveStatic({
-				'directory': './webapp',
-				'default': 'index.html'
-			}));
+
+            this._registerRoutes(server);
+
+            // It is important to register all routes before this line
+			server.get(this.ALL_ROUTES_REGEX, restify.serveStatic(this.STATIC_CONFIG));
 		},
 
         _registerRoutes: function(server) {
-            var route, action;
-            for (var i in routes) {
-                route = routes[i];
-                for (var j in route.httpActions) {
-                    action = route.httpActions[j];
-                    server[action](route.path, route.controller[action]);
-                }
-            }
+            var me = this;
+            _.each(Routes, function(controller, path) {
+                _.each(me.HTTP_ACTIONS, function(action) {
+                    if (_.isFunction(controller[action])) {
+                        server[action](path, controller[action]);
+                    }
+                });
+            });
         }
 	};
 });
