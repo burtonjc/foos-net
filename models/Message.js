@@ -1,7 +1,7 @@
 define([
 	'mongoose'
-], function(mongoose) {
 
+], function(mongoose) {
 	var MessageSchema = new mongoose.Schema({
 			message: String,
 			date: Date

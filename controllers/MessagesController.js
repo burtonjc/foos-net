@@ -1,5 +1,5 @@
 define([
-	'../models/Message'
+    '../models/Message'
 
 ], function(Message) {
 

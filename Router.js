@@ -1,7 +1,7 @@
 define([
 	'restify',
 	'./models/Message',
-	'./routes'
+	'./Routes'
 
 ], function(restify, Message, routes) {
 
