@@ -1,4 +1,3 @@
-console.log("inside of server");
 var define = require('requirejs');
 define.config({
     //Use node's special variable __dirname to
