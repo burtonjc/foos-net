@@ -35,25 +35,26 @@ require.config({
 });
 
 require([
+    // Due to how dependencies are loaded, we need jquery, underscore,
+    // and backbone loaded in this order right at the top.
     'jquery',
     'underscore',
     'backbone',
     'marionette',
+    'views/navigation',
+    'views/footer',
     'router'
-], function($, _, Backbone, Marionette, AppRouter, AppView) {
+], function($, _, Backbone, Marionette, Navigation, Footer, AppRouter) {
     FoosNet = new Marionette.Application();
     FoosNet.addRegions({
-        topNav: "#top-nav",
+        navigation: "#top-nav",
         page: "#page-container",
         footer: "#footer"
 
     });
 
-    $(FoosNet.topNav.el).delegate('li', 'click', function(a, b, c, d) {
-        var activeCls = 'active';
-        $(a.currentTarget.parentElement).find('.' + activeCls).removeClass(activeCls);
-        $(a.currentTarget).addClass(activeCls);
-    });
+    FoosNet.navigation.show(new Navigation({}));
+    FoosNet.footer.show(new Footer({}));
 
     FoosNet.addInitializer(function(options) {
         new AppRouter(FoosNet);
