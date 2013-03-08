@@ -1,29 +1,33 @@
 // Filename: router.js
 define([
-    'jquery',
     'underscore',
-    'backbone',
-    'vm'
-], function ($, _, Backbone, Vm) {
-	var AppRouter = Backbone.Router.extend({
+    'jquery',
+    'marionette'
+], function (_, $, Marionette) {
+	return Marionette.AppRouter.extend({
+        Application: null,
+
 		routes: {
-			'*actions': 'defaultAction' // All urls will trigger this route
-		}
-	});
+            'leaderboard': 'leaderboardPage',
+            'stats': 'statsPage',
 
-	var initialize = function(options){
-		var appView = options.appView;
-		var router = new AppRouter(options);
+            // Keep default route as the last one
+            '*actions': 'homePage'
+		},
 
-		router.on('route:defaultAction', function (actions) {
-			require(['views/dashboard/page'], function (DashboardPage) {
-				var dashboardPage = Vm.create(appView, 'DashboardPage', DashboardPage);
-				dashboardPage.render();
-			});
-		});
-	};
+        initialize: function(Application) {
+            this.Application = Application;
+        },
 
-	return {
-		initialize: initialize
-	};
+        homePage: function() {
+            var app = this.Application;
+            require(['views/home/page'], function (HomePage) {
+                app.page.show(new HomePage());
+            });
+        },
+
+        leaderboardPage: function() {},
+
+        statsPage: function() {}
+    });
 });

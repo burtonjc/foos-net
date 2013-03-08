@@ -1,7 +1,37 @@
 /* Not really too concerned with how to organize CSS 
    the opinions are too diverse                      */
 /* Custom themes */
-/* line 1, ../sass/_layout.scss */
-.page {
-  margin: 70px 0 10px 0;
+/* line 3, ../sass/_layout.scss */
+.page-wrapper {
+  margin: 80px 0;
+  width: 100%;
+  height: auto !important;
+}
+
+/* line 2, ../sass/home/_page.scss */
+.home-page .carousel-wrapper {
+  border: 1px solid #888888;
+  -moz-box-shadow: 10px 10px 5px #888888;
+  -webkit-box-shadow: 10px 10px 5px #888888;
+  box-shadow: 10px 10px 5px #888888;
+}
+/* line 10, ../sass/home/_page.scss */
+.home-page .carousel-wrapper,
+.home-page #myCarousel .carousel-inner .item img {
+  width: 100%;
+  max-width: 940px;
+  max-height: 627px;
+}
+/* line 16, ../sass/home/_page.scss */
+.home-page .carousel-caption {
+  background: rgba(0, 0, 0, 0.85);
+}
+/* line 19, ../sass/home/_page.scss */
+.home-page .carousel-caption .lead {
+  margin-bottom: 4px;
+}
+/* line 24, ../sass/home/_page.scss */
+.home-page .carousel-indicators {
+  background: rgba(0, 0, 0, 0.65);
+  padding: 4px 6px 4px 2px;
 }

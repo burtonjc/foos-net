@@ -1,3 +1,7 @@
-.page {
-  margin: 70px 0 10px 0;
+$nav-height: 40px;
+
+.page-wrapper {
+  margin: (2*$nav-height) 0;
+  width: 100%;
+  height: auto !important;
 }

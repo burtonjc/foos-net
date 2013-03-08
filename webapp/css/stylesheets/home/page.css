@@ -1,0 +1,10 @@
+/* line 2, ../../sass/home/page.scss */
+.home-page .hero-unit {
+  padding-top: 0px;
+}
+/* line 10, ../../sass/home/page.scss */
+.home-page .hero-unit,
+.home-page #myCarousel .carousel-inner .item img {
+  width: 800px;
+  height: 600px;
+}

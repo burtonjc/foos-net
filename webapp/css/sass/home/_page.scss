@@ -1,0 +1,28 @@
+.home-page {
+    .carousel-wrapper {
+        border: 1px solid #888;
+        -moz-box-shadow: 10px 10px 5px #888;
+        -webkit-box-shadow: 10px 10px 5px #888;
+        box-shadow: 10px 10px 5px #888;
+    }
+
+    .carousel-wrapper,
+    #myCarousel .carousel-inner .item img {
+        width: 100%;
+        max-width: 940px;
+        max-height: 627px;
+    }
+
+    .carousel-caption {
+        background: rgba(0,0,0,0.85);
+
+        .lead {
+            margin-bottom: 4px;
+        }
+    }
+
+    .carousel-indicators {
+        background: rgba(0,0,0,0.65);
+        padding: 4px 6px 4px 2px;
+    }
+}

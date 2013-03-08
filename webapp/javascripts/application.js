@@ -3,7 +3,7 @@ require.config({
 		backbone: 'libs/backbone.marionette/backbone',
         'backbone.wreqr': 'libs/backbone.marionette/backbone-wreqr-min',
         'backbone.babysitter': 'libs/backbone.marionette/backbone-babysitter-min',
-        bootstrap: '../lib/bootstrap/js/bootstrap.js',
+        'bootstrap': '../lib/bootstrap/js/bootstrap',
         jquery: 'libs/jquery/jquery',
         marionette: 'libs/backbone.marionette/backbone-marionette',
         underscore: 'libs/underscore/underscore',
@@ -20,7 +20,6 @@ require.config({
         },
         'backbone.wreqr': ['backbone'],
         'backbone.babysitter': ['backbone'],
-        bootstrap: ['jquery'],
         jquery: {
             exports: 'jQuery'
         },
@@ -36,25 +35,29 @@ require.config({
 });
 
 require([
+    'jquery',
+    'underscore',
     'backbone',
     'marionette',
-    'views/app',
-    'views/messages/composite',
-    'views/messages/item',
-    'collections/messages'
-], function(Backbone, Marionette, AppView, MessageCompositeView, MessageItemView, Messages) {//AppView, Router, Vm) {
+    'router'
+], function($, _, Backbone, Marionette, AppRouter, AppView) {
     FoosNet = new Marionette.Application();
     FoosNet.addRegions({
-        page: "#page-container"
+        topNav: "#top-nav",
+        page: "#page-container",
+        footer: "#footer"
+
+    });
+
+    $(FoosNet.topNav.el).delegate('li', 'click', function(a, b, c, d) {
+        var activeCls = 'active';
+        $(a.currentTarget.parentElement).find('.' + activeCls).removeClass(activeCls);
+        $(a.currentTarget).addClass(activeCls);
     });
 
     FoosNet.addInitializer(function(options) {
-        new Messages().fetch({
-            success: function(messages) {
-                FoosNet.page.show(new MessageCompositeView({collection: messages}));
-                // FoosNet.page.show(new MessageCompositeView());
-            }
-        });
+        new AppRouter(FoosNet);
+        Backbone.history.start();
     });
 
     FoosNet.start();
