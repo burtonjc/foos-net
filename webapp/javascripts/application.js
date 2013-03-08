@@ -45,7 +45,7 @@ require([
 ], function(Backbone, Marionette, AppView, MessageCompositeView, MessageItemView, Messages) {//AppView, Router, Vm) {
     FoosNet = new Marionette.Application();
     FoosNet.addRegions({
-        page: "#content"
+        page: "#page-container"
     });
 
     FoosNet.addInitializer(function(options) {
@@ -57,7 +57,5 @@ require([
         });
     });
 
-    $(document).ready(function() {
-        FoosNet.start();
-    });
+    FoosNet.start();
 });
