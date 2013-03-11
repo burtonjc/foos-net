@@ -11,7 +11,9 @@ define([
 
         onRender: function() {
             $(this.el).find('.start-game').click(function() {
-                debugger;
+                require(['views/game/modal', 'foosnet'], function(GameModal, FoosNet) {
+                    FoosNet.modal.show(new GameModal());
+                });
             });
         }
     });
