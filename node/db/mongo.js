@@ -1,6 +1,6 @@
 define([
 	'mongoose',
-	'./MongoConfig'
+	'./mongoconfig'
 
 ], function(mongoose, MongoConfig) {
 	return {

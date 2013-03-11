@@ -1,10 +1,9 @@
 define([
     'underscore',
 	'restify',
-	'models/Message',
-	'Routes'
+	'routes'
 
-], function(_, restify, Message, Routes) {
+], function(_, restify, Routes) {
 
 	return {
         INVALID_SERVER_ERROR: "Router requires a server instance.",
