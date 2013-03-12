@@ -98,14 +98,18 @@ define([
                         me._getPlayerTypeAhead().attr('disabled', 'disabled');
                         $newPlayerIcon.popover('disable');
                         $newPlayerIcon.tooltip('disable');
+
+                        $(me.el).find('.btn.start-game').removeAttr('disabled');
                     }
                 }, 10);
             } else {
                 this._getRowForPlayer(player).remove();
                 if (_.where(me.players, {selected: true}).length < 4) {
-                    me._getPlayerTypeAhead().attr('disabled', null);
+                    me._getPlayerTypeAhead().removeAttr('disabled');
                     $newPlayerIcon.tooltip('enable');
+                    $(me.el).find('.btn.start-game').attr('disabled', 'disabled');
                 }
+
             }
         },
 
