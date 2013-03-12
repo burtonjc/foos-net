@@ -3,7 +3,11 @@ define([
 
 ], function(mongoose) {
 	var PlayerSchema = new mongoose.Schema({
-        name: String,
+        name: {
+            type: String,
+            required: true,
+            unique: true
+        },
         elo: Number
     });
 

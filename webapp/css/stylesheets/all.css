@@ -8,6 +8,12 @@
   height: auto !important;
 }
 
+/* line 9, ../sass/_layout.scss */
+.pointer {
+  cursor: pointer;
+  cursor: hand;
+}
+
 /* line 2, ../sass/home/_page.scss */
 .home-page .carousel-wrapper {
   border: 1px solid #888888;
@@ -34,4 +40,37 @@
 .home-page .carousel-indicators {
   background: rgba(0, 0, 0, 0.65);
   padding: 4px 6px 4px 2px;
+}
+
+/* line 2, ../sass/game/_modal.scss */
+.modal .modal-body {
+  min-height: 230px;
+}
+/* line 5, ../sass/game/_modal.scss */
+.modal .modal-body .players-typeahead {
+  padding-right: 22px;
+}
+/* line 9, ../sass/game/_modal.scss */
+.modal .modal-body .icon-plus {
+  margin: -3px 0 0 -20px;
+}
+/* line 13, ../sass/game/_modal.scss */
+.modal .modal-body .popover {
+  width: 276px;
+  z-index: 1000;
+}
+/* line 17, ../sass/game/_modal.scss */
+.modal .modal-body .popover .btn {
+  margin: 8px 0 4px 0;
+}
+/* line 22, ../sass/game/_modal.scss */
+.modal .modal-body .alert-wrapper {
+  width: 100%;
+}
+/* line 25, ../sass/game/_modal.scss */
+.modal .modal-body .alert-wrapper #alert {
+  position: absolute;
+  top: 4px;
+  width: 90%;
+  margin: 0 2%;
 }

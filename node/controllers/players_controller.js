@@ -5,8 +5,8 @@ define([
 
 	return {
 		get: function(request, response, next) {
-			Player.find().limit(20).execFind(function(arr, data) {
-				response.send(data);
+			Player.find().limit(100).execFind(function(arr, data) {
+				response.json(data);
 			});
 		},
 
@@ -16,8 +16,12 @@ define([
 			player.name = request.params.name;
 			player.elo = 200;
 
-            player.save(function() {
-				response.send(request.body);
+            player.save(function(err) {
+                if (err) {
+                    return response.json(err);
+                } else {
+                    response.json(player);
+                }
 			});
 		}
 	};

@@ -8,6 +8,7 @@ define([
     FoosNet = new Marionette.Application();
     FoosNet.addRegions({
         navigation: "#top-nav",
+        alert: "#alert",
         page: "#page-container",
         footer: "#footer",
         modal: ModalRegion

@@ -1,0 +1,33 @@
+.modal {
+    .modal-body {
+        min-height: 230px;
+
+        .players-typeahead {
+            padding-right: 22px;
+        }
+
+        .icon-plus {
+            margin: -3px 0 0 -20px;
+        }
+
+        .popover {
+            width: 276px;
+            z-index: 1000;
+
+            .btn {
+                margin: 8px 0 4px 0;
+            }
+        }
+
+        .alert-wrapper {
+            width: 100%;
+
+            #alert {
+                position: absolute;
+                top: 4px;
+                width: 90%;
+                margin: 0 2%;
+            }
+        }
+    }
+}
