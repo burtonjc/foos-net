@@ -10,6 +10,7 @@ require.config({
 
         text: 'libs/require/text',
         order: 'libs/require/order',
+        tpl: 'libs/require/plugins/tpl',
 
         templates: '../templates'
     },

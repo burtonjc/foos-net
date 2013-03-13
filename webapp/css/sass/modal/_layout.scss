@@ -4,6 +4,7 @@
 
         .players-typeahead {
             padding-right: 22px;
+            width: 330px;
         }
 
         .icon-plus {
@@ -21,12 +22,10 @@
 
         .alert-wrapper {
             width: 100%;
-
-            #alert {
-                position: absolute;
-                top: 4px;
-                width: 90%;
-                margin: 0 2%;
+            
+            #modalAlert {
+                width: 94%;
+                margin: 2px 3% 0;
             }
         }
     }

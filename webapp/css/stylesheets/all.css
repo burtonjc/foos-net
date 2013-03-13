@@ -42,35 +42,34 @@
   padding: 4px 6px 4px 2px;
 }
 
-/* line 2, ../sass/game/_modal.scss */
+/* line 2, ../sass/modal/_layout.scss */
 .modal .modal-body {
   min-height: 230px;
 }
-/* line 5, ../sass/game/_modal.scss */
+/* line 5, ../sass/modal/_layout.scss */
 .modal .modal-body .players-typeahead {
   padding-right: 22px;
+  width: 330px;
 }
-/* line 9, ../sass/game/_modal.scss */
+/* line 10, ../sass/modal/_layout.scss */
 .modal .modal-body .icon-plus {
   margin: -3px 0 0 -20px;
 }
-/* line 13, ../sass/game/_modal.scss */
+/* line 14, ../sass/modal/_layout.scss */
 .modal .modal-body .popover {
   width: 276px;
   z-index: 1000;
 }
-/* line 17, ../sass/game/_modal.scss */
+/* line 18, ../sass/modal/_layout.scss */
 .modal .modal-body .popover .btn {
   margin: 8px 0 4px 0;
 }
-/* line 22, ../sass/game/_modal.scss */
+/* line 23, ../sass/modal/_layout.scss */
 .modal .modal-body .alert-wrapper {
   width: 100%;
 }
-/* line 25, ../sass/game/_modal.scss */
-.modal .modal-body .alert-wrapper #alert {
-  position: absolute;
-  top: 4px;
-  width: 90%;
-  margin: 0 2%;
+/* line 26, ../sass/modal/_layout.scss */
+.modal .modal-body .alert-wrapper #modalAlert {
+  width: 94%;
+  margin: 2px 3% 0;
 }
