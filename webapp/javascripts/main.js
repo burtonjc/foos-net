@@ -5,6 +5,7 @@ require.config({
         'backbone.babysitter': 'libs/backbone.marionette/backbone-babysitter-min',
         'bootstrap': '../lib/bootstrap/js/bootstrap',
         jquery: 'libs/jquery/jquery',
+        jqueryui: '../lib/jqueryui/js/jquery-ui-1.10.1.custom',
         marionette: 'libs/backbone.marionette/backbone-marionette',
         underscore: 'libs/underscore/underscore',
 
@@ -24,6 +25,7 @@ require.config({
         jquery: {
             exports: 'jQuery'
         },
+        jqueryui: ['jquery'],
         marionette: {
             deps: ['jquery', 'underscore', 'backbone'],
             exports: 'Marionette'
