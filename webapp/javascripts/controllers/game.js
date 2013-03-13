@@ -2,12 +2,13 @@ define([
     'jquery',
     'underscore',
     'marionette',
-
     'views/modal/layout',
     'views/game/playerchooser',
     'views/game/footer',
-    'views/game/alert'
-], function($, _, Marionette, ModalLayout, PlayerChooser, GameFooter, GameAlert) {
+    'views/game/alert',
+    'views/game/pairchooser'
+
+], function($, _, Marionette, ModalLayout, PlayerChooser, GameFooter, GameAlert, PairChooser) {
     return Marionette.Controller.extend({
         initialize: function(opts) {
             this.region = opts.region;
@@ -34,6 +35,14 @@ define([
             this.listenTo(playerchooser, 'incomplete', footer.deactivate);
             this.listenTo(playerchooser, 'complete', footer.activate);
             this.layout.body.show(playerchooser);
+
+            this.listenTo(footer, 'next', this._choosePairs);
+        },
+
+        _choosePairs: function() {
+            var pairchooser = new PairChooser();
+
+            this.layout.body.show(pairchooser);
         }
     });
 });

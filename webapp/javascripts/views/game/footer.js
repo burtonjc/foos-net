@@ -12,8 +12,8 @@ define([
             btnCancel: '.btn.cancel'
         },
 
-        events: {
-            'click .btn-primary': '_onBtnPrimaryClick'
+        triggers: {
+            'click .btn-primary': 'next'
         },
 
         initialize: function() {
@@ -26,10 +26,6 @@ define([
 
         activate: function() {
             this.ui.btnPrimary.removeAttr('disabled');
-        },
-
-        _onBtnPrimaryClick: function(evt) {
-            this.trigger('next');
         }
     });
 });

@@ -40,6 +40,11 @@ define([
                 success: function(collection, response, options) {
                     me.players = collection;
 
+                    // In case we are reopening the dialog
+                    _.each(me.collection.models, function(player) {
+                        me.players.where({_id: player.get('_id')})[0].set('staged', true);
+                    });
+
                     me._initializeTypeAhead();
                     me._initializeNewPlayerPopover();
                 }
@@ -51,18 +56,12 @@ define([
                 me._setPlayerStaged(me.collection.where({name: playerName})[0], false);
                 me.ui.playerTypeAhead.focus();
             });
-            
-            this.trigger('incomplete');
         },
 
         _initializeTypeAhead: function() {
             var me = this;
 
             me.ui.playerTypeAhead.typeahead({
-                source: _.chain(me.players.models)
-                         .pluck('attributes')
-                         .pluck('name')
-                         .value(),
                 updater: function(playerName) {
                     me._setPlayerStaged(me.players.where({name: playerName})[0], true);
                     return playerName;
@@ -80,6 +79,7 @@ define([
             }).keypress(function() {
                 me.ui.newPlayerIcon.popover('hide');
             });
+            me._updateTypeAheadSource();
 
             me.ui.newPlayerIcon.tooltip({
                 title: 'Type full name and press + to add new player',
@@ -139,23 +139,23 @@ define([
                     me.ui.playerTypeAhead.val('');
                     me.ui.newPlayerIcon.popover('disable');
                 }, 10);
-
-                if (numOfPlayersStaged === 4) {
-                    me.trigger('complete');
-                }
             } else {
                 me.collection.remove(player);
-                if (numOfPlayersStaged === 3) {
-                    me.trigger('incomplete');
-                }
             }
         },
 
         _updateTypeAheadSource: function() {
-            var updatedSource = _.chain(this.players.where({staged: undefined}))
+            var unstagedPlayerList = this.players.where({staged: undefined}),
+                updatedSource = _.chain(unstagedPlayerList)
                                  .pluck('attributes')
                                  .pluck("name")
                                  .value();
+
+            if (this.collection.length < 4) {
+                this.trigger('incomplete');
+            } else {
+                this.trigger('complete');
+            }
 
             this.ui.playerTypeAhead.data('typeahead').source = updatedSource;
         },
