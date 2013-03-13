@@ -1,0 +1,17 @@
+.player-card {
+    border: 1px solid #888;
+    -moz-box-shadow: 10px 10px 5px #888;
+    -webkit-box-shadow: 10px 10px 5px #888;
+    box-shadow: 10px 10px 5px #888;
+
+    background: #fff;
+
+    padding: 2px 8px;
+    margin: 12px 0px;
+
+    overflow: hidden;
+
+    .player-name {
+        font-size: 12px;
+    }
+}

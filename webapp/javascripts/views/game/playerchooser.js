@@ -29,8 +29,8 @@ define([
 
         initialize: function(opts) {
             _.bindAll(this);
-            this.on('complete', this._onComplete);
-            this.on('incomplete', this._onIncomplete);
+            this.on('ready', this._ready);
+            this.on('notready', this._notready);
         },
 
         onRender: function() {
@@ -45,8 +45,10 @@ define([
                         me.players.where({_id: player.get('_id')})[0].set('staged', true);
                     });
 
-                    me._initializeTypeAhead();
                     me._initializeNewPlayerPopover();
+                    me._initializeTypeAhead();
+
+                    me._updateTypeAheadSource();
                 }
             });
 
@@ -79,7 +81,6 @@ define([
             }).keypress(function() {
                 me.ui.newPlayerIcon.popover('hide');
             });
-            me._updateTypeAheadSource();
 
             me.ui.newPlayerIcon.tooltip({
                 title: 'Type full name and press + to add new player',
@@ -152,22 +153,22 @@ define([
                                  .value();
 
             if (this.collection.length < 4) {
-                this.trigger('incomplete');
+                this.trigger('notready');
             } else {
-                this.trigger('complete');
+                this.trigger('ready');
             }
 
             this.ui.playerTypeAhead.data('typeahead').source = updatedSource;
         },
 
-        _onComplete: function() {
+        _ready: function() {
             this.ui.playerTypeAhead.attr('disabled', 'disabled');
             this.ui.newPlayerIcon.tooltip('disable');
             this.ui.newPlayerIcon.popover('disable');
             this.ui.newPlayerIcon.removeClass('pointer');
         },
 
-        _onIncomplete: function() {
+        _notready: function() {
             this.ui.playerTypeAhead.removeAttr('disabled');
             this.ui.newPlayerIcon.tooltip('enable');
             this.ui.newPlayerIcon.addClass('pointer');

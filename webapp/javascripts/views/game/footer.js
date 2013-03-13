@@ -8,7 +8,7 @@ define([
         template: GameFooterTpl,
 
         ui: {
-            btnPrimary: '.btn-primary',
+            btnNext: '.btn-primary',
             btnCancel: '.btn.cancel'
         },
 
@@ -21,11 +21,11 @@ define([
         },
 
         deactivate: function() {
-            this.ui.btnPrimary.attr('disabled', 'disabled');
+            this.ui.btnNext.attr('disabled', 'disabled');
         },
 
         activate: function() {
-            this.ui.btnPrimary.removeAttr('disabled');
+            this.ui.btnNext.removeAttr('disabled');
         }
     });
 });

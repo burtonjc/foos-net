@@ -42,6 +42,28 @@
   padding: 4px 6px 4px 2px;
 }
 
+/* line 2, ../sass/game/pairchooser/_pairchooser.scss */
+.pair-chooser .pair-ct {
+  min-height: 200px;
+  min-width: 255px;
+}
+
+/* line 1, ../sass/game/pairchooser/_playercard.scss */
+.player-card {
+  border: 1px solid #888888;
+  -moz-box-shadow: 10px 10px 5px #888888;
+  -webkit-box-shadow: 10px 10px 5px #888888;
+  box-shadow: 10px 10px 5px #888888;
+  background: #fff;
+  padding: 2px 8px;
+  margin: 12px 0px;
+  overflow: hidden;
+}
+/* line 14, ../sass/game/pairchooser/_playercard.scss */
+.player-card .player-name {
+  font-size: 12px;
+}
+
 /* line 2, ../sass/modal/_layout.scss */
 .modal .modal-body {
   min-height: 230px;

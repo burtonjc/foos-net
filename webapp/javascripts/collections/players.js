@@ -4,6 +4,10 @@ define([
 ], function(Backbone, Player) {
     return Backbone.Collection.extend({
         url: '/players',
-        model: Player
+        model: Player,
+
+        comparator: function(player) {
+            return player.get("elo");
+        }
     });
 });
