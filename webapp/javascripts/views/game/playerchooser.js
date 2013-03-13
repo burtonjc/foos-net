@@ -51,6 +51,8 @@ define([
                 me._setPlayerStaged(me.collection.where({name: playerName})[0], false);
                 me.ui.playerTypeAhead.focus();
             });
+            
+            this.trigger('incomplete');
         },
 
         _initializeTypeAhead: function() {
