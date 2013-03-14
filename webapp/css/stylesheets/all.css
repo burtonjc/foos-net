@@ -64,6 +64,17 @@
   font-size: 12px;
 }
 
+/* line 1, ../sass/game/_resultsrecorder.scss */
+.results-recorder {
+  width: 100%;
+  text-align: center;
+}
+/* line 5, ../sass/game/_resultsrecorder.scss */
+.results-recorder .pair {
+  height: 230px;
+  width: 260px;
+}
+
 /* line 2, ../sass/modal/_layout.scss */
 .modal .modal-body {
   min-height: 230px;

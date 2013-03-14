@@ -7,9 +7,10 @@ define([
     'views/game/header',
     'views/game/footer',
     'views/game/alert',
-    'views/game/pairchooser/pairchooser'
+    'views/game/pairchooser/pairchooser',
+    'views/game/resultsrecorder'
 
-], function($, _, Marionette, ModalLayout, PlayerChooser, GameHeader, GameFooter, GameAlert, PairChooser) {
+], function($, _, Marionette, ModalLayout, PlayerChooser, GameHeader, GameFooter, GameAlert, PairChooser, ResultsRecorder) {
     return Marionette.Controller.extend({
 
         initialize: function(opts) {
@@ -51,15 +52,22 @@ define([
         },
 
         _recordResults: function(pairs) {
-            var footer = this.layout.footer.currentView;
+            var footer = this.layout.footer.currentView,
+                recorder = new ResultsRecorder({
+                    pairs: pairs
+                });
 
             footer.ui.btnNext.html("Finish");
 
-            // this._transitionView("Record your results...", new ResultsRecorder({
-            //     pairs: pairs
-            // }));
+            this._transitionView("Record your results...", recorder);
 
-            footer.once('next', this._closeOutModal, this);
+            footer.once('next', function() {
+                var results = recorder.getResults();
+
+                // Persist results to server here
+
+                this._closeOutModal();
+            }, this);
         },
 
         _transitionView: function(headerText, view) {
@@ -69,7 +77,7 @@ define([
 
             me.stopListening(this.layout.body.currentView);
 
-            header.setLabel("Choose your pairs...");
+            header.setLabel(headerText);
 
             me.listenTo(view, 'error', function(message) {
                 me.layout.alert.show(new GameAlert({message: message}));
