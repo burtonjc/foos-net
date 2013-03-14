@@ -18,11 +18,6 @@ namespace 'spec', () ->
     node_exec "jasmine-node --color --coffee --requireJsSetup #{setup} #{spec_root}", print_exec_res
 
 namespace 'run', () ->
-  desc 'Start mongodb.'
-  task 'db', [], () ->
-    console.log '\nForking a process to run mongodb...'
-    node_exec 'mongod --fork', print_exec_res
-
   desc 'Start server.'
   task 'server', [], () ->
     console.log '\nStarting server...'
@@ -32,3 +27,14 @@ namespace 'run', () ->
       printStdout: true,
       printStderr: true
     }
+
+namespace 'db', () ->
+  desc 'Clean mongodb.'
+  task 'clean', [], () ->
+    console.log '\nCleaning db...'
+    node_exec 'mongo test --eval "db.dropDatabase()"', print_exec_res
+
+  desc 'Start mongodb.'
+  task 'start', [], () ->
+    console.log '\nForking a process to run mongodb...'
+    node_exec 'mongod --fork', print_exec_res

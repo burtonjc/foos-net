@@ -8,7 +8,7 @@ To get started:
   5. Resolve dependencies: `npm install`
   6. Install and start MongoDB:
     1. `brew install -g mongodb`
-    2. `jake run:db`
+    2. `jake db:start`
   7. Start up the server: `jake run:server`
   8. Point your browser to the location specified in the otput from the command in number 7
 
