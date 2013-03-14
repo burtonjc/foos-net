@@ -8,9 +8,10 @@ define([
     'views/game/footer',
     'views/game/alert',
     'views/game/pairchooser/pairchooser',
-    'views/game/resultsrecorder'
+    'views/game/resultsrecorder',
+    'models/match'
 
-], function($, _, Marionette, ModalLayout, PlayerChooser, GameHeader, GameFooter, GameAlert, PairChooser, ResultsRecorder) {
+], function($, _, Marionette, ModalLayout, PlayerChooser, GameHeader, GameFooter, GameAlert, PairChooser, ResultsRecorder, Match) {
     return Marionette.Controller.extend({
 
         initialize: function(opts) {
@@ -62,9 +63,10 @@ define([
             this._transitionView("Record your results...", recorder);
 
             footer.once('next', function() {
-                var results = recorder.getResults();
+                var results = recorder.getResults(),
+                    match = new Match(results);
 
-                // Persist results to server here
+                match.save();
 
                 this._closeOutModal();
             }, this);

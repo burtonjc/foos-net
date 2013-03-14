@@ -1,9 +1,10 @@
 define([
-	'controllers/players_controller'
+    'controllers/players_controller',
+	'controllers/matches_controller'
 
-], function(PlayersController) {
-
+], function(PlayersController, MatchesController) {
 	return {
-        '/players': PlayersController
+        '/players': PlayersController,
+        '/matches': MatchesController
     };
 });

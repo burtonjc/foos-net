@@ -22,7 +22,7 @@ define([
 	Mongo.init();
 
 	var server = restify.createServer();
-	router.init(server);
+    router.init(server);
 	server.listen(8080, function() {
 		console.log('%s listening at %s', server.name, server.url);
 	});

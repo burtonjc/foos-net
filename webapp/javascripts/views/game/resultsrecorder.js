@@ -40,8 +40,8 @@ define([
 
         _setResults: function(winnerIdx) {
             this.results = {
-                winner: this.pairs[winnerIdx],
-                looser: this.pairs[winnerIdx ? 0 : 1]
+                winners: this.pairs[winnerIdx],
+                losers: this.pairs[winnerIdx ? 0 : 1]
             };
         },
 

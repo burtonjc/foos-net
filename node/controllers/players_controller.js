@@ -1,11 +1,14 @@
 define([
-    '../models/player'
+    '../models/player',
+    'url'
 
-], function(Player) {
+], function(Player, Url) {
 
 	return {
 		get: function(request, response, next) {
-			Player.find().limit(100).execFind(function(arr, data) {
+            var url_parts = Url.parse(request.url,true);
+
+			Player.find().limit(url_parts.query.limit || 20).execFind(function(arr, data) {
 				response.json(data);
 			});
 		},
