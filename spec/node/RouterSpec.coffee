@@ -3,11 +3,11 @@ createContext({
     bodyParser: jasmine.createSpy('restify.bodyParser')
     serveStatic: jasmine.createSpy('restify.serveStatic')
   },
-  'models/Message': {}
+  'models/player': {}
 }).require [
   'underscore',
-  'Router',
-  'Routes',
+  'router',
+  'routes',
   'restify'
 ], (underscore, Router, Routes, restify) ->
 

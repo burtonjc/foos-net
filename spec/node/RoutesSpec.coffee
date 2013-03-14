@@ -1,9 +1,9 @@
 createContext({
-    'controllers/MessagesController': 'mock/controllers/MessagesController'
+    'controllers/players_controller': 'mock/controllers/players_controller'
 
 }).require [
   'underscore'
-  'Routes'
+  'routes'
 ], (_, Routes) ->
 
   describe "Routes", () ->
