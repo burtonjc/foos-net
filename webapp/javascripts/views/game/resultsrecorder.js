@@ -2,8 +2,9 @@ define([
     'jquery',
     'underscore',
     'marionette',
+    'cryptojs',
     'tpl!templates/game/resultsrecorder.html'
-], function($, _, Marionette, ResultsRecorderTpl) {
+], function($, _, Marionette, CryptoJS, ResultsRecorderTpl) {
     return Marionette.ItemView.extend({
         template: ResultsRecorderTpl,
         className: 'results-recorder',
@@ -13,10 +14,25 @@ define([
             activePair: '.btn.pair.active'
         },
 
+        triggers: {
+            'click .player': 'click .pair'
+        },
+
         templateHelpers: {
             getPairDisplayName: function(idx) {
                 var pair = this.pairs[idx];
-                return pair.at(0).get('name') + '/' + pair.at(1).get('name');
+
+                return [
+                    '<div class="player">',
+                        '<img class="img-rounded" src="http://www.gravatar.com/avatar/'+CryptoJS.MD5(pair.at(0).get('email'))+'?d=mm&s='+70+'">',
+                        '&nbsp;',
+                        pair.at(0).get('name'),
+                        '<br /><br />',
+                        '<img class="img-rounded" src="http://www.gravatar.com/avatar/'+CryptoJS.MD5(pair.at(1).get('email'))+'?d=mm&s='+70+'">',
+                        '&nbsp;',
+                        pair.at(1).get('name'),
+                    '</div>'
+                ].join('');
             }
         },
 

@@ -2,6 +2,10 @@ define([
 	'mongoose'
 
 ], function(mongoose) {
+    function trimAndLowerCase(v) {
+        return v.trim().toLowerCase();
+    }
+
 	var PlayerSchema = new mongoose.Schema({
         name: {
             type: String,
@@ -10,7 +14,8 @@ define([
         email: {
             type: String,
             required: true,
-            unique: true
+            unique: true,
+            set: trimAndLowerCase
         },
         elo: Number
     });

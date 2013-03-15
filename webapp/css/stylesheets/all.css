@@ -78,6 +78,10 @@
   height: 230px;
   width: 260px;
 }
+/* line 10, ../sass/game/_resultsrecorder.scss */
+.results-recorder .player {
+  text-align: left;
+}
 
 /* line 2, ../sass/modal/_layout.scss */
 .modal .modal-body {
