@@ -106,9 +106,3 @@
   width: 94%;
   margin: 2px 3% 0;
 }
-
-/* line 2, ../sass/leaderboard/_page.scss */
-.leaderboard th, .leaderboard td {
-  text-align: left;
-  width: 200px;
-}

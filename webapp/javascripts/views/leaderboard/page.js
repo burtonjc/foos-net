@@ -7,7 +7,7 @@ define([
     'collections/players'
 ], function($, _, Marionette, LeaderBoardPageTpl, PlayerListRow, PlayersCollection) {
     return Marionette.CompositeView.extend({
-        className: 'well container img-rounded leaderboard',
+        className: 'hero-unit leaderboard',
         template: LeaderBoardPageTpl,
         itemView: PlayerListRow,
         itemViewOptions: {
