@@ -77,31 +77,35 @@
 
 /* line 2, ../sass/modal/_layout.scss */
 .modal .modal-body {
-  min-height: 230px;
+  min-height: 260px;
 }
 /* line 5, ../sass/modal/_layout.scss */
+.modal .modal-body .popover-content {
+  overflow: hidden;
+}
+/* line 9, ../sass/modal/_layout.scss */
 .modal .modal-body .players-typeahead {
   padding-right: 22px;
-  width: 330px;
-}
-/* line 10, ../sass/modal/_layout.scss */
-.modal .modal-body .icon-plus {
-  margin: -3px 0 0 -20px;
+  width: 305px;
 }
 /* line 14, ../sass/modal/_layout.scss */
+.modal .modal-body .new-player {
+  margin: -11px 0 0 2px;
+}
+/* line 18, ../sass/modal/_layout.scss */
 .modal .modal-body .popover {
   width: 276px;
   z-index: 1000;
 }
-/* line 18, ../sass/modal/_layout.scss */
+/* line 22, ../sass/modal/_layout.scss */
 .modal .modal-body .popover .btn {
   margin: 8px 0 4px 0;
 }
-/* line 23, ../sass/modal/_layout.scss */
+/* line 27, ../sass/modal/_layout.scss */
 .modal .modal-body .alert-wrapper {
   width: 100%;
 }
-/* line 26, ../sass/modal/_layout.scss */
+/* line 30, ../sass/modal/_layout.scss */
 .modal .modal-body .alert-wrapper #modalAlert {
   width: 94%;
   margin: 2px 3% 0;

@@ -1,14 +1,18 @@
 .modal {
     .modal-body {
-        min-height: 230px;
+        min-height: 260px;
+
+        .popover-content {
+            overflow: hidden;
+        }
 
         .players-typeahead {
             padding-right: 22px;
-            width: 330px;
+            width: 305px;
         }
 
-        .icon-plus {
-            margin: -3px 0 0 -20px;
+        .new-player {
+            margin: -11px 0 0 2px;
         }
 
         .popover {

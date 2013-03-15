@@ -5,8 +5,9 @@ define([
     'models/player',
     'collections/players',
     'views/game/playerlistrow',
+    // 'crypto',
     'tpl!templates/game/playerchooser.html'
-], function($, _, Marionette, Player, PlayersCollection, PlayerListRow, PlayerChooserTpl) {
+], function($, _, Marionette, Player, PlayersCollection, PlayerListRow, /*Crypto, */PlayerChooserTpl) {
 
     return Marionette.CompositeView.extend({
         template: PlayerChooserTpl,
@@ -17,7 +18,7 @@ define([
         collection: new PlayersCollection(),
 
         ui: {
-            newPlayerIcon: 'i.new-player',
+            newPlayerIcon: '.new-player',
             playerTypeAhead: 'input.players-typeahead',
             stagedPlayerList: '.table tbody'
         },
@@ -52,10 +53,9 @@ define([
                 }
             });
 
-            me.ui.stagedPlayerList.delegate('.icon-remove', 'click', function(evt) {
-                // This is nasty...
-                var playerName = evt.target.parentElement.parentElement.firstChild.innerHTML;
-                me._setPlayerStaged(me.collection.where({name: playerName})[0], false);
+            me.on('itemview:removeclicked', function(view) {
+                var player = view.model;
+                me._setPlayerStaged(me.collection.get(player.id), false);
                 me.ui.playerTypeAhead.focus();
             });
         },
@@ -72,18 +72,12 @@ define([
                 setTimeout(function() {
                     me.ui.playerTypeAhead.focus();
                 }, 600); // wait for animation to complete
-            }).change(function() {
-                if ($(this).val().length > 0) {
-                    me.ui.newPlayerIcon.popover('enable');
-                } else {
-                    me.ui.newPlayerIcon.popover('disable');
-                }
             }).keypress(function() {
                 me.ui.newPlayerIcon.popover('hide');
             });
 
             me.ui.newPlayerIcon.tooltip({
-                title: 'Type full name and press + to add new player',
+                title: 'Add new player',
                 placement: 'right'
             });
         },
@@ -99,22 +93,26 @@ define([
                 var val = me.ui.playerTypeAhead.val();
                 me.ui.newPlayerIcon.data().popover.options.content = [
                     '<div class="alert-placeholder"></div>',
-                    'Create player named: ' + me.ui.playerTypeAhead.val() + '?<br />',
+                    '<input class="new-player-name" type="text" placeholder="Name">',
+                    '<input class="new-player-email" type="text" placeholder="Email (used for Gravatar)">',
                     '<button class="btn pull-left btn-cancel" aria-hidden="true">Cancel</button>',
                     '<button class="btn btn-primary pull-right btn-create">Create</button>'
                 ].join('');
-            }).popover('disable');
+            });
 
             $(me.el).delegate('.popover .btn-cancel', 'click', function () {
                 me.ui.newPlayerIcon.popover('hide');
             });
 
             $(me.el).delegate('.popover .btn-create', 'click', function () {
-                $(this).attr('disabled', 'disabled');
-                var val = me.ui.playerTypeAhead.val(),
+                var name = $('.new-player-name').val(),
+                    email = $('.new-player-email').val(),
                     player = new Player();
 
-                player.save({name: val}, {
+                player.save({
+                    name: name,
+                    email: email
+                }, {
                     success: function(model, response, options) {
                         me.ui.newPlayerIcon.popover('hide');
                         me.players.add(model);
@@ -138,7 +136,6 @@ define([
                 me.collection.add(player);
                 setTimeout(function() {
                     me.ui.playerTypeAhead.val('');
-                    me.ui.newPlayerIcon.popover('disable');
                 }, 10);
             } else {
                 me.collection.remove(player);
@@ -163,14 +160,11 @@ define([
 
         _ready: function() {
             this.ui.playerTypeAhead.attr('disabled', 'disabled');
-            this.ui.newPlayerIcon.tooltip('disable');
-            this.ui.newPlayerIcon.popover('disable');
             this.ui.newPlayerIcon.removeClass('pointer');
         },
 
         _notready: function() {
             this.ui.playerTypeAhead.removeAttr('disabled');
-            this.ui.newPlayerIcon.tooltip('enable');
             this.ui.newPlayerIcon.addClass('pointer');
         }
     });

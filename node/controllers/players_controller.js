@@ -15,9 +15,7 @@ define([
 		},
 
 		post: function(request, response, next) {
-			var player = new Player();
-
-			player.name = request.params.name;
+			var player = new Player(request.params);
 			player.elo = Elo.getDefaultRating();
 
             player.save(function(err) {
