@@ -55,11 +55,15 @@
   -webkit-box-shadow: 10px 10px 5px #888888;
   box-shadow: 10px 10px 5px #888888;
   background: #fff;
-  padding: 2px 8px;
+  padding: 2px 8px 2px 2px;
   margin: 12px 0px;
   overflow: hidden;
 }
 /* line 14, ../sass/game/pairchooser/_playercard.scss */
+.player-card .gravatar {
+  margin-right: 8px;
+}
+/* line 18, ../sass/game/pairchooser/_playercard.scss */
 .player-card .player-name {
   font-size: 12px;
 }
@@ -78,34 +82,35 @@
 /* line 2, ../sass/modal/_layout.scss */
 .modal .modal-body {
   min-height: 260px;
+  max-height: 500px;
 }
-/* line 5, ../sass/modal/_layout.scss */
+/* line 6, ../sass/modal/_layout.scss */
 .modal .modal-body .popover-content {
   overflow: hidden;
 }
-/* line 9, ../sass/modal/_layout.scss */
+/* line 10, ../sass/modal/_layout.scss */
 .modal .modal-body .players-typeahead {
   padding-right: 22px;
   width: 305px;
 }
-/* line 14, ../sass/modal/_layout.scss */
+/* line 15, ../sass/modal/_layout.scss */
 .modal .modal-body .new-player {
   margin: -11px 0 0 2px;
 }
-/* line 18, ../sass/modal/_layout.scss */
+/* line 19, ../sass/modal/_layout.scss */
 .modal .modal-body .popover {
   width: 276px;
   z-index: 1000;
 }
-/* line 22, ../sass/modal/_layout.scss */
+/* line 23, ../sass/modal/_layout.scss */
 .modal .modal-body .popover .btn {
   margin: 8px 0 4px 0;
 }
-/* line 27, ../sass/modal/_layout.scss */
+/* line 28, ../sass/modal/_layout.scss */
 .modal .modal-body .alert-wrapper {
   width: 100%;
 }
-/* line 30, ../sass/modal/_layout.scss */
+/* line 31, ../sass/modal/_layout.scss */
 .modal .modal-body .alert-wrapper #modalAlert {
   width: 94%;
   margin: 2px 3% 0;

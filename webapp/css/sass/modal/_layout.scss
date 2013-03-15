@@ -1,6 +1,7 @@
 .modal {
     .modal-body {
         min-height: 260px;
+        max-height: 500px;
 
         .popover-content {
             overflow: hidden;
