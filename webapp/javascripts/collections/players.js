@@ -7,7 +7,7 @@ define([
         model: Player,
 
         comparator: function(player) {
-            return player.get("elo");
+            return -player.get("elo");
         }
     });
 });

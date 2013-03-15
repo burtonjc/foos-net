@@ -1,14 +1,15 @@
 define([
     '../models/player',
+    'helpers/elo',
     'url'
 
-], function(Player, Url) {
+], function(Player, Elo, Url) {
 
 	return {
 		get: function(request, response, next) {
             var url_parts = Url.parse(request.url,true);
 
-			Player.find().limit(url_parts.query.limit || 20).execFind(function(arr, data) {
+			Player.find().limit(url_parts.query.limit || 20).sort('-elo').execFind(function(arr, data) {
 				response.json(data);
 			});
 		},
@@ -17,7 +18,7 @@ define([
 			var player = new Player();
 
 			player.name = request.params.name;
-			player.elo = 200;
+			player.elo = Elo.getDefaultRating();
 
             player.save(function(err) {
                 if (err) {

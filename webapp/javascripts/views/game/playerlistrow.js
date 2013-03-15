@@ -8,6 +8,12 @@ define([
     return Marionette.ItemView.extend({
         template: PlayerListRowTpl,
         model: Player,
-        tagName: 'tr'
+        tagName: 'tr',
+
+        initialize: function(opts) {
+            this.templateHelpers = {
+                hideX: opts.hideX || false
+            };
+        }
     });
 });

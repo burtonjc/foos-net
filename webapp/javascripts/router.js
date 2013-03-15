@@ -26,7 +26,12 @@ define([
             });
         },
 
-        leaderboardPage: function() {},
+        leaderboardPage: function() {
+            var app = this.Application;
+            require(['views/leaderboard/page'], function(LeaderBoardPage) {
+                app.page.show(new LeaderBoardPage());
+            });
+        },
 
         statsPage: function() {}
     });

@@ -1,9 +1,10 @@
 define([
     'underscore',
     'models/match',
+    'helpers/elo',
     'url'
 
-], function(_, Match, Url) {
+], function(_, Match, Elo, Url) {
 
     return {
         get: function(request, response, next) {
@@ -35,6 +36,7 @@ define([
                     console.log(err);
                     return response.json(err);
                 } else {
+                    Elo.applyMatch(match);
                     response.json(match);
                 }
             });

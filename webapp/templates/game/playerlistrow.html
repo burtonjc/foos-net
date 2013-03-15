@@ -1,3 +1,6 @@
 <td><%= name %></td>
 <td><%= elo %></td>
-<td><i class="icon-remove close"></i></td>
+
+<% if (!hideX) { %>
+  <td><i class="icon-remove close"></i></td>
+<% } %>
