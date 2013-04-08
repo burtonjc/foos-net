@@ -8,7 +8,7 @@ define([], function() {
 
         function EloRating(ratingA, ratingB, scoreA, scoreB) {
             var expectedScores, newRatings;
-            this.KFACTOR = 16;
+            this.KFACTOR = 32;
             this._ratingA = ratingA;
             this._ratingB = ratingB;
             this._scoreA = scoreA;
