@@ -45,10 +45,11 @@ define([
             var me = this;
 
             me.trigger('notready');
-            me.$el.delegate('.btn.pair', 'click', function(evt) {
+            me.$el.delegate('.btn.pair .player', 'click', function(evt) {
                 me.ui.pairButtons.removeClass('active');
-                $(evt.target).addClass('active');
-                me._setResults(me.ui.pairButtons.index(evt.target));
+                button = $(evt.target).parent('.btn.pair');
+                button.addClass('active');
+                me._setResults(me.ui.pairButtons.index(button));
 
                 me.trigger('ready');
             });
