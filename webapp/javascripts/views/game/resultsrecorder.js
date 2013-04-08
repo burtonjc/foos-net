@@ -14,8 +14,10 @@ define([
             activePair: '.btn.pair.active'
         },
 
-        triggers: {
-            'click .player': 'click .pair'
+        events: {
+            // 'click .player': 'onPairClicked',
+            // 'click .img-rounded': 'onPairClicked',
+            'click .pair': 'onPairClicked'
         },
 
         templateHelpers: {
@@ -41,18 +43,17 @@ define([
             this.pairs = opts.pairs;
         },
 
+        onPairClicked: function(evt) {
+            this.ui.pairButtons.removeClass('active');
+            button = $(evt.target).is('.btn.pair') ? $(evt.target) : $(evt.target).parents('.btn.pair');
+            button.addClass('active');
+            this._setResults(this.ui.pairButtons.index(button));
+
+            this.trigger('ready');
+        },
+
         onRender: function() {
-            var me = this;
-
-            me.trigger('notready');
-            me.$el.delegate('.btn.pair .player', 'click', function(evt) {
-                me.ui.pairButtons.removeClass('active');
-                button = $(evt.target).parent('.btn.pair');
-                button.addClass('active');
-                me._setResults(me.ui.pairButtons.index(button));
-
-                me.trigger('ready');
-            });
+            this.trigger('notready');
         },
 
         _setResults: function(winnerIdx) {
