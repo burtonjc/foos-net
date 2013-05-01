@@ -7,10 +7,13 @@ define [
     1100
 
   applyMatch: (match) ->
+    console.log('MATCH:\t', match.winners.concat(match.losers))
+
     Player.find(
       _id:
         $in: match.winners.concat match.losers
-    ).select('_id elo').exec (arr, players)->
+    ).select('_id elo').exec (arr, players) =>
+      console.log '\n\nPLAYERS:\t', players
       winners = []
       losers = []
       winner_ids = _.invoke match.winners, 'toString'
@@ -22,8 +25,8 @@ define [
           losers.push player
 
       oldRatings =
-        winners: me._getAvgRating(_.pluck(winners, 'elo')),
-        losers: me._getAvgRating(_.pluck(losers, 'elo'))
+        winners: @_getAvgRating(_.pluck(winners, 'elo')),
+        losers: @_getAvgRating(_.pluck(losers, 'elo'))
       elo = new EloRating()
 
       elo.setNewSetings oldRatings.winners, oldRatings.losers, 1, 0

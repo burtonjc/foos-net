@@ -1,14 +1,14 @@
 define [
-    'underscore'
-    'jquery'
-    'marionette'
+  'underscore'
+  'jquery'
+  'marionette'
 
 ], (_, $, Marionette) ->
 
-	Marionette.AppRouter.extend
-    Application: null,
+  Marionette.AppRouter.extend
+    Application: null
 
-		routes:
+    routes:
       'leaderboard': 'leaderboardPage'
       'stats': 'statsPage'
 

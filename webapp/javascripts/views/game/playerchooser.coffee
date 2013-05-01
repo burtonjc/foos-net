@@ -37,7 +37,7 @@ define [
           @players = collection
 
           # In case we are reopening the dialog
-          _.each @collection.models, (player) ->
+          _.each @collection.models, (player) =>
             @players.where({_id: player.get('_id')})[0].set 'staged', true
 
           @_initializeNewPlayerPopover()
@@ -103,15 +103,15 @@ define [
 
     _setPlayerStaged: (player, staged) ->
       player.set 'staged', staged ? true : undefined
-      numOfPlayersStaged = me.players.where(staged: true).length
+      numOfPlayersStaged = @players.where(staged: true).length
 
       if staged
-        me.collection.add player
-        setTimeout(() ->
-          me.ui.playerTypeAhead.val ''
+        @collection.add player
+        setTimeout(() =>
+          @ui.playerTypeAhead.val ''
         , 10)
       else
-        me.collection.remove player
+        @collection.remove player
 
     _updateTypeAheadSource: () ->
       unstagedPlayerList = @players.where(staged: undefined)

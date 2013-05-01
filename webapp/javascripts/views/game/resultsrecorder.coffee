@@ -54,7 +54,7 @@ define [
     _setResults: (winnerIdx) ->
       @results =
         winners: @pairs[winnerIdx],
-        losers: @pairs[winnerIdx ? 0 : 1]
+        losers: @pairs[if winnerIdx then 0 else 1]
 
     getResults: () ->
       @results
