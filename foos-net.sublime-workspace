@@ -1,0 +1,2001 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sec",
+				"securityToken"
+			],
+			[
+				"secu",
+				"securityTokenNode"
+			],
+			[
+				"allM",
+				"allModelEmails"
+			],
+			[
+				"upda",
+				"updatedSource"
+			],
+			[
+				"all",
+				"allModelNames"
+			],
+			[
+				"toLo",
+				"toLowerCase"
+			],
+			[
+				"md",
+				"md5sum"
+			],
+			[
+				"re",
+				"required"
+			],
+			[
+				"new",
+				"new-player-name"
+			],
+			[
+				"player",
+				"playerGain"
+			],
+			[
+				"total",
+				"totalGain"
+			],
+			[
+				"tot",
+				"totalPreElo"
+			],
+			[
+				"tota",
+				"totalPreElo"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"lo",
+				"losers"
+			],
+			[
+				"win",
+				"winners"
+			],
+			[
+				"los",
+				"losersRatings"
+			],
+			[
+				"loser",
+				"losersRating"
+			],
+			[
+				"winn",
+				"winnersRatings"
+			],
+			[
+				"winners",
+				"winnersRating"
+			],
+			[
+				"url",
+				"url_parts"
+			],
+			[
+				"Mat",
+				"MatchSchema"
+			],
+			[
+				"pai",
+				"pairIdx"
+			],
+			[
+				"pair",
+				"pairButtons"
+			],
+			[
+				"header",
+				"headerText"
+			],
+			[
+				"pairOn",
+				"pairOneCt"
+			],
+			[
+				"play",
+				"playerchooser"
+			],
+			[
+				"pairT",
+				"pairTwoPlayers"
+			],
+			[
+				"pairOne",
+				"pairOneElo"
+			],
+			[
+				"pairTwo",
+				"pairTwoCt"
+			],
+			[
+				"parct",
+				"pairOneCt"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"Play",
+				"PlayerCardTpl"
+			],
+			[
+				"game",
+				"gameFooter"
+			],
+			[
+				"_on",
+				"_onComplete"
+			],
+			[
+				"up",
+				"updatedSource"
+			],
+			[
+				"uns",
+				"unstaged"
+			],
+			[
+				"unsta",
+				"unstagePlayerIcon"
+			],
+			[
+				"stage",
+				"stagedPlayerList"
+			],
+			[
+				"Player",
+				"PlayerChooserTpl"
+			],
+			[
+				"ply",
+				"playerTypeAhead"
+			],
+			[
+				"pla",
+				"playerTypeAhead"
+			],
+			[
+				"btn",
+				"btnPrimary"
+			],
+			[
+				"_ini",
+				"_initializeNewPlayerPopover"
+			],
+			[
+				"Pla",
+				"PlayerList"
+			],
+			[
+				"template",
+				"templateHelpers"
+			],
+			[
+				"start",
+				"startGameBtn"
+			],
+			[
+				"ser",
+				"serialized_model"
+			],
+			[
+				"rem",
+				"removeAttr"
+			],
+			[
+				"type",
+				"typeahead"
+			],
+			[
+				"pop",
+				"popover"
+			],
+			[
+				"po",
+				"popover"
+			],
+			[
+				"p",
+				"player"
+			],
+			[
+				"row",
+				"rowEl"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"Foo",
+				"FoosNet"
+			],
+			[
+				"cons",
+				"constructor"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"ac",
+				"activeCls"
+			],
+			[
+				"App",
+				"Application"
+			],
+			[
+				"home",
+				"homePage"
+			],
+			[
+				"Mes",
+				"MessageTemplateTpl"
+			],
+			[
+				"gue",
+				"guestbookTemplate"
+			],
+			[
+				"Mess",
+				"MessageCollectionTmp"
+			],
+			[
+				"Me",
+				"MessageCollection"
+			],
+			[
+				"mess",
+				"messageItemTmp"
+			],
+			[
+				"Ma",
+				"Marionette"
+			],
+			[
+				"toH",
+				"toHaveBeenCalledWith"
+			],
+			[
+				"serv",
+				"serveStatic"
+			],
+			[
+				"get",
+				"get_restify"
+			],
+			[
+				"body",
+				"bodyParser"
+			],
+			[
+				"routes",
+				"Routes"
+			],
+			[
+				"print",
+				"print_exec_res"
+			],
+			[
+				"std",
+				"stderr"
+			],
+			[
+				"ex",
+				"execute_cmd"
+			],
+			[
+				"node",
+				"node_exec"
+			],
+			[
+				"spe",
+				"spec_context_require"
+			],
+			[
+				"mon",
+				"mongodb"
+			],
+			[
+				"mod",
+				"modelName"
+			],
+			[
+				"par",
+				"parentUserStoryRecord"
+			],
+			[
+				"asso",
+				"association"
+			],
+			[
+				"att",
+				"attributes"
+			],
+			[
+				"team",
+				"teamMembers"
+			],
+			[
+				"H",
+				"HierarchicalRequirement"
+			],
+			[
+				"Att",
+				"AttributeType"
+			],
+			[
+				"All",
+				"AllowedValueType"
+			],
+			[
+				"attri",
+				"attribute"
+			],
+			[
+				"attr",
+				"attribute"
+			],
+			[
+				"tag",
+				"tagCombobox"
+			],
+			[
+				"tagF",
+				"tagFilterCombobox"
+			],
+			[
+				"field",
+				"fieldValue"
+			],
+			[
+				"filter",
+				"filterableCollections"
+			],
+			[
+				"mat",
+				"matchFn"
+			],
+			[
+				"clear",
+				"clearValueSpy"
+			],
+			[
+				"i",
+				"italic"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"_fi",
+				"_filterColumns"
+			],
+			[
+				"_dea",
+				"_deactivatedCards"
+			],
+			[
+				"card",
+				"cardboard"
+			],
+			[
+				"pro",
+				"propertyAttributeValues"
+			],
+			[
+				"proper",
+				"propertyAttribute"
+			],
+			[
+				"prop",
+				"propertyAttribute"
+			],
+			[
+				"propertyAt",
+				"propertyAttributeValues"
+			],
+			[
+				"property",
+				"propertyValues"
+			],
+			[
+				"child",
+				"childCollections"
+			],
+			[
+				"rally",
+				"rallycardboard"
+			],
+			[
+				"_ac",
+				"_activateCard"
+			],
+			[
+				"user",
+				"userFilter"
+			],
+			[
+				"current",
+				"currentUser"
+			],
+			[
+				"array",
+				"arrayContains"
+			],
+			[
+				"disp",
+				"displayFields"
+			],
+			[
+				"dis",
+				"displayedField"
+			],
+			[
+				"Plan",
+				"planEstEl"
+			],
+			[
+				"fil",
+				"fieldIdx"
+			],
+			[
+				"getF",
+				"getFields"
+			],
+			[
+				"_mark",
+				"_markEditableFields"
+			],
+			[
+				"_ref",
+				"_refObjectName"
+			],
+			[
+				"whi",
+				"white-space"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"fiel",
+				"fieldName"
+			],
+			[
+				"elem",
+				"elementIsNotPresent"
+			],
+			[
+				"custom",
+				"customFieldsConfig"
+			],
+			[
+				"show",
+				"showReportStub"
+			],
+			[
+				"scroll",
+				"scrollbarSize"
+			],
+			[
+				"rep",
+				"reportComponent"
+			],
+			[
+				"rend",
+				"renderDiv"
+			],
+			[
+				"ele",
+				"elementHasCls"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 581,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Gruntfile.coffee",
+			"settings":
+			{
+				"buffer_size": 853,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 27.0,
+		"selected_items":
+		[
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"delte",
+				"File: Delete"
+			],
+			[
+				"pretty",
+				"HTMLPrettify: Prettify"
+			],
+			[
+				"dupli",
+				"File: Duplicate"
+			],
+			[
+				"synt json",
+				"Set Syntax: JSON"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"dupl",
+				"File: Duplicate"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"syntax scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"de",
+				"File: Delete"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"ren",
+				"File: Rename"
+			],
+			[
+				"renam",
+				"File: Rename"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"tidy",
+				"Tidy HTML"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"synt html",
+				"Set Syntax: HTML"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"renm",
+				"File: Rename"
+			],
+			[
+				"for",
+				"Format: Javascript"
+			],
+			[
+				"forma",
+				"Format: Javascript"
+			],
+			[
+				"coffee",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"blam",
+				"Git: Blame"
+			],
+			[
+				"blame",
+				"Git: Blame"
+			],
+			[
+				"git bla",
+				"Git: Blame"
+			],
+			[
+				"git blam",
+				"Git: Blame"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Diff Tool Current File"
+			],
+			[
+				"git diff",
+				"Git: Diff Current File"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			],
+			[
+				"git blame",
+				"Git: Blame"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pain",
+				"Package Control: Install Package"
+			],
+			[
+				"git ",
+				"Git: Log Current File"
+			],
+			[
+				"git comhi",
+				"Git: Commit history"
+			],
+			[
+				"git dif",
+				"Git: Diff Current File"
+			],
+			[
+				"git d",
+				"Git: Diff Tool"
+			],
+			[
+				"def",
+				"Preferences: Settings - Default"
+			],
+			[
+				"packins",
+				"Package Control: Install Package"
+			],
+			[
+				"packin",
+				"Package Control: Install Package"
+			],
+			[
+				"git: ",
+				"Git: Diff Current File"
+			],
+			[
+				"git hi",
+				"Git: Commit history"
+			],
+			[
+				"Pack instal",
+				"Package Control: Install Package"
+			],
+			[
+				"PackCon Lis",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"Pack",
+				"Package Control: List Packages"
+			],
+			[
+				"PackIns",
+				"Package Control: Install Package"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Remove Package"
+			],
+			[
+				"packIn",
+				"Package Control: Install Package"
+			],
+			[
+				"Git",
+				"Git: Blame"
+			],
+			[
+				"diff",
+				"Git: Open Modified Files"
+			],
+			[
+				"gitdiff",
+				"Git: Diff Tool"
+			],
+			[
+				"jsl",
+				"JSLint: Show JSLint Result"
+			],
+			[
+				"PackIn",
+				"Package Control: Install Package"
+			],
+			[
+				"pack In",
+				"Package Control: Install Package"
+			],
+			[
+				"project",
+				"Project: Save As"
+			],
+			[
+				"ext",
+				"Snippet: Ext.override"
+			],
+			[
+				"pack con: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Packa ins pa",
+				"Package Control: Install Package"
+			],
+			[
+				"git di to",
+				"Git: Diff Tool"
+			],
+			[
+				"Packa In",
+				"Package Control: Install Package"
+			],
+			[
+				"Packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 435.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/jburton/projects/build-dashboard/package.json",
+		"/Users/jburton/projects/appsdk/src/test/webapp/spec/coffeescripts/js-lib/test/mock/AjaxInterceptor.coffee",
+		"/Users/jburton/projects/appsdk/src/test/webapp/spec/coffeescripts/js-lib/test/mock/AjaxBuilder.coffee",
+		"/Users/jburton/projects/appsdk/src/test/webapp/spec/coffeescripts/js-lib/test/mock/ModelObjectMother.coffee",
+		"/Users/jburton/projects/appsdk/src/test/webapp/spec/coffeescripts/js-lib/rui/ui/tree/ProjectTreeSpec.coffee",
+		"/Users/jburton/projects/appsdk/src/main/webapp/js-lib/rui/src/data/TypeDefinitionFetcher.js",
+		"/Users/jburton/projects/appsdk/src/main/webapp/js-lib/rui/src/data/ModelFactory.js",
+		"/Users/jburton/projects/appsdk/src/main/webapp/js-lib/rui/src/ui/tooltip/FilterInfo.js",
+		"/Users/jburton/projects/appsdk/src/test/webapp/spec/coffeescripts/js-lib/rui/ui/tooltip/FilterInfoSpec.coffee",
+		"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js-lib/rui/src/data/ModelFactory.js",
+		"/Users/jburton/projects/alm/alm-webapp/src/test/webapp/js-lib/rui/src/ui/cardboard/ColumnTest.js",
+		"/Users/jburton/projects/alm/alm-webapp/src/test/webapp/spec/coffeescripts/js-lib/rui/ui/detail/view/DetailViewSpec.coffee",
+		"/Users/jburton/projects/alm/alm-webapp/src/test/webapp/spec/coffeescripts/js-lib/test/mock/AjaxInterceptor.coffee",
+		"/Users/jburton/projects/alm/alm-webapp/src/test/webapp/spec/coffeescripts/js-lib/test/mock/SnapshotAjaxInterceptor.coffee",
+		"/Users/jburton/projects/alm/alm-webapp/src/test/webapp/js-lib/rui/src/data/lookback/SnapshotStoreTest.js",
+		"/Users/jburton/projects/alm/alm-webapp/src/test/webapp/spec/javascripts/js-lib/test/mock/env/Global.js",
+		"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js-lib/rui/src/data/Proxy.js",
+		"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js-lib/rui/src/env/IoProvider.js",
+		"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js-lib/rui/src/sdk/data/WsapiJsonPProxy.js",
+		"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js-lib/rui/src/data/WsapiRestProxy.js",
+		"/Users/jburton/projects/node-backbone-boilerplate/node/server.js",
+		"/Users/jburton/projects/node-backbone-boilerplate/node/routes.js",
+		"/Users/jburton/projects/node-backbone-boilerplate/spec/node/RoutesSpec.coffee",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/resultsrecorder.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/resultsrecorder.html",
+		"/Users/jburton/projects/foos-net/node/models/player.js",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/game/_resultsrecorder.scss",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/pairchooser/playercard.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/pairchooser/playercard.html",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/playerlistrow.html",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/game/pairchooser/_playercard.scss",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/playerchooser.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/playerlistrow.js",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/modal/_layout.scss",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/playerchooser.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/main.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/libs/cryptojs/md5.js",
+		"/Users/jburton/projects/foos-net/webapp/index.html",
+		"/Users/jburton/projects/foos-net/webapp/templates/leaderboard/page.html",
+		"/Users/jburton/projects/foos-net/node/controllers/players_controller.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/navigation.html",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/all.scss",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/leaderboard/page.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/navigation.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/home/page.html",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/leaderboard/_page.scss",
+		"/Users/jburton/projects/foos-net/node/helpers/elo.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/collections/players.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/router.js",
+		"/Users/jburton/projects/foos-net/node/lib/elorating.js",
+		"/Users/jburton/projects/foos-net/node/controllers/matches_controller.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/pairchooser/pairchooser.js",
+		"/Users/jburton/projects/foos-net/node/lib/elo.js",
+		"/Users/jburton/projects/foos-net/node/lib",
+		"/Users/jburton/projects/foos-net/README.md",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/models/match.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/controllers/game.js",
+		"/Users/jburton/projects/foos-net/Jakefile.coffee",
+		"/Users/jburton/projects/foos-net/node/models/match.js",
+		"/Users/jburton/projects/foos-net/node/server.js",
+		"/Users/jburton/projects/foos-net/node/router.js",
+		"/Users/jburton/projects/foos-net/package.json",
+		"/Users/jburton/projects/foos-net/node/routes.js",
+		"/Users/jburton/projects/foos-net/spec/node/RouterSpec.coffee",
+		"/Users/jburton/projects/foos-net/spec/node/RoutesSpec.coffee",
+		"/Users/jburton/projects/foos-net/spec/node/mock/controllers/players_controller.js",
+		"/Users/jburton/projects/foos-net/spec/node/mock/controllers/MessagesController.js",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/home/_page.scss",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/models/player.js",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/game/resultsrecorder.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/footer.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/home/page.js",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/game/pairchooser/_pairchooser.scss",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/modal/layout.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/modal/layout.html",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/pairchooser/pairchooser.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/pairchooser/pairwell.js",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/game/pairchooser/_pairwell.scss",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/pairchooser/pairwell.html",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/game/_pairwell.scss",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/game/_pairchooser.scss",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/pairchooser.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/pairchooser.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/header.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/header.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/pairchoose.html",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/footer.html",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/game/_modal.scss",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/modal.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/alert.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/alert.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/playerlist.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/playertypeahead.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/playertypeahead.html",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/playerlist.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/home/game.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/controllers/modal.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/game/modal.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/game/Footer.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/libs/require/plugins/tpl.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/modal",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/regions/modal.js",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/_layout.scss",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/foosnet.js",
+		"/Users/jburton/projects/foos-net/node/models/Message.js",
+		"/Users/jburton/projects/foos-net/node/controllers/MessagesController.js",
+		"/Users/jburton/projects/foos-net/node/db/mongo.js",
+		"/Users/jburton/projects/foos-net/config.rb",
+		"/Users/jburton/projects/foos-net/node/models/players.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/application.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/main",
+		"/Users/jburton/projects/foos-net/webapp/templates/game",
+		"/Users/jburton/projects/foos-net/webapp/templates/footer.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/footer.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/Footer.js",
+		"/Users/jburton/projects/foos-net/webapp/images/audi-foosball-table_2.jpg",
+		"/Users/jburton/projects/foos-net/webapp/css/sass/home/page.scss",
+		"/Users/jburton/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/jburton/projects/foos-net/node/Routes.js",
+		"/Users/jburton/projects/foos-net/spec/node/SpecSetup.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/home/carousel.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/messages/collection.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/messages/item.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/messages/composite.js",
+		"/Users/jburton/projects/foos-net/webapp/templates/messages/composite.html",
+		"/Users/jburton/projects/foos-net/webapp/templates/messages/template.html",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/views/messages/item.js",
+		"/Users/jburton/projects/foos-net/webapp/javascripts/libs/jquery/jquery-min.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/jburton/projects/appsdk/src/main/webapp",
+			"/Users/jburton/projects/appsdk/src/test/webapp/spec/",
+			"/Users/jburton/projects/appsdk/src/test/webapp/spec/coffeescripts/js-lib/test/",
+			"/Users/jburton/projects/appsdk/src/test/webapp/spec/coffeescripts/js-lib/test/mock",
+			"/Users/jburton/projects/alm/alm-webapp,*.js",
+			"/Users/jburton/projects/alm/alm-webapp/src/test/webapp/spec",
+			"/Users/jburton/projects/alm/alm-webapp/src/test/webapp/spec/coffeescripts/js-lib/test",
+			"/Users/jburton/projects/foos-net/webapp",
+			"/Users/jburton/projects/foos-net/webapp/javascripts/views",
+			"/Users/jburton/projects/foos-net",
+			"/Users/jburton/projects/FoosNet",
+			"/Users/jburton/projects/alm/alm-webapp/",
+			"/Users/jburton/projects/alm/alm-webapp/**/*.java",
+			"/Users/jburton/projects/alm/alm-webapp/*/**.java",
+			"/Users/jburton/projects/alm/alm-webapp/",
+			"/Users/jburton/projects/alm/alm-webapp/src/",
+			"/Users/jburton/projects/alm/alm-webapp/src/*/**.jsp",
+			"/Users/jburton/projects/alm/alm-webapp/src/**/*.jsp",
+			"/Users/jburton/projects/alm/alm-webapp/src//**/*.jsp",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/**/*.jsp",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js-lib/ext/4.1.1a",
+			"/Users/jburton/projects/alm/alm-tool-guitest",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js-lib/rui/src",
+			"/Users/jburton/projects/alm/alm-webapp",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js/alm/src",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js/alm/src/ui/dashboard",
+			"alm-tool-guitest/spec",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp",
+			"/Users/jburton/projects/alm/alm-webapp",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js/app/instrumentation",
+			"/Users/jburton/projects/alm/alm-webapp/src/test",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/WEB-INF/jsp",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/WEB-INF/jsp",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/WEB-INF/jsp/content",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp",
+			"/Users/jburton/projects/alm/alm-webapp/",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js-lib/rui/src/ui/cardboard",
+			"/Users/jburton/projects/alm/alm-tool-guitest",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js-lib/rui/resources/themes/stylesheets/rui/widgets/cardboard",
+			"/Users/jburton/projects/alm/alm-webapp/src/main/webapp/js-lib/rui/src/ui/cardboard",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"        ",
+			"       ",
+			"      ",
+			"     ",
+			"    ",
+			"FilterInfo",
+			"rallyfilterinfo",
+			"typePath",
+			"options.version",
+			"values: results",
+			"ersion",
+			"respondWith:",
+			"respondWith",
+			"respondWith:",
+			".getRecords(",
+			"fetcher",
+			"Mother",
+			"MockResponse",
+			"debugger",
+			";\n",
+			"debugger",
+			"restoreStub",
+			"JsonP",
+			"Ext.data.JsonP",
+			"ext4Stub",
+			"JsonP",
+			"(0)",
+			"span",
+			"name",
+			"popover",
+			"name",
+			"gainRation",
+			"log",
+			"og(player);",
+			"'newElo:\\t'",
+			"ratings",
+			"totalGain",
+			"gainRation",
+			"winners",
+			"newElo",
+			"winner",
+			"getNewRatings",
+			"winners",
+			"a:",
+			"match.",
+			"()",
+			"match.winners.length",
+			"player._id",
+			"match.winners",
+			"this",
+			"arr",
+			"params",
+			"request.",
+			"winner",
+			"winners",
+			"player",
+			"Player",
+			"url",
+			"limi",
+			"Player",
+			"PlayerSchema",
+			"id",
+			"_setWinner",
+			"pairIdx",
+			"this",
+			"Choose your pairs...",
+			"Mationette",
+			"btnPrimary",
+			"me",
+			"this",
+			"playerchooser",
+			"ready",
+			"_complete",
+			"_incomplete",
+			"_onIncomplete",
+			"_onComplete",
+			"incomplete",
+			"complete",
+			"me",
+			"h4",
+			"this",
+			"ui.",
+			"tmp",
+			"pairTwoPlayers",
+			"pairOnePlayers",
+			"this",
+			"me",
+			"stagedPlayerList",
+			"me.players",
+			"game/modal",
+			"PlayerList",
+			"views/game/playerlist",
+			"playerlist",
+			"msg",
+			",",
+			"'",
+			"_setPlayerStaged",
+			"disable",
+			"debugger;",
+			"popover",
+			"Cls",
+			"popover",
+			"me",
+			"_updateTypeAheadSource",
+			"_onComplete",
+			"player:unstaged",
+			"_setPlayerStaged",
+			"_updateTypeAheadSource",
+			"player:staged",
+			"_setPlayerStaged",
+			"this",
+			"me",
+			"this",
+			"_setPlayerStaged",
+			"this",
+			"incomplete",
+			"click",
+			"_togglePlayerSelected",
+			"me.players",
+			"input",
+			"_getRowForPlayer",
+			"_addRowForPlayer",
+			"'",
+			"title",
+			"$popoverAttachPoint",
+			"$me",
+			"table",
+			"$(me.el).find('.btn.start-game')"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								532,
+								532
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Gruntfile.coffee",
+					"settings":
+					{
+						"buffer_size": 853,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								253,
+								253
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 252.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"output.jslint_result_view":
+	{
+		"height": 100.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 114.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"g",
+				"Gruntfile.coffee"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"src/main/webapp/ext-mo",
+				"src/main/webapp/js-lib/rui/src/Ext-more.js"
+			],
+			[
+				"sdk.",
+				"rake/tasks/sdk.rake"
+			],
+			[
+				"filter",
+				"src/main/webapp/js-lib/rui/src/ui/tooltip/FilterInfo.js"
+			],
+			[
+				"model",
+				"src/main/webapp/js-lib/rui/src/data/ModelFactory.js"
+			],
+			[
+				"modelfac",
+				"src/main/webapp/js-lib/rui/src/data/ModelFactory.js"
+			],
+			[
+				"modelfa",
+				"src/main/webapp/js-lib/rui/src/data/ModelFactory.js"
+			],
+			[
+				"typede",
+				"src/main/webapp/js-lib/rui/src/data/TypeDefinitionFetcher.js"
+			],
+			[
+				"mother",
+				"src/test/webapp/spec/coffeescripts/js-lib/test/mock/ModelObjectMother.coffee"
+			],
+			[
+				"filterinfo",
+				"src/main/webapp/js-lib/rui/src/ui/tooltip/FilterInfo.js"
+			],
+			[
+				"columntest",
+				"alm-webapp/src/test/webapp/js-lib/rui/src/ui/cardboard/ColumnTest.js"
+			],
+			[
+				"detailview",
+				"alm-webapp/src/test/webapp/spec/coffeescripts/js-lib/rui/ui/detail/view/DetailViewSpec.coffee"
+			],
+			[
+				"global.js",
+				"alm-webapp/src/test/webapp/spec/javascripts/js-lib/test/mock/env/Global.js"
+			],
+			[
+				"ajaxi",
+				"alm-webapp/src/test/webapp/spec/coffeescripts/js-lib/test/mock/AjaxInterceptor.coffee"
+			],
+			[
+				"snapshotajaxinterceptor",
+				"alm-webapp/src/test/webapp/spec/coffeescripts/js-lib/test/mock/SnapshotAjaxInterceptor.coffee"
+			],
+			[
+				"snapshotstoretest",
+				"alm-webapp/src/test/webapp/js-lib/rui/src/data/lookback/SnapshotStoreTest.js"
+			],
+			[
+				"ioprovi",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/env/IoProvider.js"
+			],
+			[
+				"data/proxy",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/Proxy.js"
+			],
+			[
+				"jsonppro",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/sdk/data/WsapiJsonPProxy.js"
+			],
+			[
+				"restproxy",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/WsapiRestProxy.js"
+			],
+			[
+				"playcar",
+				"webapp/templates/game/pairchooser/playercard.html"
+			],
+			[
+				"paircho",
+				"webapp/javascripts/views/game/pairchooser/pairchooser.js"
+			],
+			[
+				"rea",
+				"README.md"
+			],
+			[
+				"jake",
+				"Jakefile.coffee"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"page",
+				"webapp/css/sass/home/_page.scss"
+			],
+			[
+				"pairchoo",
+				"webapp/javascripts/views/game/pairchooser/pairchooser.js"
+			],
+			[
+				"player.js",
+				"webapp/javascripts/models/player.js"
+			],
+			[
+				"footer",
+				"webapp/javascripts/views/game/footer.js"
+			],
+			[
+				"layou",
+				"webapp/templates/modal/layout.html"
+			],
+			[
+				"playchoo",
+				"webapp/javascripts/views/game/playerchooser.js"
+			],
+			[
+				"game.js",
+				"webapp/javascripts/controllers/game.js"
+			],
+			[
+				"pair",
+				"webapp/css/sass/game/pairchooser/_pairchooser.scss"
+			],
+			[
+				"player",
+				"webapp/javascripts/views/game/playerchooser.js"
+			],
+			[
+				"modal",
+				"webapp/javascripts/views/modal/layout.js"
+			],
+			[
+				"pai",
+				"webapp/templates/game/pairchooser.html"
+			],
+			[
+				"playerchoo",
+				"webapp/templates/game/playerchooser.html"
+			],
+			[
+				"playty",
+				"webapp/templates/game/playertypeahead.html"
+			],
+			[
+				"temp/play",
+				"webapp/templates/game/playerlist.html"
+			],
+			[
+				"templa/pla",
+				"webapp/templates/game/playerlistrow.html"
+			],
+			[
+				"game/foo",
+				"webapp/templates/game/footer.html"
+			],
+			[
+				"gamefooter.",
+				"webapp/templates/game/footer.html"
+			],
+			[
+				"footer.h",
+				"webapp/templates/game/footer.html"
+			],
+			[
+				"router",
+				"webapp/javascripts/router.js"
+			],
+			[
+				"home",
+				"webapp/javascripts/views/home/page.js"
+			],
+			[
+				"modal.",
+				"webapp/templates/game/modal.html"
+			],
+			[
+				"hom",
+				"webapp/templates/home/page.html"
+			],
+			[
+				"inde",
+				"webapp/index.html"
+			],
+			[
+				"_lay",
+				"webapp/css/sass/_layout.scss"
+			],
+			[
+				"pla",
+				"node/controllers/players_controller.js"
+			],
+			[
+				"navi",
+				"webapp/javascripts/views/navigation.js"
+			],
+			[
+				"_page",
+				"webapp/css/sass/home/_page.scss"
+			],
+			[
+				"views/ap",
+				"webapp/javascripts/views/app.js"
+			],
+			[
+				"server",
+				"node/server.js"
+			],
+			[
+				"mes",
+				"node/controllers/MessagesController.js"
+			],
+			[
+				"routessp",
+				"spec/node/RoutesSpec.coffee"
+			],
+			[
+				"specs",
+				"spec/node/SpecSetup.js"
+			],
+			[
+				"mongo",
+				"node/db/Mongo.js"
+			],
+			[
+				"mock/",
+				"spec/mock/controllers/MessagesController.js"
+			],
+			[
+				"rout",
+				"node/Routes.js"
+			],
+			[
+				"spe",
+				"spec/SpecSetup.js"
+			],
+			[
+				"message",
+				"domain/models/Message.js"
+			],
+			[
+				"lay",
+				"webapp/templates/layout.html"
+			],
+			[
+				"ser",
+				"server.js"
+			],
+			[
+				"gemfi",
+				"Gemfile"
+			],
+			[
+				"schemaserv",
+				"alm-webapp/src/main/java/com/rallydev/webservice/schema/SchemaServlet.java"
+			],
+			[
+				"schemamodel",
+				"alm-webapp/src/main/java/com/rallydev/webservice/schema/ModelSchemaService.java"
+			],
+			[
+				"feattoggls.java",
+				"alm-webapp/src/main/java/com/rallydev/application/featuretoggle/FeatureToggles.java"
+			],
+			[
+				"featuretog",
+				"alm-webapp/src/main/java/com/rallydev/application/featuretoggle/FeatureToggles.java"
+			],
+			[
+				"legacy.js",
+				"alm-webapp/src/main/webapp/js/alm/src/content/pages/LegacyPageMapping.js"
+			],
+			[
+				"storsplivew",
+				"alm-webapp/src/main/webapp/js/alm/src/content/pages/storysplitting/StorySplittingView.js"
+			],
+			[
+				"alm-tool-guitest/spec/pages/project/quality/defects/editor/defect_choosers_spec.rb",
+				"alm-tool-guitest/spec/pages/project/quality/defects/editor/defect_choosers_spec.rb"
+			],
+			[
+				"defect.js",
+				"alm-webapp/src/main/webapp/js/defect.js"
+			],
+			[
+				"taskmo",
+				"alm-webapp/src/main/webapp/js/alm/src/ui/timeline/TaskModelFactory.js"
+			],
+			[
+				"rally/ui/project/projecttree.js",
+				"alm-webapp/src/main/webapp/js/rally/ui/project/ProjectTree.js"
+			],
+			[
+				"attributedefinitionlistview",
+				"alm-webapp/src/test/webapp/spec/coffeescripts/js/alm/ui/list/AttributeDefinitionListViewSpec.coffee"
+			],
+			[
+				"subscription_editor_behaviors.rb",
+				"alm-tool-guitest/spec/lib/behaviors/editor/subscription_editor_behaviors.rb"
+			],
+			[
+				"hasmany",
+				"alm-webapp/src/main/webapp/js-lib/ext/4.1.1a/src/data/association/HasMany.js"
+			],
+			[
+				"data/model.js",
+				"alm-webapp/src/main/webapp/js-lib/ext/4.1.1a/src/data/Model.js"
+			],
+			[
+				"script.tag",
+				"alm-webapp/src/main/webapp/WEB-INF/tags/rui/script.tag"
+			],
+			[
+				"usercom",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/ui/combobox/UserComboBox.js"
+			],
+			[
+				"modelfactor",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/ModelFactory.js"
+			],
+			[
+				"fieldfac",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/FieldFactory.js"
+			],
+			[
+				"iopro",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/env/IoProvider.js"
+			],
+			[
+				"rally_rest_api",
+				"alm-tool-guitest/spec/jruby_ext/thread_safe_rally_rest_api.rb"
+			],
+			[
+				"session_rep",
+				"alm-tool-guitest/spec/session_replication/session_replication_spec.rb"
+			],
+			[
+				"subscription_buil",
+				"alm-tool-guitest/spec/lib/factories/rest/subscription_builder.rb"
+			],
+			[
+				"subscription_builder.rb",
+				"alm-tool-guitest/spec/lib/factories/rest/subscription_builder.rb"
+			],
+			[
+				"util/ref.js",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/util/Ref.js"
+			],
+			[
+				"wsapimo",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/domain/WsapiModel.js"
+			],
+			[
+				"wsapimoc",
+				"alm-webapp/src/main/resources/migrations/alm/2011-11-05/add-portfolio-item-type-oid-column-to-artifact.xml"
+			],
+			[
+				"fieldf",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/FieldFactory.js"
+			],
+			[
+				"usercombo",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/ui/combobox/UserComboBoxDataGenerator.js"
+			],
+			[
+				"artifact.ja",
+				"alm-webapp/src/main/java/com/f4tech/slm/domain/Artifact.java"
+			],
+			[
+				"scheduable",
+				"alm-webapp/src/main/java/com/f4tech/slm/domain/SchedulableAgileWorkProduct.java"
+			],
+			[
+				"userstory.java",
+				"alm-webapp/src/main/java/com/f4tech/slm/domain/UserStory.java"
+			],
+			[
+				"gridboardaddn",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/ui/gridboard/plugin/GridBoardAddNew.js"
+			],
+			[
+				"gridboard.js",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/ui/gridboard/GridBoard.js"
+			],
+			[
+				"iterationtrack",
+				"alm-webapp/src/main/webapp/js/app/iterationtrackingboard/IterationTrackingBoardApp.js"
+			],
+			[
+				"fieldfactory",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/FieldFactory.js"
+			],
+			[
+				"wsapimod",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/domain/WsapiModel.js"
+			],
+			[
+				"modelty",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/ModelTypes.js"
+			],
+			[
+				"user.js",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/domain/User.js"
+			],
+			[
+				"userstory.js",
+				"alm-webapp/src/test/webapp/js-lib/rui-mock/src/data/types/UserStory.js"
+			],
+			[
+				"filters",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/ui/cardboard/Filters.js"
+			],
+			[
+				"filterable",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/ui/cardboard/Filterable.js"
+			],
+			[
+				"rank.js",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/Ranker.js"
+			],
+			[
+				"environmentjs",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/env/Environment.js"
+			],
+			[
+				"modelfactory",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/ModelFactory.js"
+			],
+			[
+				"wsapifind",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/WsapiFindRecords.js"
+			],
+			[
+				"wsapidata",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/data/WsapiDataStore.js"
+			],
+			[
+				"combobox",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/ui/combobox/ComboBox.js"
+			],
+			[
+				"instrumentationapp",
+				"alm-webapp/src/main/webapp/js/app/instrumentation/InstrumentationApp.js"
+			],
+			[
+				"ext-all",
+				"alm-webapp/src/main/webapp/js-lib/ext/4.1.1a/ext-all-debug.js"
+			],
+			[
+				"browser.rb",
+				"alm-tool-guitest/spec/lib/helpers/rally_browser.rb"
+			],
+			[
+				"spec/pages/project/my_home/dashboard/hs_defect_item_spec.rb",
+				"alm-tool-guitest/spec/pages/project/my_home/dashboard/hs_defect_item_spec.rb"
+			],
+			[
+				"kafkremo",
+				"alm-webapp/src/main/java/com/f4tech/slm/persistence/eclipselink/coordination/kafka/KafkaRemoteConnection.java"
+			],
+			[
+				"iterationtrackingboardapp.js",
+				"alm-webapp/src/main/webapp/js/app/iterationtrackingboard/IterationTrackingBoardApp.js"
+			],
+			[
+				"instrumentapp.js",
+				"alm-webapp/src/main/webapp/js/app/instrumentation/InstrumentationApp.js"
+			],
+			[
+				"rui/combobox.js",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/ui/combobox/ComboBox.js"
+			],
+			[
+				"filters.js",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/ui/cardboard/Filters.js"
+			],
+			[
+				"rui/combobox",
+				"alm-webapp/src/main/webapp/js-lib/rui/src/ui/combobox/ComboBox.js"
+			],
+			[
+				"itertrackboardapp",
+				"alm-webapp/src/main/webapp/js/app/iterationtrackingboard/IterationTrackingBoardApp.js"
+			],
+			[
+				"tag.jav",
+				"alm-webapp/src/main/java/com/f4tech/slm/domain/Tag.java"
+			],
+			[
+				"instrument",
+				"alm-webapp/src/main/webapp/js/app/instrumentation/InstrumentationApp.js"
+			],
+			[
+				"restcollection",
+				"alm-webapp/src/test/java/com/rallydev/webservice/rest/RestRenderingCollectionHandlerTest.java"
+			],
+			[
+				"instru",
+				"alm-webapp/src/main/webapp/js/app/instrumentation/InstrumentationApp.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 336.0,
+	"status_bar_visible": true
+}
