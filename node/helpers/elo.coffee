@@ -7,13 +7,10 @@ define [
     1100
 
   applyMatch: (match) ->
-    console.log('MATCH:\t', match.winners.concat(match.losers))
-
     Player.find(
       _id:
         $in: match.winners.concat match.losers
     ).select('_id elo').exec (arr, players) =>
-      console.log '\n\nPLAYERS:\t', players
       winners = []
       losers = []
       winner_ids = _.invoke match.winners, 'toString'
