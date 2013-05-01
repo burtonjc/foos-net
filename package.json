@@ -9,11 +9,12 @@
     "node": "0.8.21"
   },
   "dependencies": {
-    "restify": "2.3.4",
+    "coffee-script": "1.6.2",
+    "jake": "0.5.8",
+    "jasmine-node": "1.3.0",
     "mongoose": "3.5.7",
     "requirejs": "2.1.5",
-    "jasmine-node": "1.3.0",
-    "underscore": "1.4.4",
-    "jake": "0.5.8"
+    "restify": "2.3.4",
+    "underscore": "1.4.4"
   }
 }
