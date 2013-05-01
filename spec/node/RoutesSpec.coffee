@@ -1,5 +1,6 @@
 createContext({
-    'controllers/players_controller': 'mock/controllers/players_controller'
+    'controllers/players_controller': 'mock/controllers/players_controller',
+    'controllers/matches_controller': 'mock/controllers/matches_controller'
 
 }).require [
   'underscore'
