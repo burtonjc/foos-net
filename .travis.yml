@@ -4,7 +4,7 @@ node_js:
 script: "grunt test"
 before_script:
   - npm install -g grunt-cli
-  - gem install -g sass
+  - gem install sass
 
 # whitelist
 branches:
