@@ -8,15 +8,6 @@ print_exec_res = (error, stdout, stderr) ->
     console.log "\nexec error:\n#{error}"
   complete()
 
-namespace 'spec', () ->
-  desc 'Run node server specs.'
-  task 'node', [], () ->
-    spec_root = 'spec/node/'
-    setup = spec_root + 'SpecSetup.js'
-
-    console.log "\nRunning node specs...:"
-    node_exec "jasmine-node --color --coffee --requireJsSetup #{setup} #{spec_root}", print_exec_res
-
 namespace 'run', () ->
   desc 'Start server.'
   task 'server', [], () ->
