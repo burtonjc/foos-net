@@ -8,22 +8,11 @@ print_exec_res = (error, stdout, stderr) ->
     console.log "\nexec error:\n#{error}"
   complete()
 
-namespace 'run', () ->
-  desc 'Start server.'
-  task 'server', [], () ->
-    console.log '\nStarting server...'
-    jake.exec 'node node/server', () ->
-      complete()
-    ,{
-      printStdout: true,
-      printStderr: true
-    }
-
 namespace 'db', () ->
   desc 'Clean mongodb.'
   task 'clean', [], () ->
     console.log '\nCleaning db...'
-    node_exec 'mongo test --eval "db.dropDatabase()"', print_exec_res
+    node_exec 'mongo --eval "db.dropDatabase()" test', print_exec_res
 
   desc 'Start mongodb.'
   task 'start', [], () ->

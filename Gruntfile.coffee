@@ -71,3 +71,12 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'build', ['clean', 'coffee', 'sass', 'copy']
   grunt.registerTask 'test', ['clean', 'build', 'jasmine_node']
+
+  grunt.registerTask 'node:run', 'Starts the node server', () ->
+    child = grunt.util.spawn
+      cmd: process.argv[0] #node
+      args: ['target/node/server.js']
+    , @async()
+
+    child.stdout.pipe process.stdout
+    child.stderr.pipe process.stderr

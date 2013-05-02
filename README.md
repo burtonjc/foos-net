@@ -10,7 +10,7 @@ To get started:
   7. Install and start MongoDB:
     1. `brew install -g mongodb`
     2. `jake db:start`
-  8. Start up the server: `grunt build && node target/node/server.js`
+  8. Build the project and start up the server: `grunt build node:run`
   9. Point your browser to the location specified in the otput from the command in number 7
 
 To run the tests:
