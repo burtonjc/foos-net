@@ -55,9 +55,14 @@ module.exports = (grunt) ->
           'target/webapp/stylesheets/all.css': 'webapp/stylesheets/all.scss'
 
     watch:
-      scripts:
-        files: ['webapp/coffeescripts/**/*.coffee']
+      coffee:
+        files: ['webapp/javascripts/**/*.coffee']
         tasks: ['coffee']
+        options:
+          nospawn: true
+      sass:
+        files: ['webapp/stylesheets/**/*.scss']
+        tasks: ['sass']
         options:
           nospawn: true
 
