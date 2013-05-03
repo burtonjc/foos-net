@@ -1,17 +1,23 @@
 define [
-    'jquery'
-    'marionette'
-    'text!templates/navigation.html'
+  'jquery'
+  'marionette'
+  'text!templates/navigation.html'
 
 ], ($, Marionette, NavigationTpl) ->
 
-    Marionette.ItemView.extend
-        template: NavigationTpl
+  Marionette.ItemView.extend
+    template: NavigationTpl
 
-        onRender: () ->
-            hash = (window.location.hash || 'home').replace '#', ''
-            $(@el).find('li.' + hash).addClass 'active'
-            $(@el).delegate 'li', 'click', (a, b, c, d) ->
-                activeCls = 'active'
-                $(a.currentTarget.parentElement).find('.' + activeCls).removeClass activeCls
-                $(a.currentTarget).addClass activeCls
+    onRender: () ->
+      @_setActiveItem(window.location.hash)
+      @$el.delegate 'a', 'click', (event) =>
+        @_setActiveItem $(event.currentTarget).attr('href')
+
+    _setActiveItem: (href='#') ->
+      if href is ''
+        href = '#'
+      activeCls = 'active'
+      ul = @$el.first('ul')
+      ul.find('.' + activeCls).removeClass activeCls
+      ul.find("a[href=\"#{href}\"]").parent('li').addClass activeCls
+
