@@ -1,3 +1,4 @@
+# FoosNet [![Build Status](https://travis-ci.org/burtonjc/foos-net.png?branch=master)](https://travis-ci.org/burtonjc/foos-net)
 FoosNet is a fooseball ranking system. It began development as a Rally Software Development hack-a-thon project.
 
 To get started:
