@@ -58,13 +58,12 @@ module.exports = (grunt) ->
       coffee:
         files: ['webapp/javascripts/**/*.coffee']
         tasks: ['coffee']
-        options:
-          nospawn: true
+      copy:
+        files: ['webapp/templates/**/*.html']
+        tasks: ['copy']
       sass:
         files: ['webapp/stylesheets/**/*.scss']
         tasks: ['sass']
-        options:
-          nospawn: true
 
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
