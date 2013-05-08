@@ -4,14 +4,23 @@ define.config
   nodeRequire: require
 
 define [
-	'restify',
-	'router',
+  'cluster'
+  'os'
+	'restify'
+	'router'
 	'db/mongo'
 
-], (restify, router, mongo) ->
+], (cluster, os, restify, router, mongo) ->
   mongo.init()
 
-  server = restify.createServer()
-  router.init(server)
-  server.listen 8080, () ->
-    console.log('%s listening at %s', server.name, server.url)
+  if cluster.isMaster
+    numCPUs = Math.min 2, os.cpus().length
+    console.log "Forking process for #{numCPUs} nodes..."
+    cluster.fork() for cpu in [1..numCPUs]
+    cluster.on 'exit', (worker, code, signal) ->
+      console.log "Worker #{worker.process.pid} died."
+  else
+    server = restify.createServer()
+    router.init(server)
+    server.listen 8080, () ->
+      console.log "#{server.name} listening at #{server.url}"
