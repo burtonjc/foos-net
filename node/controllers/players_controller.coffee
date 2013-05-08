@@ -8,8 +8,13 @@ define [
   get: (request, response, next) ->
     url_parts = Url.parse request.url, true
 
-    Player.find().limit(url_parts.query.limit || 100).sort('-elo').execFind (arr, data) ->
-      response.json data
+    Player
+      .find()
+      .select('elo name email _id')
+      .limit(url_parts.query.limit || 100)
+      .sort('-elo')
+      .execFind (arr, data) ->
+        response.json data
 
   post: (request, response, next) ->
     player = new Player request.params
