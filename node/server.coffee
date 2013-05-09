@@ -14,7 +14,7 @@ define [
   mongo.init()
 
   if cluster.isMaster
-    numCPUs = Math.min 2, os.cpus().length
+    numCPUs = os.cpus().length
     console.log "Forking process for #{numCPUs} nodes..."
     cluster.fork() for cpu in [1..numCPUs]
     cluster.on 'exit', (worker, code, signal) ->
