@@ -1,7 +1,7 @@
 # FoosNet [![Build Status](https://travis-ci.org/burtonjc/foos-net.png?branch=master)](https://travis-ci.org/burtonjc/foos-net)
 FoosNet is a fooseball ranking system. It began development as a Rally Software Development hack-a-thon project.
 
-To get started:
+##Getting started
   1. Fork and Clone the repo
   2. `cd foos-net`
   3. Install Node: `sudo npm install -g node`
@@ -14,5 +14,5 @@ To get started:
   8. Build the project and start up the server: `grunt build node:run`
   9. Point your browser to the location specified in the otput from the command in number 7
 
-To run the tests:
-  1. Run tests: `grunt test`
+##Testing
+You can run all server side tests through grunt with the `grunt test:node` command. If you are actively working on server side code, you can also use `grunt test:node:watch` to run the tests on every code change.
