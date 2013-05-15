@@ -1,4 +1,5 @@
 require.config
+  name: 'main'
   paths:
     backbone: '../lib/backbone.marionette/backbone'
     'backbone.wreqr': '../lib/backbone.marionette/backbone-wreqr-min'

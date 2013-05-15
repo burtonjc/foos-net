@@ -1,12 +1,12 @@
 define [
-  'controllers/players_controller'
 	'controllers/matches_controller'
+  'controllers/players_controller'
   'controllers/player_matches_controller'
 
-], (PlayersController, MatchesController, PlayerMatchesController) ->
+], (MatchesController, PlayersController, PlayerMatchesController) ->
 
   {
-    '/players': PlayersController
     '/matches': MatchesController
+    '/players': PlayersController
     '/players/:id/matches': PlayerMatchesController
   }

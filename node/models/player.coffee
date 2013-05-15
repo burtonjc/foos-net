@@ -2,6 +2,10 @@ define [
   'mongoose'
 
 ], (mongoose) ->
+  try
+    return mongoose.model 'Player'
+  catch error
+
   trimAndLowerCase = (v) ->
     v.trim().toLowerCase()
 

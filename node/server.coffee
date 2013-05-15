@@ -1,14 +1,17 @@
-define = require 'requirejs'
-define.config
+requirejs = require 'requirejs'
+requirejs.config
+  name: 'server'
   baseUrl: __dirname
   nodeRequire: require
+  paths:
+    'node_modules': "../node_modules/"
 
-define [
+requirejs [
   'cluster'
   'os'
-	'restify'
-	'router'
-	'db/mongo'
+  'restify'
+  'router'
+  'db/mongo'
 
 ], (cluster, os, restify, router, mongo) ->
   mongo.init()

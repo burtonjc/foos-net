@@ -2,6 +2,10 @@ define [
   'mongoose'
 
 ], (mongoose) ->
+  try
+    return mongoose.model 'Match'
+  catch error
+
   Schema = mongoose.Schema
   MatchSchema = new Schema
     date:
