@@ -2,11 +2,11 @@ language: node_js
 node_js:
     - "0.10.5"
 script: "grunt test:node"
+services:
+  - mongodb
 before_script:
   - npm install -g grunt-cli
   - gem install sass
-  - apt-get install mongodb-10gen
-  - service mongodb start
 
 # whitelist
 branches:
