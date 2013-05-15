@@ -5,6 +5,8 @@ script: "grunt test:node"
 before_script:
   - npm install -g grunt-cli
   - gem install sass
+  - brew install -g mongo
+  - jake db:start
 
 # whitelist
 branches:
