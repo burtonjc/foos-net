@@ -7,7 +7,6 @@ define [
 ], (_, Match, Player, Url) ->
 
   get: (request, response, next) ->
-    console.log "id:\t#{request.params.id}"
     Match.find(
       $or:[{
           winners:

@@ -1,3 +1,10 @@
-<img class="gravatar img-rounded pull-left" src="http://www.gravatar.com/avatar/<%= emailHash %>?d=mm&s=<%= imgSize %>" />
-<div class="name pull-left"><%= name %></div>
-<div class="elo pull-right"><%= elo %></div>
+<div class="row-fluid">
+  <img class="gravatar img-rounded span2" src="http://www.gravatar.com/avatar/<%= emailHash %>?d=mm&s=<%= imgSize %>" />
+  <div class="span10">
+    <div class="row-fluid">
+      <div class="name pull-left"><%= name %></div>
+      <div class="elo pull-right"><%= elo %></div>
+    </div>
+    <div class="player-record-region row-fluid"></div>
+  </div>
+</div>

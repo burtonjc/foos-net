@@ -5,15 +5,19 @@ define [
   'marionette'
   'models/player'
   'cryptojs'
+  'views/game/pairchooser/playerrecord'
   'tpl!templates/game/pairchooser/playercard.html'
 
-], ($, jqueryui, _, Marionette, Player, CryptoJS, PlayerCardTpl) ->
+], ($, jqueryui, _, Marionette, Player, CryptoJS, PlayerRecordView, PlayerCardTpl) ->
 
-  Marionette.ItemView.extend
+  Marionette.Layout.extend
     template: PlayerCardTpl
     className: 'player-card img-rounded'
     tagName: 'div'
     model: Player
+
+    regions:
+      playerRecord: '.player-record-region'
 
     triggers:
       'drag:dropped': 'drag:dropped'
@@ -24,4 +28,5 @@ define [
         emailHash: CryptoJS.MD5(this.model.get('email').trim().toLowerCase())
 
     onRender: () ->
+      @playerRecord.show new PlayerRecordView(player: @model)
       $(@el).draggable(revert: 'invalid')
