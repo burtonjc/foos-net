@@ -6,7 +6,21 @@ define [
 ], (MatchesController, PlayersController, PlayerMatchesController) ->
 
   {
-    '/matches': MatchesController
-    '/players': PlayersController
-    '/players/:id/matches': PlayerMatchesController
+    '/matches':
+      'controller': MatchesController
+      'actions': ['create', 'query']
+    '/matches/:id':
+      'controller': MatchesController
+      'actions': ['get']
+
+    '/players':
+      'controller': PlayersController
+      'actions': ['create', 'query']
+    '/players/:id':
+      'controller': PlayersController
+      'actions': ['get']
+
+    '/players/:id/matches':
+      'controller': PlayerMatchesController
+      'actions': ['query']
   }

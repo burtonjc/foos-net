@@ -6,17 +6,23 @@ define [
 
 ], (_, Match, Elo, Url) ->
 
+  query: (request, response, next) ->
+    Match.find()
+      .select('_id winners losers date')
+      .populate('winners', 'name elo _id')
+      .populate('losers', 'name elo _id')
+      .exec (arr, data) ->
+        response.json(data)
+
   get: (request, response, next) ->
-    url_parts = Url.parse request.url,true
+    Match.findById(request.params.id)
+      .select('_id winners losers date')
+      .populate('winners', 'name elo _id')
+      .populate('losers', 'name elo _id')
+      .exec (arr, data) ->
+        response.json(data)
 
-    Match.find().limit(url_parts.query.limit || 20)
-          .select('_id winners losers date')
-          .populate('winners', 'name elo _id')
-          .populate('losers', 'name elo _id')
-          .exec (arr, data) ->
-            response.json(data)
-
-  post: (request, response, next) ->
+  create: (request, response, next) ->
     match = new Match()
     body = JSON.parse request.body
 

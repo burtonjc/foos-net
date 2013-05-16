@@ -6,7 +6,7 @@ define [
 
 ], (_, Match, Player, Url) ->
 
-  get: (request, response, next) ->
+  query: (request, response, next) ->
     Match.find(
       $or:[{
           winners:
@@ -15,7 +15,8 @@ define [
           losers:
             $all: [request.params.id]
         }]
-    ).select('_id winners losers date')
+    )
+    .select('_id winners losers date')
     .populate('winners', '_id')
     .populate('losers', '_id')
     .exec (arr, data) ->

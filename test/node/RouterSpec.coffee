@@ -45,10 +45,7 @@ describe "Router", () ->
       @server.get.should.have.been.calledWith @router.ALL_ROUTES_REGEX, @restify.serveStatic(@router.STATIC_CONFIG)
 
     it "should wire up routes for all actions on handler", () =>
-      _.each @routes, (controller, path) =>
-        _.each @router.HTTP_ACTIONS, (action) =>
-          if _.isFunction controller[action]
-            @server[action].should.have.been.calledWith path, controller[action]
-          else
-            @server[action].should.not.have.been.calledWith path
-            @server[action].should.not.have.been.calledWith path, controller[action]
+      _.each @routes, (config, path) =>
+        _.each @router.HTTP_ACTION_METHOD_MAP, (method, action) =>
+          if _.contains(config.actions, action)
+            @server[method].should.have.been.calledWith path, config.controller[action]
