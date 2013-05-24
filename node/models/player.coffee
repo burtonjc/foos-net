@@ -18,7 +18,9 @@ define [
       required: true
       unique: true
       set: trimAndLowerCase
-    elo: Number
+    elo:
+      type: Number
+      required: true
 
   mongoose.model 'Player', PlayerSchema
   mongoose.model 'Player'

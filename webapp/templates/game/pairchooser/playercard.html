@@ -1,10 +1,19 @@
 <div class="row-fluid">
-  <img class="gravatar img-rounded span2" src="http://www.gravatar.com/avatar/<%= emailHash %>?d=mm&s=<%= imgSize %>" />
-  <div class="span10">
-    <div class="row-fluid">
-      <div class="name pull-left"><%= name %></div>
-      <div class="elo pull-right"><%= elo %></div>
+    <img class="gravatar img-rounded span3" src="http://www.gravatar.com/avatar/<%= emailHash %>?d=mm&s=<%= imgSize %>" />
+    <div class="span8">
+      <div class="row-fluid">
+        <div class="name span12"><h4><%= name %> <small><%= elo %></small><h3></div>
+      </div>
+      <div class="row-fluid">
+        <div class="player-record-region span12"></div>
+      </div>
     </div>
-    <div class="player-record-region row-fluid"></div>
-  </div>
+    <div class="span1">
+      <div class="row-fluid remove" data-toggle="tooltip">
+        <i class="icon-remove"></i>
+      </div>
+      <div class="row-fluid move" data-toggle="tooltip">
+        <i class="icon-share-alt"></i>
+      </div>
+    </div>
 </div>

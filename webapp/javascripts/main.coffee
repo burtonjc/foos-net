@@ -7,7 +7,6 @@ require.config
     'bootstrap': '../lib/bootstrap/js/bootstrap'
     cryptojs: '../lib/cryptojs/md5'
     jquery: '../lib/jquery/jquery'
-    jqueryui: '../lib/jqueryui/js/jquery-ui-1.10.1.custom'
     marionette: '../lib/backbone.marionette/backbone-marionette'
     underscore: '../lib/underscore/underscore'
 
@@ -25,7 +24,6 @@ require.config
     'backbone.babysitter': ['backbone']
     jquery:
       exports: 'jQuery'
-    jqueryui: ['jquery']
     marionette:
       deps: ['jquery', 'underscore', 'backbone']
       exports: 'Marionette'

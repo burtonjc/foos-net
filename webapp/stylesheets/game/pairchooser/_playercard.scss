@@ -6,12 +6,19 @@
 
     background: #fff;
 
-    padding: 2px 8px 2px 2px;
     margin: 12px 0px;
 
     overflow: hidden;
 
-    .player-name {
-        font-size: 12px;
+    .name h4 {
+        margin: 4px 0 2px 0;
+    }
+
+    .remove, .move {
+        cursor: pointer;
+    }
+
+    .move {
+        margin-top: 36px;
     }
 }

@@ -1,19 +1,16 @@
 define [
   'jquery'
-  'jqueryui'
   'underscore'
   'marionette'
   'views/game/pairchooser/pairwell'
   'collections/players'
   'tpl!templates/game/pairchooser/pairchooser.html'
 
-], ($, jqueryui, _, Marionette, PairWell, PlayersCollection, PairChooserTpl) ->
+], ($, _, Marionette, PairWell, PlayersCollection, PairChooserTpl) ->
 
   Marionette.Layout.extend
     template: PairChooserTpl
     className: 'pair-chooser'
-
-    players: null
 
     regions:
       pairOneCt: '.pair-ct.one'
@@ -23,15 +20,45 @@ define [
       pairOneElo: '.pair-elo.one'
       pairTwoElo: '.pair-elo.two'
 
+    collection: null
+    vent: null
+
+    collectionEvents:
+      'add': '_divvyUpPairs'
+      'remove': '_divvyUpPairs'
+
     initialize: (opts) ->
-      @players = opts.players
+      @vent = opts.vent
 
     onRender: () ->
-      @pairOneCt.show @_getNextPairView(@players)
-      @pairTwoCt.show @_getNextPairView(@players)
+      @pairOneCt.show @_createPairWell()
+      @pairTwoCt.show @_createPairWell()
+
+      @_divvyUpPairs()
+      @_updatePairEloRaitings()
+
+      @vent.on 'player:move', (player) ->
+        @_tradePlayer player
+      , @
+
+    _createPairWell: () ->
+      pairWell = new PairWell
+        collection: new PlayersCollection()
+        vent: @vent
+
+      pairWell
+
+    _tradePlayer: (player) ->
+      pairs = @getPairs()
+      if pairs[0].contains player
+        pairs[0].remove player
+        pairs[1].add player
+      else
+        pairs[1].remove player
+        pairs[0].add player
 
       @_updatePairEloRaitings()
-      @_initializeDragDrop()
+      @_checkReady()
 
     getPairs: () ->
       [
@@ -39,32 +66,15 @@ define [
         @pairTwoCt.currentView.collection
       ]
 
-    _initializeDragDrop: () ->
-      pairOneView = @pairOneCt.currentView
-      pairTwoView = @pairTwoCt.currentView
+    _divvyUpPairs: () ->
+      pairs = @getPairs()
+      for pair in pairs
+        pair.reset()
+      for player, idx in @collection.models
+        pairs[idx%2].add player
 
-      @listenTo pairOneView, 'drag:dropped', (playerCard) =>
-        model = playerCard.model
-
-        pairOneView.collection.remove model
-        pairTwoView.collection.add model
-
-        @_checkReady()
-        @_updatePairEloRaitings()
-
-      @listenTo pairTwoView, 'drag:dropped', (playerCard) =>
-        model = playerCard.model
-
-        pairTwoView.collection.remove model
-        pairOneView.collection.add model
-
-        @_checkReady()
-        @_updatePairEloRaitings()
-
-    _getNextPairView: (players) ->
-      pair = new PlayersCollection()
-      pair.add [players.shift(), players.pop()]
-      new PairWell(collection: pair)
+      @_updatePairEloRaitings()
+      @_checkReady()
 
     _updatePairEloRaitings: () ->
       pairOnePlayers = @pairOneCt.currentView.collection
@@ -76,15 +86,15 @@ define [
       @ui.pairTwoElo.html @_average(pairTwoElos)
 
     _checkReady: () ->
-      pairOnePlayers = @pairOneCt.currentView.collection
-      pairTwoPlayers = @pairTwoCt.currentView.collection
+      pairs = @getPairs()
 
-      if pairOnePlayers.length is 2 and pairTwoPlayers.length is 2
-        @trigger('ready')
+      if pairs[0].length is 2 and pairs[1].length is 2
+        @vent.trigger 'ready'
       else
-        @trigger('notready')
+        @vent.trigger 'notready'
 
     _average:  (arr) ->
-      _.reduce(arr, (memo, num) ->
+      avg = _.reduce(arr, (memo, num) ->
         memo + num
       , 0) / arr.length
+      Math.floor avg

@@ -1,4 +1,7 @@
 .modal {
+    left: 43%;
+    width: 800px;
+
     .modal-body {
         min-height: 260px;
         max-height: 500px;
@@ -9,7 +12,7 @@
 
         .players-typeahead {
             padding-right: 22px;
-            width: 305px;
+            width: 350px;
         }
 
         .new-player {

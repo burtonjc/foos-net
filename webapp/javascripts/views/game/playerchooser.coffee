@@ -1,54 +1,66 @@
 define [
   'jquery'
   'underscore'
+  'backbone'
   'marionette'
   'models/player'
   'collections/players'
-  'views/game/playerlistrow'
+  'views/game/pairchooser/pairchooser'
   'tpl!templates/game/playerchooser.html'
 
-], ($, _, Marionette, Player, PlayersCollection, PlayerListRow, PlayerChooserTpl) ->
+], ($, _, Backbone, Marionette, Player, PlayersCollection, PairChooser, PlayerChooserTpl) ->
 
-  Marionette.CompositeView.extend
+  Marionette.Layout.extend
     template: PlayerChooserTpl
-    className: 'well'
-    itemView: PlayerListRow
-    itemViewContainer: 'tbody'
-
-    collection: new PlayersCollection()
 
     ui:
       newPlayerIcon: '.new-player'
       playerTypeAhead: 'input.players-typeahead'
-      stagedPlayerList: '.table tbody'
+      
+    regions:
+      pairChooserRegion: '.pair-chooser'
 
     collectionEvents:
       'add': '_updateTypeAheadSource'
       'remove': '_updateTypeAheadSource'
 
+    collection: new PlayersCollection()
+    players: null
+    pairChooser: null
+
+    vent: _.extend {}, Backbone.Events
+
     initialize: (opts) ->
       _.bindAll @
-      @on 'ready', @_ready
-      @on 'notready', @_notready
+      @vent.on 'ready', @_ready, @
+      @vent.on 'notready', @_notready, @
 
-    onRender: () ->
+      @vent.on 'player:remove', (player) ->
+        @_setPlayerStaged player, false
+      , @
+
+    close: ->
+      @vent.off()
+      @ui.playerTypeAhead.typeahead().remove()
+      @destroyRegions()
+
+    onRender: ->
+      @collection.reset()
+      @pairChooser = new PairChooser
+        collection: @collection
+        vent: @vent
+      @pairChooserRegion.show @pairChooser
+
       new PlayersCollection().fetch
         success: (collection, response, options) =>
-          @players = collection
 
-          # In case we are reopening the dialog
-          _.each @collection.models, (player) =>
-            @players.where({_id: player.get('_id')})[0].set 'staged', true
+          @players = collection
 
           @_initializeNewPlayerPopover()
           @_initializeTypeAhead()
 
-          @_updateTypeAheadSource()
-
-      @on 'itemview:removeclicked', (view) =>
-        player = view.model
-        @_setPlayerStaged @collection.get(player.id), false
-        @ui.playerTypeAhead.focus()
+    getPairs: () ->
+      @pairChooser.getPairs()
 
     _initializeTypeAhead: () ->
       @ui.playerTypeAhead.typeahead
@@ -57,16 +69,18 @@ define [
           playerName
 
       .ready () =>
-        # wait for animation to complete
-        setTimeout(() =>
+        setTimeout () => # i can't figure out a better way to wait for the animation
           @ui.playerTypeAhead.focus()
-        , 600)
+        , 600
       .keypress () =>
         @ui.newPlayerIcon.popover 'hide'
 
       @ui.newPlayerIcon.tooltip
-        title: 'Add new player'
+        title: "Add new player"
         placement: 'right'
+        selector: 'i'
+
+      @_updateTypeAheadSource()
 
     _initializeNewPlayerPopover: () ->
       @ui.newPlayerIcon.popover
@@ -102,8 +116,7 @@ define [
             @trigger('error', 'There is already a player named ' + val)
 
     _setPlayerStaged: (player, staged) ->
-      player.set 'staged', staged ? true : undefined
-      numOfPlayersStaged = @players.where(staged: true).length
+      player = this.players.get player
 
       if staged
         @collection.add player
@@ -114,23 +127,22 @@ define [
         @collection.remove player
 
     _updateTypeAheadSource: () ->
-      unstagedPlayerList = @players.where(staged: undefined)
-      updatedSource = _.chain(unstagedPlayerList)
-               .pluck('attributes')
-               .pluck("name")
-               .value()
+      updatedSource = _.chain(@players.models)
+                .difference(@collection.models)
+                .pluck('attributes')
+                .pluck("name")
+                .value()
 
-      if @collection.length < 4
-        @trigger 'notready'
-      else
-        @trigger 'ready'
-
-      @ui.playerTypeAhead.data('typeahead').source = updatedSource
+      @ui.playerTypeAhead.typeahead().data('typeahead').source = updatedSource
 
     _ready: () ->
       @ui.playerTypeAhead.attr 'disabled', 'disabled'
+      @ui.newPlayerIcon.attr 'disabled', 'disabled'
       @ui.newPlayerIcon.removeClass 'pointer'
+      @trigger 'ready'
 
     _notready: () ->
       @ui.playerTypeAhead.removeAttr 'disabled'
+      @ui.newPlayerIcon.removeAttr 'disabled'
       @ui.newPlayerIcon.addClass 'pointer'
+      @trigger 'notready'

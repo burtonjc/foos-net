@@ -35,9 +35,9 @@ define [
           loss: 0
         })
 
-        @ui.winBar.width "#{(gameCount.win/gameCount.total)*100}%"
+        @ui.winBar.width if gameCount.win > 0 then "#{(gameCount.win/gameCount.total)*100}%" else '10px';
         @ui.winBar.html gameCount.win
-        @ui.lossBar.width "#{(gameCount.loss/gameCount.total)*100}%"
+        @ui.lossBar.width if gameCount.loss > 0 then "#{(gameCount.loss/gameCount.total)*100}%" else '10px'
         @ui.lossBar.html gameCount.loss
 
         @ui.total.html "(#{gameCount.total})"

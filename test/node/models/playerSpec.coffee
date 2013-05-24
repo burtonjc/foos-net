@@ -13,6 +13,7 @@ describe "The Player model", ->
   it "lowercases email addresses when they are set", (done) =>
     player = new @Player(
       name: @Faker.Name.findName()
+      elo: 1100
     )
     email = @Faker.Internet.email().toUpperCase()
     player.set 'email', email

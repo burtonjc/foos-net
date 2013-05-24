@@ -33,16 +33,7 @@ define [
       @_transitionView "Choose your players...", playerchooser
 
       footer.once 'next', () =>
-        @_choosePairs playerchooser.collection
-
-    _choosePairs: (players) ->
-      footer = @layout.footer.currentView
-      pairchooser = new PairChooser(players: players)
-
-      @_transitionView "Choose your pairs...", pairchooser
-
-      footer.once 'next', () =>
-        @_recordResults pairchooser.getPairs()
+        @_recordResults playerchooser.getPairs()
 
     _recordResults: (pairs) ->
       footer = @layout.footer.currentView
