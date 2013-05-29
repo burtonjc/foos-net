@@ -67,8 +67,6 @@ define [
       ]
 
     _divvyUpPairs: () ->
-      return unless @collection.length
-
       pairs = @getPairs()
       for pair in pairs
         pair.reset()
