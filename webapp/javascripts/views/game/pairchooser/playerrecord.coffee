@@ -26,8 +26,9 @@ define [
 
     onRender: ->
       @playerMatches.then (matches) =>
+        debugger
         gameCount = _.countBy matches, (match) =>
-          if _.contains(_.pluck(match.winners, '_id'), @player.id) then 'win' else 'loss'
+          if _.contains(match.winners, @player.id) then 'win' else 'loss'
 
         _.defaults(gameCount, {
           total: matches.length
