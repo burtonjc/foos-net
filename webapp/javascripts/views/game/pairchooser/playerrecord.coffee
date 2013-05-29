@@ -26,7 +26,6 @@ define [
 
     onRender: ->
       @playerMatches.then (matches) =>
-        debugger
         gameCount = _.countBy matches, (match) =>
           if _.contains(match.winners, @player.id) then 'win' else 'loss'
 
