@@ -17,7 +17,6 @@ define [
         }]
     )
     .select('_id winners losers date')
-    .populate('winners', '_id')
-    .populate('losers', '_id')
+    .lean()
     .exec (arr, data) ->
       response.json(data)

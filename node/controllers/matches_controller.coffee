@@ -9,16 +9,14 @@ define [
   query: (request, response, next) ->
     Match.find()
       .select('_id winners losers date')
-      .populate('winners', 'name elo _id')
-      .populate('losers', 'name elo _id')
+      .lean()
       .exec (arr, data) ->
         response.json(data)
 
   get: (request, response, next) ->
     Match.findById(request.params.id)
       .select('_id winners losers date')
-      .populate('winners', 'name elo _id')
-      .populate('losers', 'name elo _id')
+      .lean()
       .exec (arr, data) ->
         response.json(data)
 

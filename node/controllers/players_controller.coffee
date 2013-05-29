@@ -10,6 +10,7 @@ define [
       .findById(request.params.id)
       .select('elo name email _id')
       .sort('-elo')
+      .lean()
       .execFind (arr, data) ->
         response.json data
 
@@ -18,6 +19,7 @@ define [
       .find()
       .select('elo name email _id')
       .sort('-elo')
+      .lean()
       .execFind (arr, data) ->
         response.json data
 
