@@ -3,3 +3,5 @@ npm-debug.log
 .sass-cache
 target
 *.sublime-workspace
+log
+nohup.out
