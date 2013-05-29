@@ -67,11 +67,17 @@ define [
       ]
 
     _divvyUpPairs: () ->
+      return unless @collection.length
+
       pairs = @getPairs()
       for pair in pairs
         pair.reset()
+
       for player, idx in @collection.models
-        pairs[idx%2].add player
+        if idx is 0 or idx is (@collection.length - 1)
+          pairs[0].add player
+        else
+          pairs[1].add player
 
       @_updatePairEloRaitings()
       @_checkReady()
