@@ -12,18 +12,21 @@ requirejs [
   'restify'
   'router'
   'db/mongo'
+  'helpers/logger'
+  'winston'
 
-], (cluster, os, restify, router, mongo) ->
-  mongo.init()
+], (cluster, os, restify, router, mongo, logger, winston) ->
+  logger.init()
+  mongo.init() 
 
   if cluster.isMaster
     numCPUs = os.cpus().length
-    console.log "Forking process for #{numCPUs} nodes..."
+    winston.info "Forking process for #{numCPUs} nodes..."
     cluster.fork() for cpu in [1..numCPUs]
     cluster.on 'exit', (worker, code, signal) ->
-      console.log "Worker #{worker.process.pid} died."
+      winston.info "Worker #{worker.process.pid} died."
   else
     server = restify.createServer()
     router.init(server)
     server.listen 8080, () ->
-      console.log "#{server.name} listening at #{server.url}"
+      winston.info "#{server.name} listening at #{server.url}"
