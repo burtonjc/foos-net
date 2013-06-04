@@ -39,10 +39,9 @@ define [
         @_setPlayerStaged player, false
       , @
 
-    close: ->
+    onClose: ->
       @vent.off()
       @ui.playerTypeAhead.typeahead().remove()
-      @destroyRegions()
 
     onRender: ->
       @collection.reset()
@@ -111,9 +110,9 @@ define [
             @players.add model
             @_setPlayerStaged model, true
 
-          error: (model, xhr, options) ->
+          error: (model, xhr, options) =>
             @ui.newPlayerIcon.popover 'hide'
-            @trigger('error', 'There is already a player named ' + val)
+            @trigger('error', 'There is already a player named ' + name)
 
     _setPlayerStaged: (player, staged) ->
       player = this.players.get player

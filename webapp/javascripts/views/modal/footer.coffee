@@ -2,7 +2,7 @@ define [
   'jquery'
   'underscore'
   'marionette'
-  'tpl!templates/game/footer.html'
+  'tpl!templates/modal/footer.html'
 ], ($, _, Marionette, GameFooterTpl) ->
 
   Marionette.ItemView.extend
@@ -23,3 +23,6 @@ define [
 
     activate: () ->
       @ui.btnNext.removeAttr 'disabled'
+
+    setPrimaryBtnText: (text) ->
+      @ui.btnNext.html text

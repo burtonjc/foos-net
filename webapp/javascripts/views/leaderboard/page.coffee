@@ -16,9 +16,10 @@ define [
     itemViewOptions:
       hideX: true
 
-    collection: new PlayersCollection
+    collection: new PlayersCollection()
 
     initialize: (opts) ->
-      new PlayersCollection().fetch
-        success: (collection, response, options) =>
-          @collection.add collection.models
+      @collection.fetch()
+
+    onClose: ->
+      @collection.reset()
