@@ -2,8 +2,10 @@ require.config
   name: 'main'
   paths:
     backbone: '../lib/backbone.marionette/backbone'
-    'backbone.wreqr': '../lib/backbone.marionette/backbone-wreqr-min'
     'backbone.babysitter': '../lib/backbone.marionette/backbone-babysitter-min'
+    'backbone.modelbinder': '../lib/backbone.marionette/backbone-modelbinder-min'
+    'backbone.collectionbinder': '../lib/backbone.marionette/backbone-collectionbinder-min'
+    'backbone.wreqr': '../lib/backbone.marionette/backbone-wreqr-min'
     'bootstrap': '../lib/bootstrap/js/bootstrap'
     cryptojs: '../lib/cryptojs/md5'
     jquery: '../lib/jquery/jquery'
@@ -20,8 +22,10 @@ require.config
     backbone:
       deps: ['jquery', 'underscore']
       exports: 'Backbone'
-    'backbone.wreqr': ['backbone']
     'backbone.babysitter': ['backbone']
+    'backbone.modelbinder': ['backbone']
+    'backbone.collectionbinder': ['backbone', 'backbone.modelbinder']
+    'backbone.wreqr': ['backbone']
     jquery:
       exports: 'jQuery'
     marionette:
@@ -29,8 +33,9 @@ require.config
       exports: 'Marionette'
     underscore:
       exports: '_'
+    foosnet: ['underscore', 'jquery', 'marionette', 'backbone.modelbinder', 'backbone.collectionbinder']
 
-  urlArgs: "bust=" + (new Date()).getTime()
+  urlArgs: "bust=" + (new Date).getTime()
   deps: ['foosnet']
   callback: (FoosNet) ->
     FoosNet.start()
