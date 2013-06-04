@@ -2,6 +2,15 @@
     left: 43%;
     width: 800px;
 
+    .alert-wrapper {
+        width: 100%;
+        
+        #modalAlert {
+            width: 94%;
+            margin: 2px 3% 0;
+        }
+    }
+
     .modal-body {
         min-height: 260px;
         max-height: 500px;
@@ -25,15 +34,6 @@
 
             .btn {
                 margin: 8px 0 4px 0;
-            }
-        }
-
-        .alert-wrapper {
-            width: 100%;
-            
-            #modalAlert {
-                width: 94%;
-                margin: 2px 3% 0;
             }
         }
     }

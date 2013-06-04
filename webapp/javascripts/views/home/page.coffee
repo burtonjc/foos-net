@@ -3,9 +3,10 @@ define [
   'jquery'
   'bootstrap'
   'marionette'
+  'foosnet'
   'tpl!templates/home/page.html'
 
-], (_, $, Bootstrap, Marionette, HomePageTpl) ->
+], (_, $, Bootstrap, Marionette, FoosNet, HomePageTpl) ->
   
   Marionette.ItemView.extend
     className: 'home-page'
@@ -14,11 +15,8 @@ define [
     events:
       'click .start-game': 'onStartGameClick'
 
-    onStartGameClick: () ->
+    onStartGameClick: ->
       require [
-        'foosnet'
         'controllers/game'
-      ], (FoosNet, GameController) ->
-        new GameController({
-          region: FoosNet.modal
-        }).playGame()
+      ], (GameController) ->
+        new GameController(region: FoosNet.modal)

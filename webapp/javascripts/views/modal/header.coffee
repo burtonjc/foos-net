@@ -2,7 +2,7 @@ define [
   'jquery'
   'underscore'
   'marionette'
-  'tpl!templates/game/header.html'
+  'tpl!templates/modal/header.html'
 
 ], ($, _, Marionette, HeaderTpl) ->
 
