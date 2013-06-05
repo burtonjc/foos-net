@@ -2,9 +2,8 @@ define [
   'underscore'
   'models/match'
   'helpers/elo'
-  'url'
 
-], (_, Match, Elo, Url) ->
+], (_, Match, Elo) ->
 
   query: (request, response, next) ->
     Match.find()
