@@ -1,7 +1,7 @@
 $nav-height: 40px;
 
 .page-wrapper {
-  margin: (2*$nav-height) 0;
+  margin: ($nav-height*1.25) 0;
   width: 100%;
   height: auto !important;
 }

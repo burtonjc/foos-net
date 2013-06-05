@@ -10,3 +10,7 @@ define [
 
     comparator: (player) ->
       -player.get("elo")
+
+    toJSON: () ->
+      (for model in @models
+        model.id)

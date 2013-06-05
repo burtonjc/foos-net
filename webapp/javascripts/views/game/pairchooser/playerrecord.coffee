@@ -9,7 +9,7 @@ define [
 
   Marionette.ItemView.extend
     template: PlayerRecordTpl
-    className: 'player-record span12'
+    className: 'player-record'
     tagName: 'div'
 
     ui:
