@@ -17,6 +17,15 @@ define [
 
     vent: null
 
+    templateHelpers:
+      emailHash: ->
+        CryptoJS.MD5(@email.trim().toLowerCase())
+      hideElo: false
+      imgSize: 77
+      permanent: false
+      slim: false
+      stationary: false
+
     events:
       'click .remove' : ->
         @vent.trigger 'player:remove', @model
@@ -30,31 +39,35 @@ define [
     regions:
       playerRecord: '.player-record-region'
 
-    initialize: (opts) ->
+    initialize: (opts={}) ->
+      if opts.slim
+        @$el.addClass 'slim'
       @vent = opts.vent
-      @templateHelpers =
-        imgSize: opts.imgSize || 77
-        emailHash: CryptoJS.MD5(this.model.get('email').trim().toLowerCase())
+      for key, value of @templateHelpers
+        @templateHelpers[key] = opts[key] ? @templateHelpers[key]
 
     onRender: () ->
-      @playerRecord.show new PlayerRecordView(player: @model)
+      unless @hideRatings
+        @playerRecord.show new PlayerRecordView(player: @model)
 
-      @ui.removeIcon.find('i').tooltip
-        placement: 'left'
-        title: 'Remove player from match...'
-        trigger: 'manual'
+      unless @permanent
+        @ui.removeIcon.find('i').tooltip
+          placement: 'left'
+          title: 'Remove player...'
+          trigger: 'manual'
 
-      @ui.removeIcon.mouseenter () =>
-        @ui.removeIcon.find('i').tooltip('show');
-      @ui.removeIcon.mouseleave () =>
-        @ui.removeIcon.find('i').tooltip('hide');
+        @ui.removeIcon.mouseenter () =>
+          @ui.removeIcon.find('i').tooltip('show');
+        @ui.removeIcon.mouseleave () =>
+          @ui.removeIcon.find('i').tooltip('hide');
 
-      @ui.moveIcon.find('i').tooltip
-        placement: 'left'
-        title: 'Move player to other pair...'
-        trigger: 'manual'
+      unless @stationary
+        @ui.moveIcon.find('i').tooltip
+          placement: 'left'
+          title: 'Move player to other pair...'
+          trigger: 'manual'
 
-      @ui.moveIcon.mouseenter () =>
-        @ui.moveIcon.find('i').tooltip('show');
-      @ui.moveIcon.mouseleave () =>
-        @ui.moveIcon.find('i').tooltip('hide');
+        @ui.moveIcon.mouseenter () =>
+          @ui.moveIcon.find('i').tooltip('show');
+        @ui.moveIcon.mouseleave () =>
+          @ui.moveIcon.find('i').tooltip('hide');

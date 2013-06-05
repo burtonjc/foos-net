@@ -11,4 +11,5 @@ define [
     itemView: PlayerCard
 
     initialize: (opts) ->
-      @itemViewOptions = vent: opts.vent
+      @itemViewOptions =
+        vent: opts.vent

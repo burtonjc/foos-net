@@ -104,7 +104,6 @@ define [
         player.save {name: name, email: email},
           success: (model, response, options) =>
             @ui.newPlayerIcon.popover 'hide'
-            @players.add model
             @_setPlayerStaged model, true
 
           error: (model, xhr, options) =>

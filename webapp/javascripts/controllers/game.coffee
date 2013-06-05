@@ -4,12 +4,11 @@ define [
   'marionette'
   'views/modal/layout'
   'views/game/playerchooser'
-  'views/game/alert'
   'views/game/pairchooser/pairchooser'
   'views/game/resultsrecorder'
   'models/match'
 
-], ($, _, Marionette, ModalLayout, PlayerChooser, GameAlert, PairChooser, ResultsRecorder, Match) ->
+], ($, _, Marionette, ModalLayout, PlayerChooser, PairChooser, ResultsRecorder, Match) ->
   Marionette.Controller.extend
 
     layout: null
