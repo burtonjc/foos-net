@@ -46,18 +46,30 @@ $(document).ready(function() {
 <br />
 <div class="row-fluid">
   <div class="span4">
-    <h2>Start a league</h2>
-    <p>Matches are played in leagues. Start a league with people you play with often and see how you rate up against each other!</p>
-    <button class="btn btn-primary create-league">Start a league</button>
+    <h2>1.&nbsp;Sign up</h2>
+    <p>First things first, you have to register as a player. Player registration is free and all it requires is a name and valid email. Sign up to get started!</p>
+
+    <button class="btn btn-success create-player" disabled>Sign up</button>
   </div>
   <div class="span4">
-    <h2>Join a league</h2>
-    <p>You can join multiple leagues and carry a different rating in each league. Some leagues are tougher than others, so make sure you know what you are getting into!</p>
-    <button class="btn btn-primary join-league" disabled>Join a league</button>
+    <h2>2.&nbsp;Join a league</h2>
+    <p>Join a league and see how you rate up against other players. Some leagues are tougher than others, so make sure you know what you are getting into!</p>
+
+    <div class="row-fluid">
+      <button class="btn btn-primary join-league pull-left" disabled>Join a league</button>
+    </div>
+
+    <h2><small>... or start one</small></h2>
+    <p>Do you play with a group of players often? You can start your own league to get the most accurate ratings for your group!</p>
+    
+    <div class="row-fluid">
+      <button class="btn btn-primary create-league pull-left">Start a league</button>
+    </div>
   </div>
   <div class="span4">
-    <h2>Record a game</h2>
-    <p>Games are played in pairs, but players are scored individually. Join an existing league, or start your own, to start playing games!</p>
-    <button class="btn btn-primary start-game">Record a game</button>
+    <h2>3.&nbsp;Record matches</h2>
+    <p>Matches are played in pairs, but players are scored individually on an Elo rating system. Get into a league with people you know, to start recording matches!</p>
+
+    <button class="btn btn-primary record-game">Record a match</button>
   </div>
 </div>

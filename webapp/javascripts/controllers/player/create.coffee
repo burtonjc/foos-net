@@ -2,7 +2,8 @@ define [
   'jquery'
   'underscore'
   'controllers/modal'
+  'models/player'
 
-], ($, _, ModalController) ->
+], ($, _, ModalController, Player) ->
   ModalController.extend
     sequence: []

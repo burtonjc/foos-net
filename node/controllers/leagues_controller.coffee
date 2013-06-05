@@ -22,15 +22,15 @@ define [
 
   create: (request, response, next) ->
     body = JSON.parse request.body
-    league = new League(body)
-
-    _.each body.players, (player)->
-      league.players.push player._id
+    league = new League
+      name: body.name
+      description: body.description
+      players: body.players
 
     league.save (err) ->
       if err?
         console.log err
-        return response.json err
+        response.json err
       else
         response.json league
 
@@ -44,6 +44,6 @@ define [
         league.save (err) ->
           if err?
             console.log err
-            return response.json err
+            response.json err
           else
             response.json league
