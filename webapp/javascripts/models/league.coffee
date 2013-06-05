@@ -2,8 +2,9 @@ define [
   'jquery'
   'underscore'
   'backbone'
+  'collections/players'
 
-], ($, _, Backbone) ->
+], ($, _, Backbone, PlayerCollection) ->
   Backbone.Model.extend
     urlRoot: '/leagues'
     idAttribute: "_id"
@@ -11,3 +12,4 @@ define [
     defaults:
       name: ''
       description: ''
+      players: new PlayerCollection

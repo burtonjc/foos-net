@@ -16,24 +16,22 @@ define [
       joinLeagueBtn: '.join-league.btn'
 
     events:
-      'click .start-game': 'onStartGameClick'
+      'click .create-player': 'onCreatePlayerClick'
+      'click .join-league'  : 'onJoinLeagueClick'
       'click .create-league': 'onCreateLeagueClick'
-      'click .join-league': 'onJoinLeagueClick'
+      'click .record-game'  : 'onRecordGameClick'
 
-    onStartGameClick: ->
-      require [
-        'controllers/game'
-      ], (GameController) ->
-        new GameController(region: FoosNet.modal)
-
-    onCreateLeagueClick: ->
-      require [
-        'controllers/league/create'
-      ], (CreateLeagueController) ->
-        new CreateLeagueController(region: FoosNet.modal)
+    onCreatePlayerClick: ->
+      @_useController 'controllers/player/create'
 
     onJoinLeagueClick: ->
-      require [
-        'controllers/league/join'
-      ], (JoinLeagueController) ->
-        new JoinLeagueController(region: FoosNet.modal)
+      @_useController 'controllers/league/join'
+
+    onCreateLeagueClick: ->
+      @_useController 'controllers/league/create'
+
+    onRecordGameClick: ->
+      @_useController 'controllers/game/create'
+
+    _useController: (controllerName) ->
+      require [controllerName], (controller) -> new controller
