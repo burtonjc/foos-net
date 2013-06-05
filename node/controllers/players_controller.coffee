@@ -29,6 +29,7 @@ define [
 
     player.save (err) ->
       if err?
+        winston.error error
         response.json err
       else
         response.json player

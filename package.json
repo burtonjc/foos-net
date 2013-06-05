@@ -1,38 +1,35 @@
 {
-  "name"        : "foos-net",
-  "url"         : "https://github.com/burtonjc/foos-net",
-  "subdomain"   : "foosnet",
-  "version"     : "0.0.1",
-
+  "name": "foos-net",
+  "url": "https://github.com/burtonjc/foos-net",
+  "subdomain": "foosnet",
+  "version": "0.0.1",
   "scripts": {
     "start": "target/server.js"
   },
-
   "engines": {
     "node": "0.10.5"
   },
-
   "dependencies": {
-    "mongoose"                  : "3.5.7",
-    "requirejs"                 : "2.1.5",
-    "restify"                   : "2.3.4",
-    "underscore"                : "1.4.4"
+    "mongoose": "3.5.7",
+    "requirejs": "2.1.5",
+    "restify": "2.3.4",
+    "underscore": "1.4.4",
+    "winston": "~0.7.1"
   },
-
   "devDependencies": {
-    "sinon-chai"                : "~2.4.0",
-    "coffee-script"             : "~1.6.2",
-    "Faker"                     : "~0.5.8",
-    "grunt"                     : "~0.4.1",
-    "grunt-contrib-clean"       : "~0.4.1",
-    "grunt-contrib-coffee"      : "~0.7.0",
-    "grunt-contrib-copy"        : "~0.4.1",
-    "grunt-contrib-requirejs"   : "~0.4.0",
-    "grunt-contrib-sass"        : "~0.3.0",
-    "grunt-contrib-watch"       : "~0.3.1",
-    "jake"                      : "~0.5.8",
-    "mocha"                     : "~1.9.0",
-    "grunt-simple-mocha"        : "~0.4.0",
-    "sinon"                     : "~1.7.2"
+    "sinon-chai": "~2.4.0",
+    "coffee-script": "~1.6.2",
+    "Faker": "~0.5.8",
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-requirejs": "~0.4.0",
+    "grunt-contrib-sass": "~0.3.0",
+    "grunt-contrib-watch": "~0.3.1",
+    "jake": "~0.5.8",
+    "mocha": "~1.9.0",
+    "grunt-simple-mocha": "~0.4.0",
+    "sinon": "~1.7.2"
   }
 }
