@@ -3,8 +3,9 @@ define [
   'models/match'
   'helpers/elo'
   'url'
+  'winston'
 
-], (_, Match, Elo, Url) ->
+], (_, Match, Elo, Url, winston) ->
 
   query: (request, response, next) ->
     Match.find()
@@ -32,7 +33,7 @@ define [
 
     match.save (err) ->
       if err?
-        console.log err
+        winston.error err
         return response.json err
       else
         Elo.applyMatch match
