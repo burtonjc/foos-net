@@ -44,7 +44,7 @@ define [
         @$el.addClass 'slim'
       @vent = opts.vent
       for key, value of @templateHelpers
-        @templateHelpers[key] = opts[key] ? @templateHelpers[key]
+        @[key] = @templateHelpers[key] = opts[key] ? @templateHelpers[key]
 
     onRender: () ->
       unless @hideRatings

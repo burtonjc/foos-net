@@ -3,18 +3,21 @@ define [
   'underscore'
   'marionette'
   'tpl!templates/leaderboard/page.html'
-  'views/game/playerlistrow'
+  'views/game/pairchooser/playercard'
   'collections/players'
 
-], ($, _, Marionette, LeaderBoardPageTpl, PlayerListRow, PlayersCollection) ->
+], ($, _, Marionette, LeaderBoardPageTpl, PlayerCard, PlayersCollection) ->
   
   Marionette.CompositeView.extend
     className: 'hero-unit leaderboard'
     template: LeaderBoardPageTpl
-    itemView: PlayerListRow
-    itemViewContainer: 'tbody'
+    itemView: PlayerCard
+    itemViewContainer: 'div.players'
     itemViewOptions:
-      hideX: true
+      permanent: true
+      stationary: true
+      slim: true
+      imgSize: 60
 
     collection: new PlayersCollection()
 
