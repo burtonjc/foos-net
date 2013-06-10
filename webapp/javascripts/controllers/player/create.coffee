@@ -2,8 +2,17 @@ define [
   'jquery'
   'underscore'
   'controllers/modal'
-  'models/player'
+  'views/player/form'
 
-], ($, _, ModalController, Player) ->
+], ($, _, ModalController, PlayerFormView) ->
   ModalController.extend
-    sequence: []
+    sequence: [
+      (next) ->
+        playerForm = new PlayerFormView
+        @showView playerForm,
+          header: 'Create your player...'
+          submit: ->
+            playerForm.model.save null,
+              success: (model, response, opts) ->
+                next()
+    ]
