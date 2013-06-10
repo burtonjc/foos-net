@@ -24,7 +24,8 @@ define [
       @vent = opts.vent
       @templateHelpers.placeholder = opts.placeholder ? "Search..."
 
-    close: ->
+    onClose: ->
+      @collection.reset()
       @ui.playerTypeAhead.typeahead().remove()
 
     onRender: ->
@@ -32,7 +33,7 @@ define [
         success: (collection, response, options) =>
           @ui.playerTypeAhead.typeahead
             source: (query, process) =>
-              _.chain(@collection.models)
+              @collection.chain()
                 .pluck('attributes')
                 .pluck('name')
                 .filter((name) ->

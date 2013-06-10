@@ -7,14 +7,14 @@ define [
 
   query: (request, response, next) ->
     Match.find()
-      .select('_id winners losers date')
+      .select('_id winners losers date league')
       .lean()
       .exec (arr, data) ->
         response.json data
 
   get: (request, response, next) ->
     Match.findById(request.params.id)
-      .select('_id winners losers date')
+      .select('_id winners losers date league')
       .lean()
       .exec (arr, data) ->
         response.json data
@@ -22,6 +22,7 @@ define [
   create: (request, response, next) ->
     body = JSON.parse request.body
     match = new Match
+      league: body.league._id ? body.league
       winners: body.winners
       losers: body.losers
 

@@ -11,6 +11,10 @@ define [
     date:
       type: Date
       'default': Date.now
+    league:
+      type: Schema.Types.ObjectId
+      ref: 'League'
+      required: true
     winners: [{
       type: Schema.Types.ObjectId
       ref: 'Player'

@@ -16,3 +16,6 @@ define [
       @itemViewOptions.vent = opts.vent if opts.vent?
       @on 'itemview:remove', (itemview, model) => @trigger 'model:removed', model
       @on 'itemview:move', (itemview, model) => @trigger 'model:moved', model
+
+    onClose: ->
+      @collection.reset()

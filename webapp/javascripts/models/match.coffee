@@ -10,3 +10,6 @@ define [
 
     defaults:
       date: Date.now
+      league: null
+      winners: []
+      losers: []

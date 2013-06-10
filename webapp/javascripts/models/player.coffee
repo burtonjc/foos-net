@@ -11,4 +11,3 @@ define [
 
     defaults:
       elo: 1100
-      leagues: []

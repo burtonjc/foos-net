@@ -25,5 +25,5 @@ describe "The Player model", ->
 
       @Player.findById player, (err, doc) ->
         expect(err).not.to.exist
-        player.get('email').should.equal email.toLowerCase()
+        doc.get('email').should.equal email.toLowerCase()
         done()
