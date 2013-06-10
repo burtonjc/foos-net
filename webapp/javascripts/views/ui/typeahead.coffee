@@ -36,7 +36,7 @@ define [
                 .pluck('attributes')
                 .pluck('name')
                 .filter((name) ->
-                  name.indexOf(query) isnt -1
+                  name.toLowerCase().indexOf(query.toLowerCase()) isnt -1
                 ).value()
 
             updater: (item) =>
