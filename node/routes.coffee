@@ -3,9 +3,10 @@ define [
   'controllers/league_players_controller'
   'controllers/matches_controller'
   'controllers/players_controller'
+  'controllers/player_leagues_controller'
   'controllers/player_matches_controller'
 
-], (LeaguesController, LeaguePlayersController, MatchesController, PlayersController, PlayerMatchesController) ->
+], (LeaguesController, LeaguePlayersController, MatchesController, PlayersController, PlayerLeaguesController, PlayerMatchesController) ->
 
   {
     '/leagues':
@@ -31,8 +32,11 @@ define [
       'actions': ['create', 'query']
     '/players/:id':
       'controller': PlayersController
-      'actions': ['get']
+      'actions': ['get', 'update']
 
+    '/players/:id/leagues':
+      'controller': PlayerLeaguesController
+      'actions': ['query']
     '/players/:id/matches':
       'controller': PlayerMatchesController
       'actions': ['query']

@@ -28,9 +28,11 @@ define [
 
     events:
       'click .remove' : ->
-        @vent.trigger 'player:remove', @model
+        @vent?.trigger 'player:remove', @model
+        @trigger 'remove', @model
       'click .move'   : ->
-        @vent.trigger 'player:move', @model
+        @vent?.trigger 'player:move', @model
+        @trigger 'move', @model
 
     ui:
       removeIcon: '.remove'
