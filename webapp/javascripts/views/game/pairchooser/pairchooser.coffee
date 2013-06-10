@@ -32,6 +32,10 @@ define [
       @vent.on 'player:remove', (model) => @trigger 'model:removed', model
       @vent.on 'player:move', (model) => @trigger 'model:moved', model
 
+    onClose: ->
+      @collection.reset()
+      for pair in @getPairs()
+        pair.reset()
 
     onRender: () ->
       @pairOneCt.show @_createPairWell()
@@ -64,9 +68,9 @@ define [
       @_checkReady()
 
     getPairs: () ->
-      [
-        @pairOneCt.currentView.collection
-        @pairTwoCt.currentView.collection
+      _.compact [
+        @pairOneCt?.currentView.collection
+        @pairTwoCt?.currentView.collection
       ]
 
     _divvyUpPairs: () ->

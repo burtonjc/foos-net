@@ -5,7 +5,7 @@
   <div class="player-record-region"></div>
 </div>
 
-<% if (!(stationary || permanent)) { %>
+<% if (!stationary || !permanent) { %>
 <div class="actions pull-right">
   <% if (!permanent) { %>
   <div class="remove" data-toggle="tooltip"><i class="icon-remove"></i></div>

@@ -17,7 +17,7 @@ define [
 
     vent: null
 
-    templateHelpers:
+    opts:
       emailHash: ->
         CryptoJS.MD5(@email.trim().toLowerCase())
       hideElo: false
@@ -42,11 +42,16 @@ define [
       playerRecord: '.player-record-region'
 
     initialize: (opts={}) ->
+      @vent = opts.vent
       if opts.slim
         @$el.addClass 'slim'
-      @vent = opts.vent
-      for key, value of @templateHelpers
-        @[key] = @templateHelpers[key] = opts[key] ? @templateHelpers[key]
+        
+      @templateHelpers ?= {}
+      for key, value of @opts
+        @[key] = @templateHelpers[key] = opts[key] ? @opts[key]
+
+    onClose: ->
+      @templateHelpers = @opts
 
     onRender: () ->
       unless @hideRatings
