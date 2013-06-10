@@ -1,12 +1,12 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'tpl!templates/modal/alert.html'
 
-], ($, _, Marionette, AlertTpl) ->
+], ($, _, Backbone, AlertTpl) ->
 
-  Marionette.ItemView.extend
+  Backbone.Marionette.ItemView.extend
     template: AlertTpl
     className: 'alert alert-error fade in'
 

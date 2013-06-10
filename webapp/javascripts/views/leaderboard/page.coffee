@@ -1,14 +1,14 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'tpl!templates/leaderboard/page.html'
   'views/game/pairchooser/playercard'
   'collections/players'
 
-], ($, _, Marionette, LeaderBoardPageTpl, PlayerCard, PlayersCollection) ->
+], ($, _, Backbone, LeaderBoardPageTpl, PlayerCard, PlayersCollection) ->
   
-  Marionette.CompositeView.extend
+  Backbone.Marionette.CompositeView.extend
     className: 'hero-unit leaderboard'
     template: LeaderBoardPageTpl
     itemView: PlayerCard

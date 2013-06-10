@@ -1,15 +1,15 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'views/modal/header'
   'views/modal/footer'
   'views/modal/alert'
   'tpl!templates/modal/layout.html'
 
-], ($, _, Marionette, ModalHeader, ModalFooter, ModalAlert, ModalLayoutTpl) ->
+], ($, _, Backbone, ModalHeader, ModalFooter, ModalAlert, ModalLayoutTpl) ->
 
-  Marionette.Layout.extend
+  Backbone.Marionette.Layout.extend
     regions:
       header: '#modalHeader'
       alert: '#modalAlert'

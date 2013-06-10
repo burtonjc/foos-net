@@ -1,12 +1,12 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'tpl!templates/modal/header.html'
 
-], ($, _, Marionette, HeaderTpl) ->
+], ($, _, Backbone, HeaderTpl) ->
 
-  Marionette.ItemView.extend
+  Backbone.Marionette.ItemView.extend
     template: HeaderTpl
 
     ui:

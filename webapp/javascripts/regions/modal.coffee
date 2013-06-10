@@ -1,11 +1,11 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
 
-], ($, _, Marionette) ->
+], ($, _, Backbone) ->
 
-  Marionette.Region.extend
+  Backbone.Marionette.Region.extend
     el: "#modal"
 
     onShow: (view) ->

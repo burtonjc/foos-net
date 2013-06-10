@@ -1,11 +1,11 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'tpl!templates/modal/footer.html'
-], ($, _, Marionette, GameFooterTpl) ->
+], ($, _, Backbone, GameFooterTpl) ->
 
-  Marionette.ItemView.extend
+  Backbone.Marionette.ItemView.extend
     template: GameFooterTpl
 
     ui:

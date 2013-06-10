@@ -1,11 +1,12 @@
 define [
-  'marionette',
-  'views/navigation',
-  'views/footer',
-  'regions/modal',
+  'backbone.loader'
+  'views/navigation'
+  'views/footer'
+  'regions/modal'
   'router'
-], (Marionette, Navigation, Footer, ModalRegion, AppRouter) ->
-  FoosNet = new Marionette.Application()
+], (Backbone, Navigation, Footer, ModalRegion, AppRouter) ->
+
+  FoosNet = new Backbone.Marionette.Application()
   FoosNet.addRegions 
     navigation: "#top-nav"
     alert: "#alert"

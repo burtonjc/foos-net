@@ -1,41 +1,48 @@
 require.config
   name: 'main'
   paths:
-    backbone: '../lib/backbone.marionette/backbone'
-    'backbone.babysitter': '../lib/backbone.marionette/backbone-babysitter-min'
-    'backbone.modelbinder': '../lib/backbone.marionette/backbone-modelbinder-min'
-    'backbone.collectionbinder': '../lib/backbone.marionette/backbone-collectionbinder-min'
-    'backbone.wreqr': '../lib/backbone.marionette/backbone-wreqr-min'
-    'bootstrap': '../lib/bootstrap/js/bootstrap'
-    cryptojs: '../lib/cryptojs/md5'
-    jquery: '../lib/jquery/jquery'
-    marionette: '../lib/backbone.marionette/backbone-marionette'
-    underscore: '../lib/underscore/underscore'
+    # Backbone paths ...
+    'backbone'                  : '../lib/backbone/backbone-min'
+    'backbone.babysitter'       : '../lib/backbone/marionette/backbone-babysitter-min'
+    'backbone.collectionbinder' : '../lib/backbone/binder/backbone-collectionbinder-min'
+    'backbone.marionette'       : '../lib/backbone/marionette/backbone-marionette-min'
+    'backbone.modelbinder'      : '../lib/backbone/binder/backbone-modelbinder-min'
+    'backbone.relational'       : '../lib/backbone/relational/backbone-relational'
+    'backbone.wreqr'            : '../lib/backbone/marionette/backbone-wreqr-min'
 
-    text: '../lib/require/text'
-    order: '../lib/require/order'
-    tpl: '../lib/require/plugins/tpl'
+    # 3rd party library paths ...
+    'bootstrap'   : '../lib/bootstrap/js/bootstrap'
+    'cryptojs'    : '../lib/cryptojs/md5'
+    'jquery'      : '../lib/jquery/jquery'
+    'underscore'  : '../lib/underscore/underscore'
 
-    templates: '../templates'
+    # Requirejs plugins ...
+    'text'  : '../lib/require/text'
+    'order' : '../lib/require/order'
+    'tpl'   : '../lib/require/plugins/tpl'
+
+    # Other paths ...
+    'backbone.loader' : 'loaders/backbone'
+    'templates'       : '../templates'
 
   shim:
-    backbone:
+    # Backbone shims ...
+    'backbone':
       deps: ['jquery', 'underscore']
       exports: 'Backbone'
-    'backbone.babysitter': ['backbone']
-    'backbone.modelbinder': ['backbone']
-    'backbone.collectionbinder': ['backbone', 'backbone.modelbinder']
-    'backbone.wreqr': ['backbone']
-    jquery:
-      exports: 'jQuery'
-    marionette:
-      deps: ['jquery', 'underscore', 'backbone']
-      exports: 'Marionette'
-    underscore:
+    'backbone.babysitter'       : ['backbone']
+    'backbone.collectionbinder' : ['backbone', 'backbone.modelbinder']
+    'backbone.marionette'       : ['backbone']
+    'backbone.modelbinder'      : ['backbone']
+    'backbone.relational'       : ['backbone']
+    'backbone.wreqr'            : ['backbone']
+
+    # 3rd party library shims ...
+    'bootstrap': ['jquery']
+    'underscore':
       exports: '_'
-    foosnet: ['underscore', 'jquery', 'marionette', 'backbone.modelbinder', 'backbone.collectionbinder']
 
   urlArgs: "bust=" + (new Date).getTime()
-  deps: ['foosnet']
-  callback: (FoosNet) ->
+  deps: ['bootstrap', 'foosnet']
+  callback: (Bootstrap, FoosNet) ->
     FoosNet.start()

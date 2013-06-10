@@ -1,15 +1,14 @@
 define [
   'jquery'
   'underscore'
-  'backbone'
-  'marionette'
+  'backbone.loader'
   'collections/players'
   'views/ui/typeahead'
   'views/player/list'
   'tpl!templates/league/invite.html'
 
-], ($, _, Backbone, Marionette, PlayerCollection, TypeAhead, PlayerListView, LeagueInviteTpl) ->
-  Marionette.Layout.extend
+], ($, _, Backbone, PlayerCollection, TypeAhead, PlayerListView, LeagueInviteTpl) ->
+  Backbone.Marionette.Layout.extend
     template: LeagueInviteTpl
 
     regions:

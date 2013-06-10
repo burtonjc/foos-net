@@ -1,9 +1,10 @@
 define [
   'jquery'
   'underscore'
-  'backbone'
+  'backbone.loader'
 
 ], ($, _, Backbone) ->
+  
   Backbone.Model.extend
     urlRoot: '/matches'
     idAttribute: "_id"

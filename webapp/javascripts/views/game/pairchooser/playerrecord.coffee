@@ -1,13 +1,13 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'collections/playermatches'
   'tpl!templates/game/pairchooser/playerrecord.html'
 
-], ($, _, Marionette, PlayerMatches, PlayerRecordTpl) ->
+], ($, _, Backbone, PlayerMatches, PlayerRecordTpl) ->
 
-  Marionette.ItemView.extend
+  Backbone.Marionette.ItemView.extend
     template: PlayerRecordTpl
     className: 'player-record'
     tagName: 'div'

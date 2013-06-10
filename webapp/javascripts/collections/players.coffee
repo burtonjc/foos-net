@@ -1,5 +1,5 @@
 define [
-  'backbone'
+  'backbone.loader'
   'models/player'
 
 ], (Backbone, Player) ->

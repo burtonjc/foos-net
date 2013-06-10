@@ -1,12 +1,12 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'collections/players'
   'views/game/pairchooser/playercard'
 
-], ($, _, Marionette, PlayerCollection, PlayerCard) ->
-  Marionette.CollectionView.extend
+], ($, _, Backbone, PlayerCollection, PlayerCard) ->
+  Backbone.Marionette.CollectionView.extend
     itemView: PlayerCard
     itemViewOptions:
       stationary: true

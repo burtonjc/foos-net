@@ -1,8 +1,8 @@
 define [
-  'marionette'
+  'backbone.loader'
   'text!templates/footer.html'
 
-], (Marionette, FooterTpl) ->
+], (Backbone, FooterTpl) ->
 
-  Marionette.ItemView.extend
+  Backbone.Marionette.ItemView.extend
     template: FooterTpl
