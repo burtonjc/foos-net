@@ -1,11 +1,11 @@
 define [
   'underscore'
   'jquery'
-  'marionette'
+  'backbone.loader'
 
-], (_, $, Marionette) ->
+], (_, $, Backbone) ->
 
-  Marionette.AppRouter.extend
+  Backbone.Marionette.AppRouter.extend
     Application: null
 
     routes:

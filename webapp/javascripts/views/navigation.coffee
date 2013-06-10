@@ -1,11 +1,11 @@
 define [
   'jquery'
-  'marionette'
+  'backbone.loader'
   'text!templates/navigation.html'
 
-], ($, Marionette, NavigationTpl) ->
+], ($, Backbone, NavigationTpl) ->
 
-  Marionette.ItemView.extend
+  Backbone.Marionette.ItemView.extend
     template: NavigationTpl
 
     onRender: () ->

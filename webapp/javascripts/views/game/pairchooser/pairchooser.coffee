@@ -1,14 +1,14 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'views/game/pairchooser/pairwell'
   'collections/players'
   'tpl!templates/game/pairchooser/pairchooser.html'
 
-], ($, _, Marionette, PairWell, PlayersCollection, PairChooserTpl) ->
+], ($, _, Backbone, PairWell, PlayersCollection, PairChooserTpl) ->
 
-  Marionette.Layout.extend
+  Backbone.Marionette.Layout.extend
     template: PairChooserTpl
     className: 'pair-chooser'
 

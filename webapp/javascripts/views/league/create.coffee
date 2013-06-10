@@ -1,11 +1,11 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'tpl!templates/league/create.html'
 
-], ($, _, Marionette, LeagueCreateTpl) ->
-  Marionette.ItemView.extend
+], ($, _, Backbone, LeagueCreateTpl) ->
+  Backbone.Marionette.ItemView.extend
     template: LeagueCreateTpl
 
     initialize: ->

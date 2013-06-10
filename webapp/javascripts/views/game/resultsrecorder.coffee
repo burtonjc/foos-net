@@ -1,13 +1,13 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'cryptojs'
   'tpl!templates/game/resultsrecorder.html'
 
-], ($, _, Marionette, CryptoJS, ResultsRecorderTpl) ->
+], ($, _, Backbone, CryptoJS, ResultsRecorderTpl) ->
 
-  Marionette.ItemView.extend
+  Backbone.Marionette.ItemView.extend
     template: ResultsRecorderTpl
     className: 'results-recorder'
 

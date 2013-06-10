@@ -1,14 +1,20 @@
-// Backbone.Wreqr (Backbone.Marionette)
-// ----------------------------------
-// v0.2.0
-//
-// Copyright (c)2013 Derick Bailey, Muted Solutions, LLC.
-// Distributed under MIT license
-//
-// http://github.com/marionettejs/backbone.wreqr
+(function (root, factory) {
+  if (typeof exports === 'object') {
 
+    var underscore = require('underscore');
+    var backbone = require('backbone');
 
-Backbone.Wreqr = (function(Backbone, Marionette, _){
+    module.exports = factory(underscore, backbone);
+
+  } else if (typeof define === 'function' && define.amd) {
+
+    define(['underscore', 'backbone'], factory);
+
+  } 
+}(this, function (_, Backbone) {
+  "use strict";
+
+  Backbone.Wreqr = (function(Backbone, Marionette, _){
   "use strict";
   var Wreqr = {};
 
@@ -264,3 +270,8 @@ Wreqr.EventAggregator = (function(Backbone, _){
 
   return Wreqr;
 })(Backbone, Backbone.Marionette, _);
+
+  return Backbone.Wreqr; 
+
+}));
+

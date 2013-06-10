@@ -1,13 +1,13 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'collections/players'
   'tpl!templates/ui/typeahead.html'
 
-], ($, _, Marionette, PlayersCollection, PlayerTypeAheadTpl) ->
+], ($, _, Backbone, PlayersCollection, PlayerTypeAheadTpl) ->
 
-  Marionette.ItemView.extend
+  Backbone.Marionette.ItemView.extend
     template: PlayerTypeAheadTpl
     className: 'ui-typeahead-view'
 

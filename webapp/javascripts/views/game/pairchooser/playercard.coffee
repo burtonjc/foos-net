@@ -1,15 +1,15 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'models/player'
   'cryptojs'
   'views/game/pairchooser/playerrecord'
   'tpl!templates/game/pairchooser/playercard.html'
 
-], ($, _, Marionette, Player, CryptoJS, PlayerRecordView, PlayerCardTpl) ->
+], ($, _, Backbone, Player, CryptoJS, PlayerRecordView, PlayerCardTpl) ->
 
-  Marionette.Layout.extend
+  Backbone.Marionette.Layout.extend
     template: PlayerCardTpl
     className: 'player-card img-rounded'
     tagName: 'div'

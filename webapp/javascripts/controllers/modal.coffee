@@ -1,12 +1,12 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'foosnet'
   'views/modal/layout'
 
-], ($, _, Marionette, FoosNet, ModalLayout) ->
-  Marionette.Controller.extend
+], ($, _, Backbone, FoosNet, ModalLayout) ->
+  Backbone.Marionette.Controller.extend
     sequence: []
     sequenceArgs: []
     _layout: null

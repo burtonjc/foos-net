@@ -1,14 +1,13 @@
 define [
   'underscore'
   'jquery'
-  'bootstrap'
-  'marionette'
+  'backbone.loader'
   'foosnet'
   'tpl!templates/home/page.html'
 
-], (_, $, Bootstrap, Marionette, FoosNet, HomePageTpl) ->
+], (_, $, Backbone, FoosNet, HomePageTpl) ->
   
-  Marionette.ItemView.extend
+  Backbone.Marionette.ItemView.extend
     className: 'home-page'
     template: HomePageTpl
 

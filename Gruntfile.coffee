@@ -69,7 +69,10 @@ module.exports = (grunt) ->
         files: ['webapp/javascripts/**/*.coffee']
         tasks: ['coffee:webapp']
       'copy-webapp':
-        files: ['webapp/templates/**/*.html']
+        files: [
+          'webapp/templates/**/*.html',
+          'webapp/lib/**'
+        ]
         tasks: ['copy']
       sass:
         files: ['webapp/stylesheets/**/*.scss']

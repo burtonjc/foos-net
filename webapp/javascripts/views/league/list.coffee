@@ -1,12 +1,12 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'collections/leagues'
   'views/league/item'
 
-], ($, _, Marionette, LeagueCollection, LeagueItemView) ->
-  Marionette.CollectionView.extend
+], ($, _, Backbone, LeagueCollection, LeagueItemView) ->
+  Backbone.Marionette.CollectionView.extend
     itemView: LeagueItemView
     className: 'league-list-view'
 

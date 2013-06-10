@@ -1,12 +1,12 @@
 define [
   'jquery'
   'underscore'
-  'marionette'
+  'backbone.loader'
   'models/player'
   'tpl!templates/player/form.html'
 
-], ($, _, Marionette, Player, PlayerFormTpl) ->
-  Marionette.ItemView.extend
+], ($, _, Backbone, Player, PlayerFormTpl) ->
+  Backbone.Marionette.ItemView.extend
     template: PlayerFormTpl
     model: new Player
 

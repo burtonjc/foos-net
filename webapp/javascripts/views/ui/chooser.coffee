@@ -1,14 +1,13 @@
 define [
   'jquery'
   'underscore'
-  'backbone'
-  'marionette'
+  'backbone.loader'
   'views/ui/typeahead'
   'tpl!templates/ui/chooser.html'
 
-], ($, _, Backbone, Marionette, TypeAhead, ChooserTpl) ->
+], ($, _, Backbone, TypeAhead, ChooserTpl) ->
 
-  Marionette.Layout.extend
+  Backbone.Marionette.Layout.extend
     template: ChooserTpl
     className: 'ui-chooser-view'
       

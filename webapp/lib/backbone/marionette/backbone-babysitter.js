@@ -7,7 +7,23 @@
 //
 // http://github.com/babysitterjs/backbone.babysitter
 
-// Backbone.ChildViewContainer
+(function (root, factory) {
+  if (typeof exports === 'object') {
+
+    var underscore = require('underscore');
+    var backbone = require('backbone');
+
+    module.exports = factory(underscore, backbone);
+
+  } else if (typeof define === 'function' && define.amd) {
+
+    define(['underscore', 'backbone'], factory);
+
+  } 
+}(this, function (_, Backbone) {
+  "option strict";
+
+  // Backbone.ChildViewContainer
 // ---------------------------
 //
 // Provide a container to store, retrieve and
@@ -155,3 +171,8 @@ Backbone.ChildViewContainer = (function(Backbone, _){
   // return the public API
   return Container;
 })(Backbone, _);
+
+  return Backbone.ChildViewContainer; 
+
+}));
+
