@@ -9,6 +9,7 @@ define [
 
   Marionette.ItemView.extend
     template: PlayerTypeAheadTpl
+    className: 'ui-typeahead-view'
 
     ui:
       playerTypeAhead: 'input'

@@ -2,27 +2,33 @@ define [
   'jquery'
   'underscore'
   'controllers/modal'
-  'views/game/playerchooser'
+  'views/ui/chooser'
   'views/game/pairchooser/pairchooser'
   'views/game/resultsrecorder'
   'models/match'
 
-], ($, _, ModalController, PlayerChooser, PairChooser, ResultsRecorder, Match) ->
+], ($, _, ModalController, ChooserView, PairChooser, ResultsRecorder, Match) ->
   ModalController.extend
     sequence: [
-      ->
-        playerchooser = new PlayerChooser()
+      (next) ->
+        pairChooser = new PairChooser
+        playerchooser = new ChooserView
+          searchPrompt: 'Search for players...'
+          count: 4
+          collectionPath: 'collections/players'
+          modelStage: pairChooser
+
         @showView playerchooser,
           header: 'Choose your players...'
-          submit: (next) ->
-            next playerchooser.getPairs()
+          submit: ->
+            next pairChooser.getPairs()
 
-      (pairs) ->
+      (pairs, next) ->
         recorder = new ResultsRecorder(pairs: pairs)
         @showView recorder,
           header: 'Record your results...'
           primaryBtn: 'Finish'
-          submit: (next) ->
+          submit: ->
             match = new Match recorder.getResults()
             match.save null,
               success: ->

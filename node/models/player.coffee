@@ -1,7 +1,9 @@
 define [
+  'underscore'
   'mongoose'
+  'models/league'
 
-], (mongoose) ->
+], (_, mongoose, League) ->
   try
     return mongoose.model 'Player'
   catch error
@@ -9,7 +11,8 @@ define [
   trimAndLowerCase = (v) ->
     v.trim().toLowerCase()
 
-  PlayerSchema = new mongoose.Schema
+  Schema = mongoose.Schema
+  PlayerSchema = new Schema
     name:
       type: String
       required: true
@@ -21,6 +24,37 @@ define [
     elo:
       type: Number
       required: true
+
+  PlayerSchema.methods.updateLeagues = (leagues) ->
+    leagueIds = _.map(_.toArray(leagues), mongoose.Types.ObjectId)
+    
+    # Update old leagues
+    League.update({
+      $and:[{
+        _id:
+          $nin: leagueIds
+      },{
+        players: @id
+      }]
+    },{
+      $pull:
+        players: @id
+    },{multi: true}).lean().exec()
+
+    # Update new leagues
+    League.update({
+      $and:[{
+        _id:
+          $in: leagueIds
+      },{
+        players:
+          $ne: @id
+      }]
+    }, {
+      $push:
+        players: @id
+    }, {multi: true}).lean().exec()
+
 
   mongoose.model 'Player', PlayerSchema
   mongoose.model 'Player'

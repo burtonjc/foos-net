@@ -11,6 +11,6 @@ define [
     comparator: (player) ->
       -player.get("elo")
 
-    toJSON: () ->
+    toJSON: ->
       (for model in @models
         model.id)

@@ -2,6 +2,7 @@ define [
   'jquery'
   'underscore'
   'backbone'
+
 ], ($, _, Backbone) ->
 
   Backbone.Model.extend
@@ -10,3 +11,4 @@ define [
 
     defaults:
       elo: 1100
+      leagues: []

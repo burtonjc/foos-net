@@ -1,9 +1,12 @@
 define [
+  'underscore'
+  'mongoose'
   '../models/player'
+  '../models/league'
   'helpers/elo'
   'url'
 
-], (Player, Elo, Url) ->
+], (_, mongoose, Player, League, Elo, Url) ->
 
   get: (request, response, next) ->
     Player
@@ -33,3 +36,41 @@ define [
         response.json err
       else
         response.json player
+
+  update: (request, response, next) ->
+    Player.findById(request.params.id)
+      .exec (err, player) ->
+        player.set 'name', request.params.name if request.params.name?
+        player.updateLeagues(request.params.leagues) if request.params.leagues?
+
+        # if request.params.leagues?
+          # leagueIds = _.map(request.params.leagues, mongoose.Types.ObjectId)
+          # League.update({
+          #   $and:[{
+          #     players: player.id
+          #   },{
+          #     _id:
+          #       $nin: leagueIds
+          #   }]
+          # },{
+          #   $pull:
+          #     players: player.id
+          # },{multi: true}).exec()
+
+          # League.update({
+          #   _id:
+          #     $in: leagueIds
+          # }, {
+          #   $addToSet:
+          #     players: player.id
+          # }, {
+          #   multi: true
+          #   upsert: true
+          # }).lean().exec()
+
+        player.save (err) ->
+          if err?
+            console.log err
+            response.json err
+          else
+            response.json player

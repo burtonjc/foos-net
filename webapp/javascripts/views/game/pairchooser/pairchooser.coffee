@@ -20,7 +20,7 @@ define [
       pairOneElo: '.pair-elo.one'
       pairTwoElo: '.pair-elo.two'
 
-    collection: null
+    collection: new PlayersCollection
     vent: null
 
     collectionEvents:
@@ -28,7 +28,10 @@ define [
       'remove': '_divvyUpPairs'
 
     initialize: (opts) ->
-      @vent = opts.vent
+      @vent = opts.vent ? _.extend {}, Backbone.Events
+      @vent.on 'player:remove', (model) => @trigger 'model:removed', model
+      @vent.on 'player:move', (model) => @trigger 'model:moved', model
+
 
     onRender: () ->
       @pairOneCt.show @_createPairWell()

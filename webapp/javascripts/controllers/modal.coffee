@@ -21,7 +21,9 @@ define [
     _doSequence: () ->
       process = @_seq.shift()
       if process?
-        process.apply @, _.toArray(arguments)
+        args = _.toArray(arguments)
+        args.push @_doSequence
+        process.apply @, args
       else
         @close()
 
@@ -30,7 +32,7 @@ define [
       @_layout.show view, opts.header, opts.primaryBtn
 
       @listenToOnce @_layout, 'next', =>
-        opts.submit.call(this, @_doSequence)
+        opts.submit.call(this)
 
 
     onClose: () ->
