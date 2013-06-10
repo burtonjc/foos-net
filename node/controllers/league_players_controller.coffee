@@ -7,11 +7,12 @@ define [
 ], (_, League, Player, Url) ->
 
   query: (request, response, next) ->
-    Player.find(
-      players:
-        $all: [request.params.id]
-    )
-    .select('_id name email elo')
-    .lean()
-    .exec (arr, data) ->
-      response.json(data)
+    League.findById(request.params.id)
+          .select('players')
+          .populate('players')
+          .exec (err, data) ->
+            if err?
+              console.log err
+              response.json err
+            else
+              response.json data.players

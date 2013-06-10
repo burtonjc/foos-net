@@ -28,7 +28,7 @@ define [
 
       @_getCollection(opts).done (Collection) =>
         @_initializeModelStage(opts.modelStage)
-        @_initializeModelSearch(Collection, opts.searchPrompt)
+        @_initializeModelSearch(Collection, opts)
         @_checkReady()
 
     getModels: ->
@@ -46,11 +46,11 @@ define [
       @listenTo @modelStageView, 'model:removed', (model) =>
         @_setModelStaged model, false
 
-    _initializeModelSearch: (Collection, searchPrompt) ->
-      collection = new Collection
+    _initializeModelSearch: (Collection, opts) ->
+      collection = new Collection opts.collectionOpts ? {}
       @modelSearchView = new TypeAhead
         collection: collection
-        placeholder: searchPrompt
+        placeholder: opts.searchPrompt
       @modelSearchRegion.show @modelSearchView
 
       @listenTo @modelSearchView, 'model:selected', (model) =>
