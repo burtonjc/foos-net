@@ -6,9 +6,9 @@ define [
   'views/game/pairchooser/pairchooser'
   'views/game/resultsrecorder'
   'views/league/list'
-  'models/match'
+  'domain/cache'
 
-], ($, _, ModalController, ChooserView, PairChooser, ResultsRecorder, LeagueListView, Match) ->
+], ($, _, ModalController, ChooserView, PairChooser, ResultsRecorder, LeagueListView, DomainCache) ->
   ModalController.extend
     sequence: [
       (next) ->
@@ -16,8 +16,8 @@ define [
         leagueChooser = new ChooserView
           searchPrompt: 'Search for a league...'
           count: 1
-          collectionPath: 'collections/leagues'
-          modelStage: leagueView
+          collectionType: 'leagues'
+          modelStageView: leagueView
 
         @showView leagueChooser,
           header: 'Choose your league...'
@@ -26,13 +26,14 @@ define [
 
       (league, next) ->
         pairChooser = new PairChooser
+          league: league
         playerchooser = new ChooserView
           searchPrompt: 'Search for players...'
           count: 4
-          collectionPath: 'collections/leagueplayers'
+          collectionType: 'leagueplayers'
           collectionOpts:
             league: league
-          modelStage: pairChooser
+          modelStageView: pairChooser
 
         @showView playerchooser,
           header: 'Choose your players...'
@@ -46,12 +47,13 @@ define [
           primaryBtn: 'Finish'
           submit: ->
             results = recorder.getResults()
-            new Match().save({
-                league: league
-                winners: results.winners
-                losers: results.losers
-              },
-              success: ->
-                next()
-            )
+            Match = DomainCache.getModel 'match'
+            new Match({
+                league: league.id
+                winners: results.winners.pluck('_id')
+                losers: results.losers.pluck('_id')
+              }).save(null,{
+                success: ->
+                  next()
+              })
     ]

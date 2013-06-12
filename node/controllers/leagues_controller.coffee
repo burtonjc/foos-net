@@ -4,18 +4,16 @@ define [
 
 ], (_, League) ->
 
-  defaultFetch: '_id name description players'
-
   query: (request, response, next) ->
     League.find()
-      .select(@defaultFetch)
+      .select('_id name description players')
       .lean()
       .exec (err, data) ->
         response.json(data)
 
   get: (request, response, next) ->
     League.findById(request.params.id)
-      .select(@defaultFetch)
+      .select('_id name description players')
       .lean()
       .exec (err, data) ->
         response.json(data)
@@ -25,7 +23,6 @@ define [
     league = new League
       name: body.name
       description: body.description
-      players: body.players
 
     league.save (err) ->
       if err?
@@ -35,15 +32,15 @@ define [
         response.json league
 
   update: (request, response, next) ->
-    League.findById(request.params.id)
-      .exec (err, league) ->
-        for attr in ['name', 'description', 'players']
-          do (attr) ->
-            league.set attr, request.params[attr] if request.params[attr]?
+    League.findById request.params.id, (err, league) ->
+      for path in ['name', 'description']
+        do (path) ->
+          if request.params[path]? and path.indexOf '_' isnt 0
+            league.set path, request.params[path]
 
-        league.save (err) ->
-          if err?
-            console.log err
-            response.json err
-          else
-            response.json league
+      league.save (err) ->
+        if err?
+          console.log err
+          response.json err
+        else
+          response.json league

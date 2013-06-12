@@ -2,12 +2,12 @@ define [
   'jquery'
   'underscore'
   'backbone.loader'
-  'collections/players'
+  'domain/cache'
   'views/ui/typeahead'
   'views/player/list'
   'tpl!templates/league/invite.html'
 
-], ($, _, Backbone, PlayerCollection, TypeAhead, PlayerListView, LeagueInviteTpl) ->
+], ($, _, Backbone, DomainCache, TypeAhead, PlayerListView, LeagueInviteTpl) ->
   Backbone.Marionette.Layout.extend
     template: LeagueInviteTpl
 
@@ -22,7 +22,7 @@ define [
     initialize: (opts) ->
       @vent = opts.vent ? _.extend {}, Backbone.Events
 
-      collection = new PlayerCollection
+      collection = new (DomainCache.getCollection('players'))()
       collection.fetch()
       @typeAhead = new TypeAhead
         collection: collection

@@ -26,7 +26,7 @@ define [
       winners: body.winners
       losers: body.losers
 
-    match.save (err) ->
+    match.save (err, match) ->
       if err?
         console.log err
         response.json err

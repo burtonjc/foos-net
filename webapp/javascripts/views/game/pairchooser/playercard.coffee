@@ -2,18 +2,18 @@ define [
   'jquery'
   'underscore'
   'backbone.loader'
-  'models/player'
+  'domain/cache'
   'cryptojs'
   'views/game/pairchooser/playerrecord'
   'tpl!templates/game/pairchooser/playercard.html'
 
-], ($, _, Backbone, Player, CryptoJS, PlayerRecordView, PlayerCardTpl) ->
+], ($, _, Backbone, DomainCache, CryptoJS, PlayerRecordView, PlayerCardTpl) ->
 
   Backbone.Marionette.Layout.extend
     template: PlayerCardTpl
     className: 'player-card img-rounded'
     tagName: 'div'
-    model: Player
+    model: DomainCache.getModel 'player'
 
     vent: null
 
@@ -46,7 +46,9 @@ define [
       if opts.slim
         @$el.addClass 'slim'
         
-      @templateHelpers ?= {}
+      @templateHelpers ?=
+        rating: -> _.findWhere(@memberships, league: opts.league.id)?.rating
+
       for key, value of @opts
         @[key] = @templateHelpers[key] = opts[key] ? @opts[key]
 

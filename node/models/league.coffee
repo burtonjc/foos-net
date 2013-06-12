@@ -1,7 +1,10 @@
 define [
+  'underscore'
   'mongoose'
+  'models/player'
+  'models/membership'
 
-], (mongoose) ->
+], (_, mongoose, Player, Membership) ->
   try
     return mongoose.model 'League'
   catch error
@@ -13,10 +16,15 @@ define [
       required: true
     description:
       type: String
-    players: [{
-      type: Schema.Types.ObjectId
-      ref: 'Player'
-    }]
+
+  _.extend LeagueSchema.methods,
+    getPlayers: (callback) ->
+      Membership
+        .find(league:@id)
+        .populate('player')
+        .exec (err, membership) ->
+          callback? err, _.pluck(membership, 'player')
+
 
   mongoose.model 'League', LeagueSchema
   mongoose.model 'League'

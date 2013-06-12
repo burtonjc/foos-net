@@ -1,13 +1,10 @@
 define [
   'underscore'
-  'models/league'
-  'url'
+  'models/player'
 
-], (_, League, Url) ->
+], (_, Player) ->
 
   query: (request, response, next) ->
-    League.find(players: request.params.id)
-          .select('_id name description players')
-          .lean()
-          .exec (arr, data) ->
-            response.json(data)
+    Player.findById request.params.id, (err, player) ->
+      player.getLeagues (err, leagues) ->
+        response.json leagues

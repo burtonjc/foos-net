@@ -13,3 +13,4 @@ define [
     initialize: (opts) ->
       @itemViewOptions =
         vent: opts.vent
+        league: opts.league
