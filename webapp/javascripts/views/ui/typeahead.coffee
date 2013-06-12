@@ -2,12 +2,11 @@ define [
   'jquery'
   'underscore'
   'backbone.loader'
-  'collections/players'
   'tpl!templates/ui/typeahead.html'
 
-], ($, _, Backbone, PlayersCollection, PlayerTypeAheadTpl) ->
+], ($, _, Backbone, PlayerTypeAheadTpl) ->
 
-  Backbone.Marionette.ItemView.extend
+  class TypeAhead extends Backbone.Marionette.ItemView
     template: PlayerTypeAheadTpl
     className: 'ui-typeahead-view'
 
@@ -56,10 +55,10 @@ define [
       else
         @ui.playerTypeAhead.val()
 
-    remove: (model) ->
+    removeModel: (model) ->
       @collection.remove model
 
-    add: (model) ->
+    addModel: (model) ->
       @collection.add model
 
     disable: () ->

@@ -2,10 +2,10 @@ define [
   'jquery'
   'underscore'
   'backbone.loader'
-  'collections/players'
+  'domain/cache'
   'views/game/pairchooser/playercard'
 
-], ($, _, Backbone, PlayerCollection, PlayerCard) ->
+], ($, _, Backbone, DomainCache, PlayerCard) ->
   Backbone.Marionette.CollectionView.extend
     itemView: PlayerCard
     itemViewOptions:
@@ -13,7 +13,7 @@ define [
       slim: true
       hideElo: true
 
-    collection: new PlayerCollection
+    collection: new (DomainCache.getCollection('players'))()
 
     initialize: (opts={}) ->
       @itemViewOptions.vent = opts.vent if opts.vent?

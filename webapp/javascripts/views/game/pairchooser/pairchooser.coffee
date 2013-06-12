@@ -3,10 +3,10 @@ define [
   'underscore'
   'backbone.loader'
   'views/game/pairchooser/pairwell'
-  'collections/players'
+  'domain/cache'
   'tpl!templates/game/pairchooser/pairchooser.html'
 
-], ($, _, Backbone, PairWell, PlayersCollection, PairChooserTpl) ->
+], ($, _, Backbone, PairWell, DomainCache, PairChooserTpl) ->
 
   Backbone.Marionette.Layout.extend
     template: PairChooserTpl
@@ -20,7 +20,7 @@ define [
       pairOneElo: '.pair-elo.one'
       pairTwoElo: '.pair-elo.two'
 
-    collection: new PlayersCollection
+    collection: new (DomainCache.getCollection('players'))()
     vent: null
 
     collectionEvents:
@@ -31,6 +31,12 @@ define [
       @vent = opts.vent ? _.extend {}, Backbone.Events
       @vent.on 'player:remove', (model) => @trigger 'model:removed', model
       @vent.on 'player:move', (model) => @trigger 'model:moved', model
+      @league = opts.league ? null
+
+      @collection.comparator = (player) =>
+        membership = player.get('memberships').findWhere(league: @league)
+        if membership?
+          -membership.get('rating')
 
     onClose: ->
       @collection.reset()
@@ -50,7 +56,8 @@ define [
 
     _createPairWell: () ->
       pairWell = new PairWell
-        collection: new PlayersCollection()
+        collection: new (DomainCache.getCollection('players'))()
+        league: @league
         vent: @vent
 
       pairWell
@@ -74,18 +81,38 @@ define [
       ]
 
     _divvyUpPairs: () ->
-      pairs = @getPairs()
-      for pair in pairs
-        pair.reset()
+      @_fetchPlayerMemberships().done =>
+        @collection.sort()
+        pairs = @getPairs()
+        for pair in pairs
+          pair.reset()
 
-      for player, idx in @collection.models
-        if idx is 0 or idx is (@collection.length - 1)
-          pairs[0].add player
+        @collection.each (player, idx) =>  
+          if idx is 0 or idx is (@collection.length - 1)
+            pairs[0].add player
+          else
+            pairs[1].add player
+
+        @_updatePairEloRaitings()
+        @_checkReady()
+
+    # this is gross, but this is hackathon...what can i say
+    _fetchPlayerMemberships: ->
+      d = new $.Deferred()
+      counter = 0
+      @collection.each (player) =>
+        memberships = player.get 'memberships'
+        if memberships.length
+          d.resolve() if ++counter is @collection.length
+          return
         else
-          pairs[1].add player
+          player.get('memberships').fetch().done (memberships) =>
+            leagueMembership = player.get('memberships').where(league: @league)[0]
+            player.set('rating', leagueMembership.get('rating'))
+            d.resolve() if ++counter is @collection.length
 
-      @_updatePairEloRaitings()
-      @_checkReady()
+      d.promise()
+
 
     _updatePairEloRaitings: () ->
       pairOnePlayers = @pairOneCt.currentView.collection

@@ -4,9 +4,9 @@ define [
   'backbone.loader'
   'tpl!templates/leaderboard/page.html'
   'views/game/pairchooser/playercard'
-  'collections/players'
+  'domain/cache'
 
-], ($, _, Backbone, LeaderBoardPageTpl, PlayerCard, PlayersCollection) ->
+], ($, _, Backbone, LeaderBoardPageTpl, PlayerCard, DomainCache) ->
   
   Backbone.Marionette.CompositeView.extend
     className: 'hero-unit leaderboard'
@@ -19,7 +19,7 @@ define [
       slim: true
       imgSize: 60
 
-    collection: new PlayersCollection()
+    collection: new (DomainCache.getCollection('players'))()
 
     initialize: (opts) ->
       @collection.fetch()

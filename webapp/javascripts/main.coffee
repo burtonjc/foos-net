@@ -5,7 +5,7 @@ require.config
     'backbone'                  : '../lib/backbone/backbone-min'
     'backbone.babysitter'       : '../lib/backbone/marionette/backbone-babysitter-min'
     'backbone.collectionbinder' : '../lib/backbone/binder/backbone-collectionbinder-min'
-    'backbone.marionette'       : '../lib/backbone/marionette/backbone-marionette-min'
+    'backbone.marionette'       : '../lib/backbone/marionette/backbone-marionette'
     'backbone.modelbinder'      : '../lib/backbone/binder/backbone-modelbinder-min'
     'backbone.relational'       : '../lib/backbone/relational/backbone-relational'
     'backbone.wreqr'            : '../lib/backbone/marionette/backbone-wreqr-min'
@@ -41,6 +41,24 @@ require.config
     'bootstrap': ['jquery']
     'underscore':
       exports: '_'
+
+    # load domain objects
+    # models must be loaded before collections
+    'foosnet': ['backbone' #so that we have Backbone.Model and Backbone.Collection
+
+                'domain/model/league'
+                'domain/model/match'
+                'domain/model/membership'
+                'domain/model/player'
+
+                'domain/collection/leaguememberships'
+                'domain/collection/leagueplayers'
+                'domain/collection/leagues'
+                'domain/collection/playerleagues'
+                'domain/collection/playermatches'
+                'domain/collection/playermemberships'
+                'domain/collection/players'
+              ]
 
   urlArgs: "bust=" + (new Date).getTime()
   deps: ['bootstrap', 'foosnet']

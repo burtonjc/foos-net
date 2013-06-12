@@ -2,10 +2,9 @@ define [
   'jquery'
   'underscore'
   'backbone.loader'
-  'collections/playermatches'
+  'domain/cache'
   'tpl!templates/game/pairchooser/playerrecord.html'
-
-], ($, _, Backbone, PlayerMatches, PlayerRecordTpl) ->
+], ($, _, Backbone, DomainCache, PlayerRecordTpl) ->
 
   Backbone.Marionette.ItemView.extend
     template: PlayerRecordTpl
@@ -22,6 +21,7 @@ define [
 
     initialize: (opts) ->
       @player = opts.player
+      PlayerMatches = DomainCache.getCollection 'playermatches'
       @playerMatches = new PlayerMatches(player: @player).fetch()
 
     onRender: ->

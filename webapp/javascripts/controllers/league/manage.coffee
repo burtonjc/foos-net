@@ -5,40 +5,58 @@ define [
   'views/ui/chooser'
   'views/player/list'
   'views/league/list'
-  'collections/playerleagues'
+  'domain/cache'
 
-], ($, _, ModalController, ChooserView, PlayerListView, LeagueListView, PlayerLeaguesCollection) ->
+], ($, _, ModalController, ChooserView, PlayerListView, LeagueListView, DomainCache) ->
   ModalController.extend
     sequence: [
       (next) ->
         playerChooser = new ChooserView
-          collectionPath: 'collections/players'
+          collectionType: 'players'
           count: 1
           searchPrompt: 'Search for your player...'
-          modelStage: new PlayerListView
+          modelStageView: new PlayerListView
 
         @showView playerChooser,
           header: 'Select your player...'
           submit: ->
-            next(playerChooser.getModels().at(0))
+            next playerChooser.getModels().at(0)
 
       (player, next) ->
-        playerLeagues = new PlayerLeaguesCollection(player: player)
-        playerLeagues.fetch
+        PlayerLeagues = DomainCache.getCollection 'playerleagues'
+        playerleagues = new PlayerLeagues(player: player)
+        playerleagues.fetch
           success: (collection, response, opts) ->
-            next(player, collection)
+            next player, collection
+
+        # PlayerMemberships = DomainCache.getCollection 'playermemberships'
+        # playerMemberships = new PlayerMemberships(null, player: player)
+        # playerMemberships.fetch
+        #   success: (collection, response, opts) ->
+        #     next player, collection
 
       (player, playerLeagues, next) ->
+        leagueListView = new LeagueListView(collection: playerLeagues)
+
         leagueChooser = new ChooserView
-          collectionPath: 'collections/leagues'
+          collectionType: 'leagues'
           searchPrompt: 'Search for leagues...'
-          modelStage: new LeagueListView
-            collection: playerLeagues
+          modelStageView: leagueListView
 
         @showView leagueChooser,
           header: 'Choose leagues to join...'
           primaryBtn: 'Finish'
           submit: ->
-            player.save {leagues: _.pluck(leagueChooser.getModels().models, 'id')},
-              success: -> next()
+            memberships = player.get('memberships')
+            memberships.fetch().done =>
+              leagueChooser.getModels().each (league, idx) ->
+                return if memberships.findWhere(league: league)?
+
+                memberships.create
+                  player: player
+                  league: league
+              next()
+
+            # player.save {leagues: _.pluck(leagueChooser.getModels().models, 'id')},
+            #   success: -> next()
     ]

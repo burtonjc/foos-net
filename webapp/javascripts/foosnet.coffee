@@ -1,10 +1,12 @@
 define [
+  'exports'
   'backbone.loader'
   'views/navigation'
   'views/footer'
   'regions/modal'
   'router'
-], (Backbone, Navigation, Footer, ModalRegion, AppRouter) ->
+  'domain/cache'
+], (exports, Backbone, Navigation, Footer, ModalRegion, AppRouter, DomainCache) ->
 
   FoosNet = new Backbone.Marionette.Application()
   FoosNet.addRegions 
@@ -20,5 +22,8 @@ define [
   FoosNet.addInitializer (options) ->
     new AppRouter(FoosNet)
     Backbone.history.start()
+
+  Backbone.Relational.store.addModelScope DomainCache.getModels()
+  Backbone.Relational.store.addModelScope DomainCache.getCollections()
 
   FoosNet

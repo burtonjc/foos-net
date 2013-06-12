@@ -27,7 +27,7 @@ define [
       winners: body.winners
       losers: body.losers
 
-    match.save (err) ->
+    match.save (err, match) ->
       if err?
         winston.error err
         response.json err

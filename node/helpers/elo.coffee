@@ -1,59 +1,62 @@
 define [
   'underscore'
   'lib/elorating'
-  'models/player'
-], (_, EloRating, Player) ->
+  'models/membership'
+], (_, EloRating, Membership) ->
   getDefaultRating: () ->
     1100
 
   applyMatch: (match) ->
-    Player.find(
-      _id:
-        $in: match.winners.concat match.losers
-    ).select('_id elo').exec (arr, players) =>
+    Membership.find
+      $and: [{
+        player:
+          $in: match.winners.concat match.losers
+      },{
+        league: match.league
+      }]
+    , (err, memberships) =>
       winners = []
       losers = []
-      winner_ids = _.invoke match.winners, 'toString'
+      winnerIds = _.invoke match.winners, 'toString'
 
-      _.each players, (player) ->
-        if _.contains(winner_ids, player._id.toString())
-          winners.push player
+      _.each memberships, (membership) ->
+        if _.contains(winnerIds, membership.player.toString())
+          winners.push membership
         else
-          losers.push player
+          losers.push membership
 
       oldRatings =
-        winners: @_getAvgRating(_.pluck(winners, 'elo')),
-        losers: @_getAvgRating(_.pluck(losers, 'elo'))
-      elo = new EloRating()
+        winners: @_getAvgRating(_.pluck(winners, 'rating')),
+        losers: @_getAvgRating(_.pluck(losers, 'rating'))
 
+      elo = new EloRating()
       elo.setNewSetings oldRatings.winners, oldRatings.losers, 1, 0
       newRatings = elo.getNewRatings()
 
-      _.each winners, (player) ->
-        totalPreElo = _.reduce _.pluck(winners, 'elo'), (p1, p2) ->
+      _.each winners, (membership) ->
+        totalPreElo = _.reduce _.pluck(winners, 'rating'), (p1, p2) ->
           p1 + p2
-        gainRatio = (totalPreElo - player.elo) / totalPreElo
+        gainRatio = (totalPreElo - membership.rating) / totalPreElo
         totalGain = newRatings.winners - oldRatings.winners
         playerGain = totalGain * gainRatio
-        newElo = Math.round(player.elo + playerGain)
+        newElo = Math.round(membership.rating + playerGain)
 
-        Player.findByIdAndUpdate player.id,
-          $set:
-            elo: newElo
-        ,  (err, player) ->
+        membership.set 'rating', newElo
+        membership.save()
 
-      _.each losers, (player) ->
-        totalPreElo = _.reduce _.pluck(losers, 'elo'), (p1, p2) ->
+      _.each losers, (membership) ->
+        totalPreElo = _.reduce _.pluck(losers, 'rating'), (p1, p2) ->
           p1 + p2
-        gainRatio = (totalPreElo - player.elo) / totalPreElo
+        ###
+        i think this next line should be gainRation = 1 - ((totalPreElo - membership.rating) / totalPreElo)
+        ###
+        gainRatio = (totalPreElo - membership.rating) / totalPreElo
         totalGain = newRatings.losers - oldRatings.losers
         playerGain = totalGain * gainRatio
-        newElo = Math.round(player.elo + playerGain)
+        newElo = Math.round(membership.rating + playerGain)
 
-        Player.findByIdAndUpdate player.id,
-          $set:
-            elo: newElo
-        ,  (err, player) ->
+        membership.set 'rating', newElo
+        membership.save()
 
   _getAvgRating: (ratings) ->
     _.reduce(ratings, (memo, num) ->

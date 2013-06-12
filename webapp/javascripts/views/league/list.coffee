@@ -2,15 +2,15 @@ define [
   'jquery'
   'underscore'
   'backbone.loader'
-  'collections/leagues'
+  'domain/cache'
   'views/league/item'
+], ($, _, Backbone, DomainCache, LeagueItemView) ->
 
-], ($, _, Backbone, LeagueCollection, LeagueItemView) ->
   Backbone.Marionette.CollectionView.extend
     itemView: LeagueItemView
     className: 'league-list-view'
 
-    collection: new LeagueCollection
+    collection: new (DomainCache.getCollection('leagues'))()
 
     initialize: (opts={}) ->
       @itemViewOptions.vent = opts.vent if opts.vent?

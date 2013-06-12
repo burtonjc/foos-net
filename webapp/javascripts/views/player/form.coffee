@@ -2,13 +2,13 @@ define [
   'jquery'
   'underscore'
   'backbone.loader'
-  'models/player'
+  'domain/cache'
   'tpl!templates/player/form.html'
 
-], ($, _, Backbone, Player, PlayerFormTpl) ->
+], ($, _, Backbone, DomainCache, PlayerFormTpl) ->
   Backbone.Marionette.ItemView.extend
     template: PlayerFormTpl
-    model: new Player
+    model: new (DomainCache.getModel('player'))()
 
     ui:
       emailHelpIcon: '.email-help'

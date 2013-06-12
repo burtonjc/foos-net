@@ -2,10 +2,11 @@ define [
   'jquery'
   'underscore'
   'backbone.loader'
+  'domain/cache'
   'views/ui/typeahead'
   'tpl!templates/ui/chooser.html'
 
-], ($, _, Backbone, TypeAhead, ChooserTpl) ->
+], ($, _, Backbone, DomainCache, TypeAhead, ChooserTpl) ->
 
   Backbone.Marionette.Layout.extend
     template: ChooserTpl
@@ -22,35 +23,27 @@ define [
 
     initialize: (opts) ->
       _.bindAll @
+      _.extend @, opts
 
-      @count = opts.count ? @count
-
-      @_getCollection(opts).done (Collection) =>
-        @_initializeModelStage(opts.modelStage)
-        @_initializeModelSearch(Collection, opts)
-        @_checkReady()
+    onRender: ->
+      @_initializeModelStage()
+      @_initializeModelSearch()
+      @_checkReady()
 
     getModels: ->
       @modelStageView.collection
         
-    _getCollection: (opts) ->
-      collection = $.Deferred()
-      require [opts.collectionPath], (col) =>
-        collection.resolve col
-      collection.promise()
-
-    _initializeModelStage: (modelStageView) ->
-      @modelStageView = modelStageView
+    _initializeModelStage: ->
       @modelStageRegion.show @modelStageView
       @listenTo @modelStageView, 'model:removed', (model) =>
         @_setModelStaged model, false
 
-    _initializeModelSearch: (Collection, opts) ->
-      collection = new Collection opts.collectionOpts ? {}
+    _initializeModelSearch: ->
+      Collection = DomainCache.getCollection(@collectionType)
+      collection = new Collection @collectionOpts ? {}
       @modelSearchView = new TypeAhead
         collection: collection
-        placeholder: opts.searchPrompt
-      @modelSearchRegion.show @modelSearchView
+        placeholder: @searchPrompt
 
       @listenTo @modelSearchView, 'model:selected', (model) =>
         @_setModelStaged model, true
@@ -62,14 +55,16 @@ define [
       )
       
       if @modelStageView.collection.length
-        collection.fetch().done =>
-          @modelSearchView.remove @modelStageView.collection.models
+        collection.on 'sync', (collection, options) =>
+          @modelSearchView.removeModel @modelStageView.collection.models
+
+      @modelSearchRegion.show @modelSearchView
 
     _setModelStaged: (model, staged) ->
       if staged
         unless @modelStageView.collection.contains model
           @modelStageView.collection.add model
-          @modelSearchView.remove model
+          @modelSearchView.removeModel model
 
         setTimeout(() =>
           @modelSearchView.val ''
@@ -77,7 +72,7 @@ define [
       else
         if @modelStageView.collection.contains model
           @modelStageView.collection.remove model
-          @modelSearchView.add model
+          @modelSearchView.addModel model
 
       @_checkReady()
 

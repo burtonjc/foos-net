@@ -10,7 +10,7 @@ define [
   MatchSchema = new Schema
     date:
       type: Date
-      'default': Date.now
+      default: Date.now
     league:
       type: Schema.Types.ObjectId
       ref: 'League'
