@@ -17,7 +17,7 @@ requirejs [
 
 ], (cluster, os, restify, router, mongo, logger, winston) ->
   logger.init()
-  mongo.init() 
+  mongo.init()
 
   if cluster.isMaster
     numCPUs = os.cpus().length
@@ -28,5 +28,6 @@ requirejs [
   else
     server = restify.createServer()
     router.init(server)
+
     server.listen 8080, () ->
       winston.info "#{server.name} listening at #{server.url}"

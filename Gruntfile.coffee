@@ -27,7 +27,7 @@ module.exports = (grunt) ->
       node:
         expand: true
         cwd   : 'node/lib'
-        src   : ['**']
+        src   : ['**/*.js']
         dest  : 'target/node/lib'
 
     requirejs:
