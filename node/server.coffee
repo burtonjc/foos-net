@@ -12,8 +12,9 @@ requirejs [
   'restify'
   'router'
   'db/mongo'
+  'lib/lubdub/lubdub'
 
-], (cluster, os, restify, router, mongo) ->
+], (cluster, os, restify, router, mongo, LubDub) ->
   mongo.init()
 
   if cluster.isMaster
@@ -25,5 +26,8 @@ requirejs [
   else
     server = restify.createServer()
     router.init(server)
+    
+    new LubDub 1100, 1000
+
     server.listen 8080, () ->
       console.log "#{server.name} listening at #{server.url}"
