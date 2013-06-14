@@ -14,8 +14,10 @@ requirejs [
   'db/mongo'
   'helpers/logger'
   'winston'
+  'lib/healthchecker'
+  'helpers/healthchecks'
 
-], (cluster, os, restify, router, mongo, logger, winston) ->
+], (cluster, os, restify, router, mongo, logger, winston, HealthChecker, healthChecks) ->
   logger.init()
   mongo.init()
 
@@ -27,6 +29,10 @@ requirejs [
       winston.info "Worker #{worker.process.pid} died."
   else
     server = restify.createServer()
+
+    healthchecker = new HealthChecker(server)
+    healthchecker.register healthChecks
+
     router.init(server)
 
     server.listen 8080, () ->

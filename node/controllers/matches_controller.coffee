@@ -11,14 +11,14 @@ define [
       .select('_id winners losers date league')
       .lean()
       .exec (arr, data) ->
-        response.json data
+        response.send data
 
   get: (request, response, next) ->
     Match.findById(request.params.id)
       .select('_id winners losers date league')
       .lean()
       .exec (arr, data) ->
-        response.json data
+        response.send data
 
   create: (request, response, next) ->
     body = JSON.parse request.body
@@ -30,7 +30,7 @@ define [
     match.save (err, match) ->
       if err?
         winston.error err
-        response.json err
+        response.send err
       else
         Elo.applyMatch match
-        response.json match
+        response.send match
