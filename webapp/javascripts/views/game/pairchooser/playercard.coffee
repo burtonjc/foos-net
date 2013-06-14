@@ -5,9 +5,10 @@ define [
   'domain/cache'
   'cryptojs'
   'views/game/pairchooser/playerrecord'
+  'views/player/rating'
   'tpl!templates/game/pairchooser/playercard.html'
 
-], ($, _, Backbone, DomainCache, CryptoJS, PlayerRecordView, PlayerCardTpl) ->
+], ($, _, Backbone, DomainCache, CryptoJS, PlayerRecordView, PlayerRatingView, PlayerCardTpl) ->
 
   Backbone.Marionette.Layout.extend
     template: PlayerCardTpl
@@ -39,6 +40,7 @@ define [
       moveIcon  : '.move'
 
     regions:
+      playerRating: '.player-rating-region'
       playerRecord: '.player-record-region'
 
     initialize: (opts={}) ->
@@ -46,11 +48,12 @@ define [
       if opts.slim
         @$el.addClass 'slim'
         
-      @templateHelpers ?=
-        rating: -> _.findWhere(@memberships, league: opts.league.id)?.rating
+      @templateHelpers ?= {}
 
       for key, value of @opts
         @[key] = @templateHelpers[key] = opts[key] ? @opts[key]
+
+      @league = opts.league
 
     onClose: ->
       @templateHelpers = @opts
@@ -58,6 +61,11 @@ define [
     onRender: () ->
       unless @hideRatings
         @playerRecord.show new PlayerRecordView(player: @model)
+      unless @hideElo
+        @playerRating.show new PlayerRatingView(
+          player: @model
+          league: @league
+          )
 
       unless @permanent
         @ui.removeIcon.find('i').tooltip
