@@ -13,18 +13,24 @@ requirejs [
   'router'
   'db/mongo'
   'lib/lubdub/lubdub'
+  'lib/healthchecker'
+  'helpers/healthchecks'
 
-], (cluster, os, restify, router, mongo, LubDub) ->
+], (cluster, os, restify, router, mongo, LubDub, HealthChecker, healthChecks) ->
   mongo.init()
 
   if cluster.isMaster
-    numCPUs = os.cpus().length
-    console.log "Forking process for #{numCPUs} nodes..."
-    cluster.fork() for cpu in [1..numCPUs]
+    numOfNodes = os.cpus().length
+    console.log "Forking process for #{numOfNodes} nodes..."
+    cluster.fork() for cpu in [1..numOfNodes]
     cluster.on 'exit', (worker, code, signal) ->
       console.log "Worker #{worker.process.pid} died."
   else
     server = restify.createServer()
+
+    healthchecker = new HealthChecker(server)
+    healthchecker.register healthChecks
+    
     router.init(server)
     
     new LubDub 1100, 1000

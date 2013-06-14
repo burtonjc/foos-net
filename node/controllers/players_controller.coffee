@@ -12,7 +12,7 @@ define [
       .sort('-elo')
       .lean()
       .execFind (arr, data) ->
-        response.json data
+        response.send data
 
   query: (request, response, next) ->
     Player
@@ -21,7 +21,7 @@ define [
       .sort('-elo')
       .lean()
       .execFind (arr, data) ->
-        response.json data
+        response.send data
 
   create: (request, response, next) ->
     body = JSON.parse request.body
@@ -31,9 +31,9 @@ define [
 
     player.save (err, player) ->
       if err?
-        response.json err
+        response.send err
       else
-        response.json player
+        response.send player
 
   update: (request, response, next) ->
     Player.findById request.params.id, (err, player) ->
@@ -45,6 +45,6 @@ define [
       player.save (err) ->
         if err?
           console.log err
-          response.json err
+          response.send err
         else
-          response.json player
+          response.send player

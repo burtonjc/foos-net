@@ -9,14 +9,14 @@ define [
       .select('_id name description players')
       .lean()
       .exec (err, data) ->
-        response.json(data)
+        response.send data
 
   get: (request, response, next) ->
     League.findById(request.params.id)
       .select('_id name description players')
       .lean()
       .exec (err, data) ->
-        response.json(data)
+        response.send data
 
   create: (request, response, next) ->
     body = JSON.parse request.body
@@ -27,9 +27,9 @@ define [
     league.save (err) ->
       if err?
         console.log err
-        response.json err
+        response.send err
       else
-        response.json league
+        response.send league
 
   update: (request, response, next) ->
     League.findById request.params.id, (err, league) ->
@@ -41,6 +41,6 @@ define [
       league.save (err) ->
         if err?
           console.log err
-          response.json err
+          response.send err
         else
-          response.json league
+          response.send league
