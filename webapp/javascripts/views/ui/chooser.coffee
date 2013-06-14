@@ -34,7 +34,9 @@ define [
       @modelStageView.collection
         
     _initializeModelStage: ->
-      @modelStageRegion.show @modelStageView
+      unless @hideStage
+        @modelStageRegion.show @modelStageView
+
       @listenTo @modelStageView, 'model:removed', (model) =>
         @_setModelStaged model, false
 
@@ -51,7 +53,7 @@ define [
       $.when(@modelSearchView.$el).done(() =>
         setTimeout () => # i can't figure out a better way to wait for the animation
           @modelSearchView.focus()
-        , 600
+        , 500
       )
       
       if @modelStageView.collection.length
@@ -63,8 +65,13 @@ define [
     _setModelStaged: (model, staged) ->
       if staged
         unless @modelStageView.collection.contains model
+          if @replaceSelection
+            @_setModelStaged @modelStageView.collection.at(0), false
+
           @modelStageView.collection.add model
           @modelSearchView.removeModel model
+
+          @trigger 'model:staged', model
 
         setTimeout(() =>
           @modelSearchView.val ''
@@ -73,6 +80,8 @@ define [
         if @modelStageView.collection.contains model
           @modelStageView.collection.remove model
           @modelSearchView.addModel model
+
+          @trigger 'model:unstaged', model
 
       @_checkReady()
 
