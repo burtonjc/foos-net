@@ -12,6 +12,7 @@ define [
         _.extend @checks, checks
 
     handler: (request, response, next) ->
+      console.log '\n\nhandler'
       results = {}
       for name, check of  @checks
         done = _.bind(@_recordResult, @, response, name, results, next)
@@ -28,6 +29,6 @@ define [
         results[checkName].message = message
 
       results[checkName].successful = successful
-      if _.every(_.values(results), (result) -> !result.hasOwnProperty('starttime'))
-        response.send results
-        next()
+      if _.every(_.values(results), (result) -> result.hasOwnProperty('successful'))
+        console.log 'sending results...'
+        response.json results

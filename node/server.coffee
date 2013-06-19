@@ -22,12 +22,21 @@ requirejs [
   mongo.init()
 
   if cluster.isMaster
-    numCPUs = os.cpus().length
-    winston.info "Forking process for #{numCPUs} nodes..."
-    cluster.fork() for cpu in [1..numCPUs]
+    numOfNodes = os.cpus().length
+
+    cluster.on 'listening', (worker, address) ->
+      winston.info "Worker #{worker.id} listening at #{address.address}:#{address.port}"
+
     cluster.on 'exit', (worker, code, signal) ->
-      winston.info "Worker #{worker.process.pid} died."
-  else
+      winston.info "\nWorker #{worker.id} died with exit code: #{worker.process.exitCode}.\nSpawning new worker...."
+      cluster.fork()
+
+    winston.info "\nSpawning workers for #{numOfNodes} nodes...\n"
+    workers = (cluster.fork() for cpu in [1..numOfNodes])
+
+
+  else # isWorker
+    mongo.init()
     server = restify.createServer()
 
     healthchecker = new HealthChecker(server)
@@ -35,5 +44,4 @@ requirejs [
 
     router.init(server)
 
-    server.listen 8080, () ->
-      winston.info "#{server.name} listening at #{server.url}"
+    server.listen 8080

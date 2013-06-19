@@ -2,12 +2,15 @@ define [
   'mongoose'
   'db/mongoconfig'
   'winston'
+  'cluster'
 
-], (mongoose, MongoConfig, winston) ->
+], (mongoose, MongoConfig, winston, cluster) ->
   init: () ->
-    winston.info 'Connecting to MongoDB...'
+    workerId = cluster.worker.id
+    console.log "Worker #{workerId} connecting to MongoDB..."
+
     mongoose.connect MongoConfig.creds.mongoose_auth
     connection = mongoose.connection
-    connection.on 'error', console.error.bind(console, 'Error connecting to MongoDB:')
+    connection.on 'error', (err) -> winston.error "Worker #{workerId} failed to connect to MongoDB: #{err}"
     connection.once 'open', () ->
-      winston.info 'MongoDb connection open!'
+      winston.info "Worker #{workerId} successfully connected to MongoDB!"
