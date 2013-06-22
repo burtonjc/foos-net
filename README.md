@@ -1,7 +1,10 @@
-# FoosNet [![Build Status](https://travis-ci.org/burtonjc/foos-net.png?branch=master)](https://travis-ci.org/burtonjc/foos-net)
-FoosNet is a fooseball ranking system. It began development as a Rally Software Development hack-a-thon project.
+#FoosNet [![Build Status](https://travis-ci.org/burtonjc/foos-net.png?branch=master)](https://travis-ci.org/burtonjc/foos-net)
+FoosNet is a fooseball ranking system. It began development as a Rally Software Development hack-a-thon project so that Rally employees could bring a little more competition to their games.
 
-##Getting started
+##Contributing [![Stories in Ready](http://badge.waffle.io/burtonjc/foos-net.png)](http://waffle.io/burtonjc/foos-net)
+All work is tracked through our [waffle.io](http://waffle.io/burtonjc/foos-net), so take a look at the work that needs to be done. If you have other ideas feel free to open up an issue and we will prioritize it and start tracking it.
+
+###Getting Started
   1. Fork and Clone the repo
   2. `cd foos-net`
   3. Install Node: `sudo npm install -g node`
