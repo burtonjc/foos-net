@@ -10,11 +10,11 @@
     "node": "0.10.5"
   },
   "dependencies": {
-    "mongoose": "3.5.7",
-    "requirejs": "2.1.5",
-    "restify": "2.3.4",
-    "underscore": "1.4.4",
-    "winston": "~0.7.1"
+    "mongoose"    : "3.6.11",
+    "requirejs"   : "2.1.5",
+    "restify"     : "2.3.4",
+    "underscore"  : "1.4.4",
+    "winston"     : "~0.7.1"
   },
   "devDependencies": {
     "sinon-chai": "~2.4.0",

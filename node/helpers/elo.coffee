@@ -3,8 +3,6 @@ define [
   'lib/elorating'
   'models/membership'
 ], (_, EloRating, Membership) ->
-  getDefaultRating: () ->
-    1100
 
   applyMatch: (match) ->
     Membership.find
