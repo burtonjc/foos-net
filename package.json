@@ -13,7 +13,7 @@
   },
 
   "dependencies": {
-    "mongoose"                  : "3.5.7",
+    "mongoose"                  : "3.6.11",
     "requirejs"                 : "2.1.5",
     "restify"                   : "2.3.4",
     "underscore"                : "1.4.4"

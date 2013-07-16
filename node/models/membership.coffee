@@ -12,11 +12,6 @@ define [
     rating:
       type: Number
       required: true
-      ###
-      Duplication alert:
-        look at /node/helpers/elo.coffee#getDefaultRating
-        must resolve circular dependency in order to use that method
-      ###
       default: 1100
     player:
       type: Schema.Types.ObjectId
@@ -54,25 +49,6 @@ define [
         $set:
           elo: elo
       }, callback)
-
-    # ensureMembershipsForPlayer: (playerId) ->
-    #   League.findByPlayer(playerId).select('_id').lean().exec (err, leagues) =>
-    #     leagueIds = _.chain(leagues).pluck('_id').unique().invoke('toString').value()
-
-    #     Membership.find(player: playerId).select('league').lean().exec (err, ratings) =>
-    #       ratingLeagueIds = _.chain(ratings).pluck('league').unique().invoke('toString').value()
-    #       unratedLeagueIds = _.difference leagueIds, ratingLeagueIds
-    #       for leagueId in unratedLeagueIds
-    #         new Membership(
-    #           league: mongoose.Types.ObjectId(leagueId)
-    #           player: playerId
-    #         ).save (err, rating) ->
-    #           if err?
-    #             console.log "\nerr"
-    #             console.log err
-    #           else
-    #             console.log "rating"
-    #             console.log rating
 
   MembershipSchema.index {player: 1, league: 1}
 
