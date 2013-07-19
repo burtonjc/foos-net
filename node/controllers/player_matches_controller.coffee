@@ -17,7 +17,7 @@ define [
               $all: [request.params.id]
           }]
       )
-      .select('_id winners losers date')
+      .select('_id winners losers date league')
       .lean()
       .exec (arr, data) ->
         response.json(data)
