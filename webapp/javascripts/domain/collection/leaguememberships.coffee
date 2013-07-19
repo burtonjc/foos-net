@@ -12,9 +12,9 @@ define [
     league: null
 
     initialize: (models, opts) ->
-      @league = opts.league
+      @league = opts.league if opts?.league?
 
     comparator: (membership) ->
-      membership.get("rating")
+      -membership.get("rating")
 
   DomainCache.addCollection 'leaguememberships', LeagueMemberships

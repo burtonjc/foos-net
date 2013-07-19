@@ -5,11 +5,11 @@ define [
   'tpl!templates/leaderboard/page.html'
   'views/game/pairchooser/playercard'
   'views/league/list'
-  'views/player/list'
+  'views/membership/list'
   'views/ui/chooser'
   'domain/cache'
 
-], ($, _, Backbone, LeaderBoardPageTpl, PlayerCard, LeagueListView, PlayerList, ChooserView, DomainCache) ->
+], ($, _, Backbone, LeaderBoardPageTpl, PlayerCard, LeagueListView, MembershipList, ChooserView, DomainCache) ->
   
   Backbone.Marionette.Layout.extend
     className: 'leaderboard'
@@ -33,30 +33,20 @@ define [
         replaceSelection: true
         hideStage: true
 
-      @playerListView = new PlayerList
+      @membershipListView = new MembershipList
         hideElo: false
         stationary: true
         permanent: true
 
       @listenTo @leagueChooser, 'model:staged', (league) ->
-        @playerListView.setLeague league
-        @playerListView.collection = new (DomainCache.getCollection('leagueplayers'))(league: league)
-        @playerListView.collection.fetch().done (players) =>
+        @membershipListView.collection = new (DomainCache.getCollection('leaguememberships'))(null, league: league)
+        @membershipListView.collection.fetch().done (memberships) =>
           @ui.chosenLeague.html league.get('name')
-          @playerListView.render()
-          setTimeout =>
-            @playerListView.collection.comparator = (player) =>
-              membership = player.get('memberships').findWhere(league: league)
-              if membership?
-                -membership.get('rating')
-            @playerListView.collection.sort()
-            @playerListView.render()
-          , 200
-
+          @membershipListView.render()
 
     onRender: ->
       @leaguesRegion.show @leagueChooser
-      @playersRegion.show @playerListView
+      @playersRegion.show @membershipListView
 
     onClose: ->
-      @playerListView.collection.reset()
+      @membershipListView.collection.reset()

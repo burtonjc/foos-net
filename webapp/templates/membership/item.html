@@ -1,0 +1,18 @@
+<img class="gravatar img-rounded pull-left" src="http://www.gravatar.com/avatar/<%= emailHash() %>?d=mm&s=<%= imgSize %>" />
+
+<div class="center-content pull-left">
+  <div class="name"><h4><%= name() %> <small class="player-rating"><%= rating %></small></h4></div>
+  <div class="player-record-region"></div>
+</div>
+
+<% if (!stationary || !permanent) { %>
+<div class="actions pull-right">
+  <% if (!permanent) { %>
+  <div class="remove" data-toggle="tooltip"><i class="icon-remove"></i></div>
+  <% } %>
+
+  <% if (!stationary) { %>
+  <div class="move" data-toggle="tooltip"><i class="icon-share-alt"></i></div>
+  <% } %>
+</div>
+<% } %>
