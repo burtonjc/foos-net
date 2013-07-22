@@ -51,6 +51,7 @@ require.config
                 'domain/model/membership'
                 'domain/model/player'
 
+                'domain/collection/memberships'
                 'domain/collection/leaguememberships'
                 'domain/collection/leagueplayers'
                 'domain/collection/leagues'

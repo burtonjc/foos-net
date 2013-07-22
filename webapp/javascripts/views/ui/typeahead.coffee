@@ -16,33 +16,35 @@ define [
     collection: null
     vent: null
 
-    displayAttribute: 'name'
     templateHelpers: {}
 
     initialize: (opts) ->
       @vent = opts.vent
       @templateHelpers.placeholder = opts.placeholder ? "Search..."
+      @displayAttribute = opts.displayAttribute ? 'name'
 
     onClose: ->
       @collection.reset()
       @ui.playerTypeAhead.typeahead().remove()
 
     onRender: ->
+      getDisplayValues = =>
+        values = @collection.models
+        for property in @displayAttribute.split "."
+          values = (for model in values
+            model.get(property))
+        values
+
       @collection.fetch
         success: (collection, response, options) =>
           @ui.playerTypeAhead.typeahead
             source: (query, process) =>
-              @collection.chain()
-                .pluck('attributes')
-                .pluck('name')
-                .filter((name) ->
-                  name.toLowerCase().indexOf(query.toLowerCase()) isnt -1
-                ).value()
+              _.filter getDisplayValues(), (attribute) ->
+                attribute.toLowerCase().indexOf(query.toLowerCase()) isnt -1
 
             updater: (item) =>
-              query = {}
-              query[@displayAttribute] = item
-              model = @collection.where(query)[0]
+              model = @collection.at getDisplayValues().indexOf(item)
+
               @trigger 'model:selected', model
               if @vent?
                 @vent.trigger 'model:selected', model

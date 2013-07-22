@@ -42,10 +42,11 @@ define [
 
     _initializeModelSearch: ->
       Collection = DomainCache.getCollection(@collectionType)
-      collection = new Collection @collectionOpts ? {}
+      collection = new Collection([], @collectionOpts ? {})
       @modelSearchView = new TypeAhead
         collection: collection
         placeholder: @searchPrompt
+        displayAttribute: @displayAttribute
 
       @listenTo @modelSearchView, 'model:selected', (model) =>
         @_setModelStaged model, true

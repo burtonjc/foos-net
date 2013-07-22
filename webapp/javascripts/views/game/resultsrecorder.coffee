@@ -16,8 +16,6 @@ define [
       activePair: '.btn.pair.active'
 
     events:
-      # 'click .player': 'onPairClicked'
-      # 'click .img-rounded': 'onPairClicked'
       'click .pair': 'onPairClicked'
 
     templateHelpers:
@@ -26,13 +24,13 @@ define [
 
         return [
           '<div class="player">'
-            '<img class="img-rounded" src="http://www.gravatar.com/avatar/'+CryptoJS.MD5(pair.at(0).get('email'))+'?d=mm&s='+70+'">'
+            '<img class="img-rounded" src="http://www.gravatar.com/avatar/'+CryptoJS.MD5(pair.at(0).get('player').get('email'))+'?d=mm&s='+70+'">'
             '&nbsp'
-            pair.at(0).get('name')
+            pair.at(0).get('player').get('name')
             '<br /><br />'
-            '<img class="img-rounded" src="http://www.gravatar.com/avatar/'+CryptoJS.MD5(pair.at(1).get('email'))+'?d=mm&s='+70+'">'
+            '<img class="img-rounded" src="http://www.gravatar.com/avatar/'+CryptoJS.MD5(pair.at(1).get('player').get('email'))+'?d=mm&s='+70+'">'
             '&nbsp'
-            pair.at(1).get('name')
+            pair.at(1).get('player').get('name')
           '</div>'
         ].join('')
 

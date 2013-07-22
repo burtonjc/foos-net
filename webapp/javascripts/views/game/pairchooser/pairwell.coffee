@@ -2,13 +2,13 @@ define [
   'jquery'
   'underscore'
   'backbone.loader'
-  'views/game/pairchooser/playercard'
+  'views/membership/item'
 
-], ($, _, Backbone, PlayerCard) ->
+], ($, _, Backbone, MembershipItemView) ->
 
   Backbone.Marionette.CollectionView.extend
     className: 'well pair-drop-ct'
-    itemView: PlayerCard
+    itemView: MembershipItemView
 
     initialize: (opts) ->
       @itemViewOptions =
