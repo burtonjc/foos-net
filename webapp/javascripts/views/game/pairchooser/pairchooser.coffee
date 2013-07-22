@@ -20,7 +20,7 @@ define [
       pairOneElo: '.pair-elo.one'
       pairTwoElo: '.pair-elo.two'
 
-    collection: new (DomainCache.getCollection('players'))()
+    collection: new (DomainCache.getCollection('memberships'))()
     vent: null
 
     collectionEvents:
@@ -32,11 +32,6 @@ define [
       @vent.on 'player:remove', (model) => @trigger 'model:removed', model
       @vent.on 'player:move', (model) => @trigger 'model:moved', model
       @league = opts.league ? null
-
-      @collection.comparator = (player) =>
-        membership = player.get('memberships').findWhere(league: @league)
-        if membership?
-          -membership.get('rating')
 
     onClose: ->
       @collection.reset()
@@ -56,20 +51,20 @@ define [
 
     _createPairWell: () ->
       pairWell = new PairWell
-        collection: new (DomainCache.getCollection('players'))()
+        collection: new (DomainCache.getCollection('memberships'))()
         league: @league
         vent: @vent
 
       pairWell
 
-    _tradePlayer: (player) ->
+    _tradePlayer: (membership) ->
       pairs = @getPairs()
-      if pairs[0].contains player
-        pairs[0].remove player
-        pairs[1].add player
+      if pairs[0].contains membership
+        pairs[0].remove membership
+        pairs[1].add membership
       else
-        pairs[1].remove player
-        pairs[0].add player
+        pairs[1].remove membership
+        pairs[0].add membership
 
       @_updatePairEloRaitings()
       @_checkReady()
@@ -81,47 +76,27 @@ define [
       ]
 
     _divvyUpPairs: () ->
-      @_fetchPlayerMemberships().done =>
-        @collection.sort()
-        pairs = @getPairs()
-        for pair in pairs
-          pair.reset()
+      pairs = @getPairs()
+      for pair in pairs
+        pair.reset()
 
-        @collection.each (player, idx) =>  
-          if idx is 0 or idx is (@collection.length - 1)
-            pairs[0].add player
-          else
-            pairs[1].add player
-
-        @_updatePairEloRaitings()
-        @_checkReady()
-
-    # this is gross, but this is hackathon...what can i say
-    _fetchPlayerMemberships: ->
-      d = new $.Deferred()
-      counter = 0
-      @collection.each (player) =>
-        memberships = player.get 'memberships'
-        if memberships.length
-          d.resolve() if ++counter is @collection.length
-          return
+      @collection.each (model, idx) =>  
+        if idx is 0 or idx is (@collection.length - 1)
+          pairs[0].add model
         else
-          player.get('memberships').fetch().done (memberships) =>
-            leagueMembership = player.get('memberships').where(league: @league)[0]
-            player.set('rating', leagueMembership.get('rating'))
-            d.resolve() if ++counter is @collection.length
+          pairs[1].add model
 
-      d.promise()
-
+      @_updatePairEloRaitings()
+      @_checkReady()
 
     _updatePairEloRaitings: () ->
-      pairOnePlayers = @pairOneCt.currentView.collection
-      pairTwoPlayers = @pairTwoCt.currentView.collection
-      pairOneElos = _.chain(pairOnePlayers.models).pluck('attributes').pluck('elo').value()
-      pairTwoElos = _.chain(pairTwoPlayers.models).pluck('attributes').pluck('elo').value()
+      debugger
+      pairs = @getPairs()
+      pairOneRaitings = pairs[0].pluck('rating')
+      pairTwoRaitings = pairs[1].pluck('rating')
 
-      @ui.pairOneElo.html @_average(pairOneElos)
-      @ui.pairTwoElo.html @_average(pairTwoElos)
+      @ui.pairOneElo.html @_average(pairOneRaitings)
+      @ui.pairTwoElo.html @_average(pairTwoRaitings)
 
     _checkReady: () ->
       pairs = @getPairs()

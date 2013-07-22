@@ -29,8 +29,9 @@ define [
           league: league
         playerchooser = new ChooserView
           searchPrompt: 'Search for players...'
+          displayAttribute: 'player.name'
           count: 4
-          collectionType: 'leagueplayers'
+          collectionType: 'leaguememberships'
           collectionOpts:
             league: league
           modelStageView: pairChooser

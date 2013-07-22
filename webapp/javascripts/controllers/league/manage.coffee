@@ -3,7 +3,7 @@ define [
   'underscore'
   'controllers/modal'
   'views/ui/chooser'
-  'views/player/list'
+  'views/player/list' 
   'views/league/list'
   'domain/cache'
 

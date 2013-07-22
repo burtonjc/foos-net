@@ -17,4 +17,10 @@ define [
     comparator: (membership) ->
       -membership.get("rating")
 
+    getPlayers: ->
+      PlayerCollection = DomainCache.getCollection 'players'
+      models = (for membership in @models
+                  membership.get('player'))
+      new PlayerCollection models
+
   DomainCache.addCollection 'leaguememberships', LeagueMemberships

@@ -29,7 +29,6 @@ define [
       body = JSON.parse request.body
       # WARNING: this is good, but need to be able to restrict certain fields (aka. rating)
       args = _.pick body, _.chain(Membership.schema.paths).keys().without('__v', '_id').value()
-      console.log args
       record = new @model args
 
       record.save (err, doc) ->
