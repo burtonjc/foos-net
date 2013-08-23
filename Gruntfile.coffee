@@ -109,6 +109,9 @@ module.exports = (grunt) ->
       cmd: process.argv[0] #node
       args: ['target/node/server.js']
     , @async()
+    child.stdout.pipe process.stdout
+    child.stderr.pipe process.stderr
+
 
   grunt.registerTask 'node:debug', 'Starts the node server', () ->
     child = grunt.util.spawn
@@ -116,6 +119,9 @@ module.exports = (grunt) ->
       args: ['target/node/server.js'
              '--debug']
     , @async()
+    child.stdout.pipe process.stdout
+    child.stderr.pipe process.stderr
+
 
     child.stdout.pipe process.stdout
     child.stderr.pipe process.stderr

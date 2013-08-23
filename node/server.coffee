@@ -29,14 +29,13 @@ requirejs [
     console.log "\nSpawning workers for #{numOfNodes} nodes...\n"
     workers = (cluster.fork() for cpu in [1..numOfNodes])
 
-
   else # isWorker
     mongo.init()
     server = restify.createServer()
 
     healthchecker = new HealthChecker(server)
     healthchecker.register healthChecks
-    
+
     router.init(server)
 
     server.listen 8080
