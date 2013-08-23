@@ -34,7 +34,6 @@ requirejs [
     winston.info "\nSpawning workers for #{numOfNodes} nodes...\n"
     workers = (cluster.fork() for cpu in [1..numOfNodes])
 
-
   else # isWorker
     mongo.init()
     server = restify.createServer()
