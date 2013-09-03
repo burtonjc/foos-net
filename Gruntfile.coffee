@@ -11,6 +11,12 @@ module.exports = (grunt) ->
         src   : '**/*.coffee'
         dest  : 'target/node'
         ext   : '.js'
+      test:
+        expand: true
+        cwd   : 'test'
+        src   : '**/*.coffee'
+        dest  : 'target/test'
+        ext   : '.js'
       webapp:
         expand: true
         cwd   : 'webapp/javascripts'
@@ -47,20 +53,6 @@ module.exports = (grunt) ->
         files:
           'target/webapp/stylesheets/all.css': 'webapp/stylesheets/all.scss'
 
-    simplemocha:
-      options:
-        colors      : true
-        ignoreLeaks : false
-        reporter    : 'spec'
-        slow        : 200
-        timeout     : 2000
-        util        : 'bdd'
-      node:
-        src: [
-          'test/node/config/mocha-globals.coffee'
-          'test/node/**/*.coffee'
-        ]
-
     watch:
       'coffee-node':
         files: ['node/**/*.coffee']
@@ -83,7 +75,7 @@ module.exports = (grunt) ->
           'test/node/**/*.js'
           'node/**/*.coffee'
         ]
-        tasks: ['test:node']
+        tasks: ['node:test']
       # 'test-webapp':
       #   files: [
       #     'webapp/javascripts/**/*.coffee'
@@ -98,30 +90,30 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-requirejs'
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-contrib-watch'
-  grunt.loadNpmTasks 'grunt-simple-mocha'
 
   grunt.registerTask 'build', ['clean', 'coffee', 'sass', 'copy']
-  grunt.registerTask 'test:node', ['clean', 'coffee:node', 'copy:node', 'simplemocha']
   grunt.registerTask 'test:node:watch', ['test:node', 'watch:test-node']
 
   grunt.registerTask 'node:run', 'Starts the node server', () ->
-    child = grunt.util.spawn
-      cmd: process.argv[0] #node
-      args: ['target/node/server.js']
-    , @async()
-    child.stdout.pipe process.stdout
-    child.stderr.pipe process.stderr
-
+    spawn = require('child_process').spawn
+    runner = spawn process.argv[0], ['target/node/server.js'], {
+      stdio: 'inherit'
+      env: process.env
+    }
+    runner.on 'close', @async()
 
   grunt.registerTask 'node:debug', 'Starts the node server', () ->
-    child = grunt.util.spawn
-      cmd: process.argv[0] #node
-      args: ['target/node/server.js'
-             '--debug']
-    , @async()
-    child.stdout.pipe process.stdout
-    child.stderr.pipe process.stderr
+    spawn = require('child_process').spawn
+    runner = spawn process.argv[0], ['--debug', 'target/node/server.js'], {
+      stdio: 'inherit'
+      env: process.env
+    }
+    runner.on 'close', @async()
 
-
-    child.stdout.pipe process.stdout
-    child.stderr.pipe process.stderr
+  grunt.registerTask 'node:test', 'runs all node tests', () ->
+    spawn = require('child_process').spawn
+    runner = spawn process.argv[0], ["target/test/node_runner.js"], {
+      stdio: 'inherit'
+      env: process.env
+    }
+    runner.on 'close', @async()
