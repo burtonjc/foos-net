@@ -5,4 +5,4 @@ target
 *.sublime-workspace
 log
 nohup.out
-foos-net.log
+*.log

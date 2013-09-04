@@ -1,10 +1,10 @@
 define [
   'mongoose'
   'db/mongoconfig'
-  'winston'
+  'helpers/logger'
   'cluster'
 
-], (mongoose, MongoConfig, winston, cluster) ->
+], (mongoose, MongoConfig, logger, cluster) ->
 
   init: (done) ->
     if cluster.worker?
@@ -12,13 +12,13 @@ define [
     else
       workerId = 1
 
-    winston.info "Worker #{workerId} connecting to MongoDB..."
+    logger.info "Worker #{workerId} connecting to MongoDB..."
     mongoose.connect MongoConfig.creds.mongoose_auth
     connection = mongoose.connection
 
-    connection.on 'error', (err) -> winston.error "Worker #{workerId} failed to connect to MongoDB: #{err}"
+    connection.on 'error', (err) -> logger.error "Worker #{workerId} failed to connect to MongoDB: #{err}"
     connection.once 'open', () ->
-      winston.info "Worker #{workerId} successfully connected to MongoDB!"
+      logger.info "Worker #{workerId} successfully connected to MongoDB!"
       done?()
 
   shutdown: (done) ->

@@ -3,9 +3,9 @@ define [
   'controllers/abstract_controller'
   'models/match'
   'helpers/elo'
-  'winston'
+  'helpers/logger'
 
-], (_, AbstractController, Match, Elo, winston) ->
+], (_, AbstractController, Match, Elo, logger) ->
 
   class MatchesController extends AbstractController
     query: (request, response, next) ->
@@ -31,7 +31,7 @@ define [
 
       match.save (err, match) ->
         if err?
-          winston.error err
+          logger.error err
           response.send err
         else
           Elo.applyMatch match
