@@ -80,7 +80,7 @@ define [
       for pair in pairs
         pair.reset()
 
-      @collection.each (model, idx) =>  
+      @collection.each (model, idx) =>
         if idx is 0 or idx is (@collection.length - 1)
           pairs[0].add model
         else
@@ -90,7 +90,6 @@ define [
       @_checkReady()
 
     _updatePairEloRaitings: () ->
-      debugger
       pairs = @getPairs()
       pairOneRaitings = pairs[0].pluck('rating')
       pairTwoRaitings = pairs[1].pluck('rating')
