@@ -42,10 +42,7 @@ define [
         _.each losers, (membership) ->
           totalPreElo = _.reduce _.pluck(losers, 'rating'), (p1, p2) ->
             p1 + p2
-          ###
-          i think this next line should be gainRation = 1 - ((totalPreElo - membership.rating) / totalPreElo)
-          ###
-          gainRatio = (totalPreElo - membership.rating) / totalPreElo
+          gainRatio = 1 - ((totalPreElo - membership.rating) / totalPreElo)
           totalGain = newRatings.losers - oldRatings.losers
           playerGain = totalGain * gainRatio
           newElo = Math.round(membership.rating + playerGain)
