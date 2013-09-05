@@ -12,7 +12,7 @@ define [
 
     ui:
       playerTypeAhead: 'input'
-      
+
     collection: null
     vent: null
 

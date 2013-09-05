@@ -10,7 +10,7 @@ define [
   'domain/cache'
 
 ], ($, _, Backbone, LeaderBoardPageTpl, PlayerCard, LeagueListView, MembershipList, ChooserView, DomainCache) ->
-  
+
   Backbone.Marionette.Layout.extend
     className: 'leaderboard'
     template: LeaderBoardPageTpl
@@ -49,4 +49,4 @@ define [
       @playersRegion.show @membershipListView
 
     onClose: ->
-      @membershipListView.collection.reset()
+      @membershipListView.collection?.reset()

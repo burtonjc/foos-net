@@ -18,4 +18,4 @@ define [
       @on 'itemview:move', (itemview, model) => @trigger 'model:moved', model
 
     onClose: ->
-      @collection.reset()
+      @collection?.reset()
