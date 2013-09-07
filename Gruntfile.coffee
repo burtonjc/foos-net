@@ -93,6 +93,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'build', ['clean', 'coffee', 'sass', 'copy']
   grunt.registerTask 'test:node:watch', ['test:node', 'watch:test-node']
+  grunt.registerTask 'test', ['clean', 'coffee', 'copy', 'node:test']
 
   grunt.registerTask 'node:run', 'Starts the node server', () ->
     spawn = require('child_process').spawn

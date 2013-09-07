@@ -1,7 +1,7 @@
 language: node_js
 node_js:
     - "0.10.17"
-script: "grunt node:test"
+script: "grunt test"
 services:
   - mongodb
 before_script:
